@@ -1,0 +1,8 @@
+#Latex build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+
+#Generated pdf
+*.pdf

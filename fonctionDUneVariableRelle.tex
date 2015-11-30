@@ -1,0 +1,169 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{color}
+
+\everymath{\displaystyle}
+
+\newcommand{\ssi}{si et seulement si}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
+\newcommand{\allent}{\forall n \in \N}
+\newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\tq}{\text{ tel que }}
+\newcommand{\lm}{\lim\limits}
+\newcommand{\voi}[1]{\text{ au voisinage de }$#1$}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+
+\newenvironment{att}
+{\bgroup \color{red}{\Large\textbf{Attention}}\\}
+{\egroup}
+
+\theoremstyle{definition}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{defin}{Définition}
+\theoremstyle{remark}
+\newtheorem*{rema}{Remarque}
+\theoremstyle{plain}
+\newtheorem*{them}{Théorème}
+
+\newenvironment{prp}[1][]
+{\begin{prop}[#1]\quad\\}
+{\end{prop}}
+\newenvironment{dfn}[1][]
+{\begin{defin}[#1]\quad\\}
+{\end{defin}}
+\newenvironment{rem}[1][]
+{\begin{rema}[#1]\quad\\}
+{\end{rema}}
+\newenvironment{thm}[1][]
+{\begin{them}[#1]\quad\\}
+{\end{them}}
+
+\title{Title}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\section{Limite d'une fonction en un point}
+\begin{dfn} 
+$f$ admet une limite $l$ en $a$ lorsque
+\begin{description}
+    \item[$\bs{a \in \R, l \in \R}$] \hfill \\
+    $\forall \epsilon > 0, \exists \eta > 0 \tq \forall x \in I, |x - a|
+    \leq \implies |f(x) - l| \leq \epsilon$
+    \item[$\bs{a \in \R, l = \infty}$] \hfill \\
+    $\forall M \in \R, \exists \eta > 0 \tq \forall x \in I,
+    |x - a| \leq \eta \implies |f(x) - a| \leq \epsilon$
+    \item[$\bs{a = \infty, l \in \R}$] \hfill \\
+    $\forall \epsilon > 0, \exists A \in \R \tq \forall x \leq A,
+    |f(x) - a| \leq \epsilon$
+\end{description}
+\end{dfn}
+
+\begin{prp}[Unicité de la limite] 
+\begin{enumerate}
+    \item La limite est unique
+    \item Si $a \in I$ et si $f$ admet une limite en $a$, alors
+    $\lm_{a} f = f(a)$
+\end{enumerate}
+\end{prp}
+
+\begin{prp} 
+Soit $a \in \bar{\R}$. Si $f$ admet une limite finie en $a$, alors
+$f$ est bornée au voisinage de $a$
+\end{prp}
+
+\begin{dfn} 
+\begin{enumerate}
+    \item Si $f$ est définie au voisinage à gauche de $a$, on dit que
+    $f$ admet $l$ pour limite à gauche lorsque $f_{|I\cap ]-\infty, a[}$
+    admet $l$ pour limite en $a$; on note alors
+    $l = \lm_{x \to a^-} f(x)$ ou $l = \lm_{a^-} f$
+    \item Si $f$ est définie au voisinage à droite de $a$, on dit que
+    $f$ admet $l$ pour limite à droite lorsque $f_{|I\cap ]a, +\infty[}$
+    admet $l$ pour limite en $a$; on note alors
+    $l = \lm_{x \to a^+} f(x)$ ou $l = \lm_{a^+} f$
+\end{enumerate}
+\end{dfn}
+
+\begin{prp} 
+On suppose que $f$ est définie à froite et à gauche au voisinage de
+$a \in \R$. Soit $l \in \bar{\R}$.
+\begin{enumerate}
+    \item $a \in I \et \lm_{x \to a} f(x) = l \iff
+    (\lm_{x \to a^-} f(x) = \lm_{x \to a^+} f(x) = l \et l = f(a))$
+    \item $a \in I \et \lm_{x \to a} f(x) = l \iff
+    (\lm_{x \to a^-} f(x) = \lm_{x \to a^+} f(x) = l)$
+\end{enumerate}
+\end{prp}
+
+\section{Propriétés sur les limites}
+\begin{thm}[Caractérisation séquentielle]
+Soit $(a, l) \in \bar{\R}^2$ avec $a$ un point de $I$ ou une extrémité
+de $I$. Les deux assertions sont équivalentes
+\begin{itemize}
+    \item $\lm_{x \to a} f(x) = l$ 
+    \item $\forall (u_n) \in I^\N \tq \lm_{n \to +\infty} u_n = a,
+    \lm_{n \to +\infty} f(u_n) = l.$
+\end{itemize}
+\end{thm}
+
+\begin{rem}
+Le théorème est souvent utilisé pour prouver qu'une fonction n'admet pas
+de limite.
+Il suffit de trouver une suite $(u_n)$ qui tend vers $+\infty$ et tel
+que $f(u_n)$ diverge ou trouver deux suite $(u_n)$ et $(v_n)$
+qui tend vers $+\infty$ telle que $f(u_n)$ et $f(v_n)$ tendent vers des
+limites différente.
+\end{rem}
+ 
+\begin{rem}[Opération sur les limites]
+Les opération sur les limites sont les même qu'avec les suites.
+\end{rem}
+
+\begin{prp}[Composition de limite] 
+Soit $(a, b, l) \in \bar{\R}^3$
+$\lm_{x \to a} f(x) = b \et \lm_{t \to b} g(t) = l
+\implies \lm_{x \to a} g \circ f(x) = l$
+\end{prp}
+
+\begin{prp} 
+Soit $a \in \bar{\R}$, alors
+$\lm_{a} f \in ]0, +\infty] \implies f \text{minorée} \voi{a}
+\text{ par un réel strictement positif}$
+\end{prp}
+
+\begin{prp} 
+\begin{itemize}
+\item $f(x) \geq 0 \voi{a} \implies \lm_a f \geq 0$
+\item $f(x) \leq g(x) \voi{a} \implies
+\lm_a f \leq \lm_a g$
+\end{itemize}
+\end{prp}
+
+\begin{rem} 
+\begin{itemize}
+    \item 
+    \begin{att}
+    On ne peut pas passer à la limite dans un inégalité que si l'on
+    sait que les limites existent!!
+    \end{att}
+    \item
+    \begin{att}
+    $f(x) < g(x) \voi{a} \implies \lm_a f(x) \leq \lm_a g(x)$
+    et non $\lm_a f(x) < \lm_a g(x)$
+    \end{att}
+\end{itemize}
+\end{rem}
+
+\end{document}
