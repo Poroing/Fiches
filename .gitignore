@@ -6,3 +6,7 @@
 
 #Generated pdf
 *.pdf
+
+#Vim swap file
+*.swp
+*.swo
