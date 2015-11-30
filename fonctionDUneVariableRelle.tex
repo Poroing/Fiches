@@ -19,8 +19,13 @@
 \newcommand{\ou}{\text{ ou }}
 \newcommand{\tq}{\text{ tel que }}
 \newcommand{\lm}{\lim\limits}
-\newcommand{\voi}[1]{\text{ au voisinage de }$#1$}
+\newcommand{\voi}[1]{\text{ au voisinage de }#1}
 \newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\equ}[1][]{\underset{#1}{\sim}}
+\newcommand{\ex}{\mathrm{e}}
+\newcommand{\e}{\mathrm{ln}}
+\newcommand{\ch}{\mathrm{ch}}
+\newcommand{\sh}{\mathrm{sh}}
 
 \newenvironment{att}
 {\bgroup \color{red}{\Large\textbf{Attention}}\\}
@@ -165,5 +170,103 @@ $\lm_{a} f \in ]0, +\infty] \implies f \text{minorée} \voi{a}
     \end{att}
 \end{itemize}
 \end{rem}
+
+\section{Théorèmes d'existence de limite}
+
+\begin{thm}[d'encadrement]
+$\lm_a g = \lm_a h = l \et g(x) \leq f(x) \leq h(x) \voi{a}
+\implies \lm_a f \text{existe} \\ \et \lm_a f = l$
+\end{thm}
+
+\begin{thm}[de comparaison]
+\begin{itemize}
+    \item $f(x) \leq g(x) \et \lm_a f = +\infty 
+    \implies \lm_a g = +\infty$
+    \item $f(x) \leq g(x) \et \lm_a g = -\infty 
+    \implies \lm_a f = -\infty$
+\end{itemize}
+\end{thm}
+
+\pagebreak
+
+\begin{thm}[de la limite monotone]
+$f$ croissant sur $I$
+\begin{itemize}
+    \item $\forall a \in I, \lm_{a^-} f \et \lm_{a^+} f 
+    \text{ existent et sont finies }
+    \et \lm_{a^-} f \leq f(a) \leq \lm_{a^+} f$
+    \item \[
+        \lm_{(\inf I)^+} f \text{ existe} \et
+        \lm_{(\inf I)^+} f 
+        \begin{cases}
+            \in \R \text{ si f est minorée} \\
+            = -\infty \text{ sinon}
+        \end{cases}
+    \]
+    \item \[
+        \lm_{(\sup I)^-} f \text{ existe} \et
+        \lm_{(\sup I)^-} f 
+        \begin{cases}
+            \in \R \text{ si f est majorée} \\
+            = +\infty \text{ sinon}
+        \end{cases}
+    \]
+\end{itemize}
+\end{thm}
+
+\section{Relation de comparaison}
+
+\begin{dfn}
+\begin{itemize}
+    \item $f$ est dominée par $g$ en $a$ $\iff f_a = O(g) \iff
+    \frac{f}{g} \text{ est bornée} \voi{a}$
+    \item $f \text{ est négligeable à } g \voi{a} \iff f_a = o(g)
+    \iff \lm_a \frac{f}{g} = 0$
+    \item $f \text{ est équivalent à } g \voi{a} \iff g \equ[a] g
+    \iff \lm_a \frac{f}{g} = 1$
+\end{itemize}
+\end{dfn}
+
+\begin{prp}
+$f(x) \equ[x \to b] g(x) \et \lm_a u(t) = b 
+\implies f(u(t)) \equ[t \to a] g(u(t))$
+\end{prp}
+
+\begin{prp}
+$\forall \alpha \in \R, f(x) \equ[x \to a] g(x)
+\implies (f(x))^\alpha \equ[x \to a] (g(x))^\alpha$
+\end{prp}
+
+\subsection{Equivalents usuels}
+$f \text{ équivaut en}
+\begin{cases}
+\pm \infty \text{ à son monôme de plus haut degré} \\
+0 \text{ à son monôme de plus bas degré}
+\end{cases}
+$
+
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{\'Equivalents usuelles en $0$} \\
+\hline
+$\sin x$ & $x$ \\
+\hline
+$\cos(x) - 1$ & $-\frac{x^2}{2}$ \\
+\hline
+$\ex^x - 1$ & $x$ \\
+\hline
+$\sh x $ & $x$ \\
+\hline
+$\tan x $ & $x$ \\
+\hline
+$\ln(1 + x)$ & $x$ \\
+\hline
+$\ch(x) - 1$ & $\frac{x^2}{2}$ \\
+\hline
+$(1 + x)^\alpha$ & $\alpha x$ \\
+\hline
+etc \ldots & \ldots \\
+\hline
+\end{tabular}
 
 \end{document}
