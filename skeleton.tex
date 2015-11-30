@@ -13,22 +13,39 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\resu}{(u_n)_{n \in \N}}
+\newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
 \newcommand{\allent}{\forall n \in \N}
 \newcommand{\et}{\text{ et }}
 \newcommand{\ou}{\text{ ou }}
-\newcommand{\tq}{\text{ telle que }}
+\newcommand{\tq}{\text{ tel que }}
+\newcommand{\lm}{\lim\limits}
+\newcommand{\voi}[1]{\text{ au voisinage de }$#1$}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
 
 \newenvironment{att}
 {\bgroup \color{red}{\Large\textbf{Attention}}\\}
 {\egroup}
 
 \theoremstyle{definition}
-\newtheorem*{dfn}{Définition}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{defin}{Définition}
 \theoremstyle{remark}
-\newtheorem*{rem}{Remarque}
+\newtheorem*{rema}{Remarque}
 \theoremstyle{plain}
-\newtheorem*{thm}{Théorème}
+\newtheorem*{them}{Théorème}
+
+\newenvironment{prp}[1][]
+{\begin{prop}[#1]\quad\\}
+{\end{prop}}
+\newenvironment{dfn}[1][]
+{\begin{defin}[#1]\quad\\}
+{\end{defin}}
+\newenvironment{rem}[1][]
+{\begin{rema}[#1]\quad\\}
+{\end{rema}}
+\newenvironment{thm}[1][]
+{\begin{them}[#1]\quad\\}
+{\end{them}}
 
 \title{Title}
 
