@@ -60,13 +60,13 @@ $f$ admet une limite $l$ en $a$ lorsque
 \begin{description}
     \item[$\bs{a \in \R, l \in \R}$] \hfill \\
     $\forall \epsilon > 0, \exists \eta > 0 \tq \forall x \in I, |x - a|
-    \leq \implies |f(x) - l| \leq \epsilon$
+    \leq \eta \implies |f(x) - l| \leq \epsilon$
     \item[$\bs{a \in \R, l = \infty}$] \hfill \\
     $\forall M \in \R, \exists \eta > 0 \tq \forall x \in I,
-    |x - a| \leq \eta \implies |f(x) - a| \leq \epsilon$
+    |x - a| \leq \eta \implies |f(x) - l| \leq \epsilon$
     \item[$\bs{a = \infty, l \in \R}$] \hfill \\
-    $\forall \epsilon > 0, \exists A \in \R \tq \forall x \leq A,
-    |f(x) - a| \leq \epsilon$
+    $\forall \epsilon > 0, \exists A \in \R \tq \forall x \geq A,
+    |f(x) - l| \leq \epsilon$
 \end{description}
 \end{dfn}
 
@@ -102,7 +102,7 @@ $a \in \R$. Soit $l \in \bar{\R}$.
 \begin{enumerate}
     \item $a \in I \et \lm_{x \to a} f(x) = l \iff
     (\lm_{x \to a^-} f(x) = \lm_{x \to a^+} f(x) = l \et l = f(a))$
-    \item $a \in I \et \lm_{x \to a} f(x) = l \iff
+    \item $a \notin I \et \lm_{x \to a} f(x) = l \iff
     (\lm_{x \to a^-} f(x) = \lm_{x \to a^+} f(x) = l)$
 \end{enumerate}
 \end{prp}
@@ -123,7 +123,7 @@ Le théorème est souvent utilisé pour prouver qu'une fonction n'admet pas
 de limite.
 Il suffit de trouver une suite $(u_n)$ qui tend vers $+\infty$ et tel
 que $f(u_n)$ diverge ou trouver deux suite $(u_n)$ et $(v_n)$
-qui tend vers $+\infty$ telle que $f(u_n)$ et $f(v_n)$ tendent vers des
+qui tendent vers $+\infty$ telle que $f(u_n)$ et $f(v_n)$ tendent vers des
 limites différente.
 \end{rem}
  
@@ -161,7 +161,7 @@ $\lm_{a} f \in ]0, +\infty] \implies f \text{minorée} \voi{a}
     \item
     \begin{att}
     $f(x) < g(x) \voi{a} \implies \lm_a f(x) \leq \lm_a g(x)$
-    et non $\lm_a f(x) < \lm_a g(x)$
+    et non \\ $\lm_a f(x) < \lm_a g(x)$
     \end{att}
 \end{itemize}
 \end{rem}
