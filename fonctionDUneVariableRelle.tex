@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{color}
+\usepackage{centernot}
 
 \everymath{\displaystyle}
 
@@ -24,8 +25,17 @@
 \newcommand{\equ}[1][]{\underset{#1}{\sim}}
 \newcommand{\ex}{\mathrm{e}}
 \newcommand{\e}{\mathrm{ln}}
-\newcommand{\ch}{\mathrm{ch}}
-\newcommand{\sh}{\mathrm{sh}}
+\newcommand{\co}[1]{\mathrm{C^{#1}}}
+\newcommand{\lminf}{\lm_{n \to \infty}}
+\newcommand{\notimplies}{\centernot\implies}
+\newcommand{\en}{\text{ en }}
+\newcommand{\est}{\text{ est }}
+\newcommand{\drt}{\text{ à droite de }}
+\newcommand{\gch}{\text{ à gauche de }}
+
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\tah}{th}
+\DeclareMathOperator{\sh}{sh}
 
 \newenvironment{att}
 {\bgroup \color{red}{\Large\textbf{Attention}}\\}
@@ -199,16 +209,16 @@ $f$ croissant sur $I$
         \lm_{(\inf I)^+} f \text{ existe} \et
         \lm_{(\inf I)^+} f 
         \begin{cases}
-            \in \R \text{ si f est minorée} \\
-            = -\infty \text{ sinon}
+            \in \R      &\text{ si f est minorée} \\
+            = -\infty   &\text{ sinon}
         \end{cases}
     \]
     \item \[
         \lm_{(\sup I)^-} f \text{ existe} \et
         \lm_{(\sup I)^-} f 
         \begin{cases}
-            \in \R \text{ si f est majorée} \\
-            = +\infty \text{ sinon}
+            \in \R      &\text{ si f est majorée} \\
+            = +\infty   &\text{ sinon}
         \end{cases}
     \]
 \end{itemize}
@@ -238,10 +248,12 @@ $\forall \alpha \in \R, f(x) \equ[x \to a] g(x)
 \end{prp}
 
 \subsection{Equivalents usuels}
-$f \text{ équivaut en}
+$
+f \text{ polynôme } \implies
+f \text{ équivaut en}
 \begin{cases}
-\pm \infty \text{ à son monôme de plus haut degré} \\
-0 \text{ à son monôme de plus bas degré}
+\pm \infty  &\text{ à son monôme de plus haut degré} \\
+0           &\text{ à son monôme de plus bas degré}
 \end{cases}
 $
 
@@ -268,5 +280,60 @@ $(1 + x)^\alpha$ & $\alpha x$ \\
 etc \ldots & \ldots \\
 \hline
 \end{tabular}
+
+\section{Continuité}
+
+\begin{dfn}
+$f \text{ est } \co{0} \text{ en } a \iff \lm_a f = f(a)$
+\end{dfn}
+
+\begin{dfn}
+$f$ est $\co{0}$ à gauche de $a$ $\iff$ $f_{|I\cap{]{-\infty},a]}}$ est
+$\co{0}$ en $a$
+\end{dfn}
+
+\begin{prp}
+\begin{align*}
+    & f \est \co{0} \en a \\
+\iff& f \est \co{0} \drt a \et f \est \co{0} \gch a \\
+\iff& \lm_{a^-} f = \lm_{a^+} f = f(a) \\
+\end{align*}
+\end{prp}
+
+\begin{dfn}
+$\lm_a f$ existe $\implies f$ est prolongeable par continuité en $a$ \\
+et 
+\[
+\tilde{f} : x \mapsto
+\begin{cases}
+f(x)    &\text{ si } x \neq a \\
+\lm_a f &\text{ si } x = a
+\end{cases}
+\]
+est le prolongement de $f$ par continuité.
+\end{dfn}
+
+\begin{prp}[Caractérisation séquentielle]
+$f$ est $\co{0}$ en $a \iff \forall (u_n) \in I^\N,
+\lm_{n \to \infty} u_n = a \implies \lm_{n \to \infty} f(u_n) = f(a)$
+\end{prp}
+
+\begin{rem}
+\begin{att}
+$\lminf u_n = a \notimplies \lminf f(u_n) = f(a)$
+\end{att}
+\end{rem}
+
+\section{Théorème fondamentale sur la continuité}
+
+\begin{thm}
+$f \est \co{0} \text{ sur } {[a, b]} \et f(a) \times f(b) \leq 0
+\implies \exists c \in {[a, b]} \tq f(c) = 0$
+\end{thm}
+
+\begin{thm}[dit des values intermediaire]
+$f$ est $\co{0}$ sur ${[a, b]} \implies 
+\forall k \in {[f(a), f(b)]}, \exists c \in [a, b] \tq f(c) = k$
+\end{thm}
 
 \end{document}
