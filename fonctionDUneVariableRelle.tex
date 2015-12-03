@@ -32,6 +32,9 @@
 \newcommand{\est}{\text{ est }}
 \newcommand{\drt}{\text{ à droite de }}
 \newcommand{\gch}{\text{ à gauche de }}
+\newcommand{\strmo}{\text{ strictement monotone }}
+\newcommand{\mo}{\text{ monotone }}
+\newcommand{\sur}{\text{ sur }}
 
 \DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\tah}{th}
@@ -48,6 +51,7 @@
 \newtheorem*{rema}{Remarque}
 \theoremstyle{plain}
 \newtheorem*{them}{Théorème}
+\newtheorem*{coro}{Corollaire}
 
 \newenvironment{prp}[1][]
 {\begin{prop}[#1]\quad\\}
@@ -61,6 +65,9 @@
 \newenvironment{thm}[1][]
 {\begin{them}[#1]\quad\\}
 {\end{them}}
+\newenvironment{cor}[1][]
+{\begin{coro}[#1]\quad\\}
+{\end{coro}}
 
 \title{Title}
 
@@ -334,6 +341,31 @@ $f \est \co{0} \text{ sur } {[a, b]} \et f(a) \times f(b) \leq 0
 \begin{thm}[dit des values intermediaire]
 $f$ est $\co{0}$ sur ${[a, b]} \implies 
 \forall k \in {[f(a), f(b)]}, \exists c \in [a, b] \tq f(c) = k$
+\end{thm}
+
+\begin{cor}
+L'image d'un intervalle par une fonction continue est un intervalle.
+\end{cor}
+
+\begin{thm}
+$f \est \co{0} \implies f({[a, b]}) \text{ est une partie bornée de } \R$
+\end{thm}
+
+\begin{thm}
+L'image d'un segment par un fonction continue est un segment.
+\end{thm}
+
+\begin{prp}
+$f \text{ est injective } \iff f \est \! \strmo$
+\end{prp}
+
+\begin{thm}[de la bijection]
+\begin{align*}
+            &f \;\; \co{0} \sur I \et \!\! \strmo \\ 
+\implies    &f \text{ est une bijection de } I \text{ dans } J = f(I) \\
+            &\!\! \et f^{-1} \est \co{0}, \strmo \!\! 
+                \text{ de même monotonie que } f
+\end{align*}
 \end{thm}
 
 \end{document}
