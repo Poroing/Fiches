@@ -69,7 +69,7 @@
 {\begin{coro}[#1]\quad\\}
 {\end{coro}}
 
-\title{Title}
+\title{Fonction d'une variable réelle, limite et continuité}
 
 \begin{document}
 
@@ -366,6 +366,46 @@ $f \text{ est injective } \iff f \est \! \strmo$
             &\!\! \et f^{-1} \est \co{0}, \strmo \!\! 
                 \text{ de même monotonie que } f
 \end{align*}
+\end{thm}
+
+\section{Uniforme Continuité}
+
+\begin{dfn}[Fonction uniformement continue]
+\[
+\forall \epsilon, \exists \eta \tq \forall (x, y) \in I^2,
+|x - y| \leq \eta \implies |f(x) - f(y)| \leq \epsilon
+\]
+\end{dfn}
+
+\begin{dfn}[Fonction lipschitzienne]
+\[
+    \exists k \in \R \tq \forall (x, y) \in I^2, |f(x) - f(y)| \leq k|x - y|
+\]
+$f$ est $k$-lipschitzienne
+\end{dfn}
+
+\begin{prp}
+une fonction lipschitzienne est uniformement continue.
+\end{prp}
+
+\begin{prp}
+\begin{align*}
+            &f : I \to \R \text{ uniformement continue } \\
+\implies    &\left \{ \forall ((x_n), (y_n)) \in I^\N, \lminf (x_n - y_n) = 0
+            \implies \lminf (f(x_n) - f(y_n)) = 0 \right \}
+\end{align*}
+\end{prp}
+
+\begin{rem}
+Pour prouver qu'une fonction n'est pas uniformement continue,
+il suffit de trouver deux suite d'éléments de I tel que
+$(x_n - y_n)$ converge vers 0 et $(f(x_n) - f(y_n))$ ne converge
+pas vers 0
+\end{rem}
+
+\begin{thm}[de Heine]
+Toute fonction continue sur un segment est uniformement continue sur
+ce segment.
 \end{thm}
 
 \end{document}
