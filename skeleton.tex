@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{color}
+\usepackage{centernot}
 
 \everymath{\displaystyle}
 
@@ -19,8 +20,25 @@
 \newcommand{\ou}{\text{ ou }}
 \newcommand{\tq}{\text{ tel que }}
 \newcommand{\lm}{\lim\limits}
-\newcommand{\voi}[1]{\text{ au voisinage de }$#1$}
+\newcommand{\voi}[1]{\text{ au voisinage de }#1}
 \newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\equ}[1][]{\underset{#1}{\sim}}
+\newcommand{\ex}{\mathrm{e}}
+\newcommand{\e}{\mathrm{ln}}
+\newcommand{\co}[1]{\mathrm{C^{#1}}}
+\newcommand{\lminf}{\lm_{n \to \infty}}
+\newcommand{\notimplies}{\centernot\implies}
+\newcommand{\en}{\text{ en }}
+\newcommand{\est}{\text{ est }}
+\newcommand{\drt}{\text{ à droite de }}
+\newcommand{\gch}{\text{ à gauche de }}
+\newcommand{\strmo}{\text{ strictement monotone }}
+\newcommand{\mo}{\text{ monotone }}
+\newcommand{\sur}{\text{ sur }}
+
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\tah}{th}
+\DeclareMathOperator{\sh}{sh}
 
 \newenvironment{att}
 {\bgroup \color{red}{\Large\textbf{Attention}}\\}
@@ -33,6 +51,7 @@
 \newtheorem*{rema}{Remarque}
 \theoremstyle{plain}
 \newtheorem*{them}{Théorème}
+\newtheorem*{coro}{Corollaire}
 
 \newenvironment{prp}[1][]
 {\begin{prop}[#1]\quad\\}
@@ -46,6 +65,10 @@
 \newenvironment{thm}[1][]
 {\begin{them}[#1]\quad\\}
 {\end{them}}
+\newenvironment{cor}[1][]
+{\begin{coro}[#1]\quad\\}
+{\end{coro}}
+
 
 \title{Title}
 
