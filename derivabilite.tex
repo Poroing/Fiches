@@ -1,0 +1,212 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{centernot}
+
+\everymath{\displaystyle}
+
+\newcommand{\ssi}{si et seulement si}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
+\newcommand{\allent}{\forall n \in \N}
+\newcommand{\et}{\;\;\text{ et }\;\;}
+\newcommand{\ou}{\;\;\text{ ou }\;\;}
+\newcommand{\tq}{\;\;\text{ tel que }\;\;}
+\newcommand{\lm}{\lim\limits}
+\newcommand{\voi}[1]{\text{ au voisinage de }#1}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\equ}[1][]{\underset{#1}{\sim}}
+\newcommand{\ex}{\mathrm{e}}
+\newcommand{\co}[1]{\mathrm{C^{#1}}}
+\newcommand{\lminf}{\lm_{n \to \infty}}
+\newcommand{\notimplies}{\centernot\implies}
+\newcommand{\en}{\text{ en }}
+\newcommand{\est}{\text{ est }}
+\newcommand{\drt}{\text{ à droite de }}
+\newcommand{\gch}{\text{ à gauche de }}
+\newcommand{\strmo}{\text{ strictement monotone }}
+\newcommand{\mo}{\text{ monotone }}
+\newcommand{\sur}{\text{ sur }}
+\newcommand{\drv}{\text{ dérivable }}
+\newcommand{\e}{\!\!}
+\newcommand{\exs}{\text{ existe }}
+\newcommand{\fn}{\text{ finie }}
+\newcommand{\ngl}[2]{\negl_{#1}\!\!\!(#2)}
+\newcommand{\lips}{\text{ lipschitzienne }}
+
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\tah}{th}
+\DeclareMathOperator{\sh}{sh}
+\DeclareMathOperator{\dl}{DL}
+\DeclareMathOperator*{\negl}{o}
+
+\newenvironment{att}
+{\bgroup \color{red}{\Large\textbf{Attention}}\\}
+{\egroup}
+
+\theoremstyle{definition}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{defin}{Définition}
+\theoremstyle{remark}
+\newtheorem*{rema}{Remarque}
+\theoremstyle{plain}
+\newtheorem*{them}{Théorème}
+\newtheorem*{coro}{Corollaire}
+
+\newenvironment{prp}[1][]
+{\begin{prop}[#1]\quad\\}
+{\end{prop}}
+\newenvironment{dfn}[1][]
+{\begin{defin}[#1]\quad\\}
+{\end{defin}}
+\newenvironment{rem}[1][]
+{\begin{rema}[#1]\quad\\}
+{\end{rema}}
+\newenvironment{thm}[1][]
+{\begin{them}[#1]\quad\\}
+{\end{them}}
+\newenvironment{cor}[1][]
+{\begin{coro}[#1]\quad\\}
+{\end{coro}}
+
+
+\title{Derivation des fonctions à valeurs réelles}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+\section{Definition et premières propriétés}
+\quad
+\begin{dfn}
+\begin{align*}
+        &f \drv \e \en a \\
+\iff    &\lm_{x \to a} \frac{f(x) - f(a)}{x - a} = l \exs \e \et \e \fn
+\end{align*}
+$f'(a) = l$
+\end{dfn}
+
+\begin{dfn}
+\begin{align*}
+        &f \drv \e \drt a \\
+\iff    &\lm_{x \to a^+} \frac{f(x) - f(a)}{x - a} = l \exs \e \et \e \fn
+\end{align*}
+$f'_d(a) = l$
+\end{dfn}
+
+\begin{prp}
+\begin{align*}
+        &f \drv \e \drt a \et \e \gch a \et f'_g(a) = f'_d(a) \\
+\iff    &f \drv \e \en a
+\end{align*}
+$f'(a) = f'_g(a) = f'_d(a)$
+\end{prp}
+
+\begin{prp}
+\[
+    f \drv \iff f \text{ admet un } \dl_1(a) \\
+\]
+$f(x) = a_0 + a_1(x - a) + \ngl{x \to a}{x - a}$ \\
+$
+\begin{cases}
+    f(a) = a_0 \\
+    f'(a) = a_1
+\end{cases}
+$
+\end{prp}
+
+\begin{prp}
+$a \in I$ et n'est pas une extrémité de $I$ \\
+\[
+    f \drv \e \et \text{ présente un extremum locale en } a
+    \implies f'(a) = 0
+\]
+\end{prp}
+
+\pagebreak
+\section{Operations sur les fonctions dérivable}
+
+\begin{prp}
+$(\lambda, \mu) \in \R^2$ \\
+\begin{tabular}{c|c}
+Fonction &  Dérivée \\
+\hline
+$\lambda f + \mu g$ & $\lambda f' + \mu g'$ \\
+$fg$ & $f'g + g'f$ \\
+$^1/_f$ & $\frac{-f'}{f^2}$ \\
+$^f/_g$ & $\frac{f'g - g'f}{g^2}$ \\
+$f\circ g$ & $g'(f'\circ g)$ \\
+$f^{-1}$ & $\frac{1}{f\circ f^{-1}}$ \\
+\end{tabular}
+\end{prp}
+
+\begin{dfn}
+$f$ est un foncion $n$ fois dérivable et $f^{(n)}$ est sa dérivée n-ème.
+si $f^{(n)}$ est $\co{0}$, $f$ est de casse $\co{n}$
+\end{dfn}
+
+\begin{prp}
+$(\lambda, \mu) \in \R^2$ \\
+\begin{tabular}{c|c}
+Fonction & Dérivée n-ème \\
+\hline
+$\lambda f + \mu g$ & $\lambda f^{(n)} + \mu g^{(n)}$ \\
+$fg$ & $\sum_{k = 0}^{n} \binom{n}{k} f^{(k)}g^{(n - k)}$ \\
+$x \mapsto {^1/_x}$ & $x \mapsto (-1)^n \frac{n!}{x^{n + 1}}$ \\
+\end{tabular}
+\end{prp}
+
+\begin{prp}
+Soit $f, g$ de classe $\co{n}$ et $(\lambda, \mu) \in \R^2$,
+les fonction suivante sont de classe $\co{n}$
+\begin{itemize}
+    \item $fg$
+    \item $f \circ g$
+    \item $\lambda f + \mu g$
+    \item $^1/_f$
+    \item $^f/_g$
+\end{itemize}
+\end{prp}
+
+\section{Théorème fondamentaux}
+
+\begin{thm}[de Rolle]
+\begin{align*}
+            &f \;\; \co{0} \sur {[a, b]}, \drv \e \sur {]a, b[} \\
+            &\et f(a) = f(b) \\
+\implies    &\exists c \in {]a, b[} \tq f'(c) = 0 \\
+\end{align*}
+\end{thm}
+
+\begin{thm}[\'Egalité des accroissements finis]
+\begin{align*}
+            &f \;\; \co{0} \sur {[a, b]}, \drv \e \sur {]a, b[} \\
+\implies    &\exists c \in {]a, b[}
+                \tq f'(c) = \frac{f(a) - f(b)}{a - b}
+\end{align*}
+\end{thm}
+
+\begin{prp}[Inégalité des acroissements finis]
+\begin{align*}
+            &f \;\; \co{0} \sur {[a, b]}, \drv \e \sur {]a, b[} \\
+            &\et \exists (m, M) \in \R^2 \tq \forall x \in {]a, b[},
+                m \leq f'(x) \leq M \\
+\implies    &m(b - a) \leq f(b) - f(a) \leq M(b - a)
+\end{align*}
+\end{prp}
+
+\begin{prp}
+Toute fonction dérivable sur une segment et admetant un dérivée bornée
+sur ce segment est une fonction lipschitzienne sur ce segment.
+\end{prp}
+
+
+
+\end{document}
