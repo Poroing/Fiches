@@ -12,6 +12,7 @@
 
 \newcommand{\ssi}{si et seulement si}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
@@ -196,17 +197,54 @@ les fonction suivante sont de classe $\co{n}$
 \begin{prp}[Inégalité des acroissements finis]
 \begin{align*}
             &f \;\; \co{0} \sur {[a, b]}, \drv \e \sur {]a, b[} \\
-            &\et \exists (m, M) \in \R^2 \tq \forall x \in {]a, b[},
+            &\et \exists (m, M) \in \R^2 \tq \forall x \in {]a, b[}, \;\;
                 m \leq f'(x) \leq M \\
 \implies    &m(b - a) \leq f(b) - f(a) \leq M(b - a)
 \end{align*}
 \end{prp}
 
 \begin{prp}
-Toute fonction dérivable sur une segment et admetant un dérivée bornée
+Toute fonction dérivable sur un segment et admetant une dérivée bornée
 sur ce segment est une fonction lipschitzienne sur ce segment.
 \end{prp}
 
 
+\section{Extensions aux fonctions à valeurs complexes}
+
+\begin{dfn}
+\begin{align*}
+        &f : I \to \C \drv \e \en a \\
+\iff    &\Im(f), \Re(f) \drv \e \en a
+\end{align*}
+\[
+    f'(a) = (\Re(f))'(a) + i(\Im(f))'(a) 
+\]
+\end{dfn}
+
+\subsection{Operation restant valable}
+\begin{itemize}
+    \item Les opérations
+    \begin{itemize}
+        \item somme
+        \item produit
+        \item quotient
+    \end{itemize}
+    \item Notion de classe $\co{k}$
+    \begin{itemize}
+        \item somme
+        \item produit
+        \item quotient
+    \end{itemize}
+    \item Formule de Leibniz
+    \item Les propriété de la composition
+    \item Théorème fondamentale
+    \begin{itemize}
+        \item Théorème de Rolle non valable
+        \item \'Egalité des accroissement finis fausse également
+        \item Inagalité des accroissement finis reste valable
+        \item Théorème de la limite de la dérivée reste valable
+        \item Prolongement de classe $\co{k}$ reste valable
+    \end{itemize}
+\end{itemize}
 
 \end{document}
