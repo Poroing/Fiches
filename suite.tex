@@ -1,0 +1,39 @@
+\input{skeleton}
+
+\title{Suite}
+
+\begin{document}
+
+\section{Méthode d'étude de suite récurrente du type $u_{n + 1} = f(u_n)$}
+\begin{enumerate}
+    \item Verifier l'existence de chaque terme de la suite
+    \item \'Etudier la monotonie de $f$
+    \item Verifier la continuité de $f$
+    \begin{description}
+        \item[$\bs{f \cro}$] \quad \\
+        \begin{enumerate}
+            \item étudier la monotonie de $(u_n)$
+            \item Chercher les points fixes de $f$
+            \item trouver une éventuelle majoration / minoration
+            \item déduire la limite de la suite $(u_n)$ à l'aide des points
+            fixes
+        \end{enumerate}
+        \item[$\bs{f \dec}$] \quad \\
+        \begin{enumerate}
+            \item étudier la monotonie des suite extraite $(u_{2n})$ et
+            $(u_{2n + 1})$ à l'aide de la fonction $g = f\circ f$
+            \item trouver les points fixes de $g$
+            \item trouver une éventuelle majoration / minoration des deux
+            suites
+            \item déduire la limite des suites et donc celle de $(u_n)$
+        \end{enumerate}
+        \item[$\bs{f \text{ non monotone}}$] \quad \\
+        \begin{enumerate}
+            \item démontrer que $f$ est une fonction contractante
+            \item en déduire la limite de $(u_n)$
+        \end{enumerate}
+    \end{description}
+\end{enumerate}
+
+
+\end{document}
