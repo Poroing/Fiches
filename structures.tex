@@ -1,0 +1,98 @@
+\input{skeleton}
+
+\title{Structures Algébriques Usuelles}
+
+\begin{document}
+
+\section{Lois de Compositons Internes}
+
+\begin{dfn}
+Les lois de compositions internes sont les applications de formes.
+\begin{align*}
+    * : \;\;    E \times E &\to E \\
+                (x, y) &\mapsto x * y
+\end{align*}
+\end{dfn}
+
+\begin{dfn}
+La loi de composition interne $*$ dans $E$
+\begin{description}
+    \item[est commutative] \quad \\
+    \[\forall (x, y) \in E^2, \;\; x * y = y * x\]
+    \item[est associative] \quad \\
+    \[\forall (x, y, z) \in E^3, \;\;\]
+    \[(x * y) * z = x * (y * z)\]
+    \item[admet un élément neutre $\bs{e}$] \quad \\
+    \[\forall x \in E,\;\; x * e \;=\; e * x \;=\; x\]
+    \item[assigne un symetrique $\bs{x'}$ à $\bs{x \in E}$] \quad \\
+    $E$ admet un élément neutre $e$ pour $x$
+    et $x * x' \;=\: x' * x \;=\; e$
+\end{description}
+\end{dfn}
+
+\begin{prp}
+\begin{itemize}
+    \item Si $x$ admet un symétrique il est unique.
+    \item Si $x$ et $y$ admettent pour symétrique par $*$,
+    $x'$ et $y'$, on pose alors $(x * y)'$ le symétrique de $x * y$.
+    \[
+        (x * y)' = y' * x'
+    \]
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Si $E$ admet un élément neutre pour $*$, il est unique.
+\end{prp}
+
+\section{Groupe}
+
+\begin{dfn}[Groupe]
+$(G, *)$ est un groupe \ssi
+\begin{itemize}
+    \item $*$ est une loi de compositon interne de $G$
+    \item $*$ est associative
+    \item $G$ admet un élément neutre pour $*$
+    \item Tout élément de $G$ admet un symétrique pour $*$ dans $G$
+\end{itemize}
+Si $*$ est commutative, le groupe est abélien
+\end{dfn}
+
+\pagebreak
+
+\begin{dfn}
+Si $G$ est un groupe muni d'une \lci notée
+\begin{description}
+    \item[$\bs{+}$] \quad \\
+    \begin{itemize}
+        \item L'élément neutre est noté $O_G$
+        \item Le symétrique de $x \in G$ est noté $-x$
+        \item $\underbrace{x + x + \dotsb + x}_{n \text{termes}}$
+        est notée $nx$ $(n \in \N^*)$
+    \end{itemize}
+    \item[$\bs{\times}$, $\bs{*}$ ou $\bs{.}$] \quad \\
+    \begin{itemize}
+        \item L'élément neutre est noté $e_G$ ou $1_G$
+        \item Le symétrique de $x \in G$ est noté $x^{-1}$
+        \item $\underbrace{x * x * \dotsb * x}_{n \text{termes}}$
+        est noté $x^n$ $(n \in \N^*)$
+    \end{itemize}
+\end{description}
+\end{dfn}
+
+\begin{dfn}[Sous-groupe]
+$H$ est un sous-groupe de $(G, *)$ \ssi
+\begin{itemize}
+    \item $H \in G$
+    \item $H \neq \emptyset$
+    \item $\forall (x, y) \in H^2, \;\;
+    \left\{(x * y) \in H \et x^{-1} \in H\right\}
+    \ou \left\{(x * y^{-1}) \in H\right\}$
+\end{itemize}
+\end{dfn}
+
+\begin{rem}
+Si $H$ est un sous-groupe de $(G, *)$ alors $e_H = e_G$
+\end{rem}
+
+\end{document}
