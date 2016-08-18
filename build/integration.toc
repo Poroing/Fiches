@@ -1,0 +1,16 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Fonctions continues par morceaux}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Fonctions en escalier}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Fonctions continues par morceaux}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Int\IeC {\'e}grale d'une fonction continue par morceaux sur un segment}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Int\IeC {\'e}grale d'une fonction en escalier}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Int\IeC {\'e}grale d'une fonction continue par morceaux}{5}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}D\IeC {\'e}finition}{5}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Propri\IeC {\'e}t\IeC {\'e}s}{5}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Extenion de la d\IeC {\'e}finition}{6}{subsection.2.3}
+\contentsline {section}{\numberline {3}Sommes de Riemann}{6}{section.3}
+\contentsline {section}{\numberline {4}Int\IeC {\'e}gration d'une fonction continue sur un segment}{6}{section.4}
+\contentsline {section}{\numberline {5}Formule de Taylor}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Formule de Taylor avec reste int\IeC {\'e}grale}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}In\IeC {\'e}galit\IeC {\'e} de Taylor-Lagrange}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Formule de Taylor-Young}{7}{subsection.5.3}

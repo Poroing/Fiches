@@ -1,0 +1,27 @@
+\select@language {french}
+\contentsline {part}{I\hspace {1em}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}}{2}
+\contentsline {section}{\numberline {1}D\IeC {\'e}finition}{3}
+\contentsline {subsection}{\numberline {1.1}Sous-espace vectoriel}{3}
+\contentsline {subsection}{\numberline {1.2}Sous-espace vectoriel engendr\IeC {\'e}}{4}
+\contentsline {section}{\numberline {2}Application Lin\IeC {\'e}aire}{4}
+\contentsline {subsection}{\numberline {2.1}Definition}{4}
+\contentsline {subsection}{\numberline {2.2}Premi\IeC {\`e}res propri\IeC {\'e}t\IeC {\'e}s}{5}
+\contentsline {subsection}{\numberline {2.3}Noyau et Image d'une application lin\IeC {\'e}aire}{6}
+\contentsline {section}{\numberline {3}Somme de sous-espaces vectoriels}{6}
+\contentsline {subsection}{\numberline {3.1}D\IeC {\'e}finition}{6}
+\contentsline {subsection}{\numberline {3.2}Somme direct de sous-espace vectoriel}{7}
+\contentsline {subsection}{\numberline {3.3}Somme de plus de deux sous-espaces vectoriels}{7}
+\contentsline {section}{\numberline {4}Endomorphismes d'un espace vectoriel}{8}
+\contentsline {subsection}{\numberline {4.1}Propri\IeC {\'e}t\IeC {\'e}s alg\IeC {\'e}briques}{8}
+\contentsline {subsection}{\numberline {4.2}Endomorphismes particuliers}{8}
+\contentsline {part}{II\hspace {1em}Espaces vectoriels de dimension finie}{10}
+\contentsline {section}{\numberline {5}Familles libres, famille g\IeC {\'e}n\IeC {\'e}ratrices, bases}{10}
+\contentsline {subsection}{\numberline {5.1}D\IeC {\'e}finition}{10}
+\contentsline {subsection}{\numberline {5.2}Base d'un espace vectoriel}{10}
+\contentsline {section}{\numberline {6}Dimension d'un espace vectoriel}{11}
+\contentsline {section}{\numberline {7}Sous-espace vectoriel d'un espace vectoriel de dimension finie}{11}
+\contentsline {subsection}{\numberline {7.1}Dimension d'une somme d'espace vectoriel}{12}
+\contentsline {section}{\numberline {8}Application lin\IeC {\'e}aires en dimension finie}{13}
+\contentsline {subsection}{\numberline {8.1}Isomorphisme d'espace vectoriel}{13}
+\contentsline {subsection}{\numberline {8.2}Rang d'une application lin\IeC {\'e}aire}{13}
+\contentsline {subsection}{\numberline {8.3}Forme lin\IeC {\'e}aire et hyperplan}{14}

@@ -1,0 +1,134 @@
+\include{skeleton}
+
+\title{Géometrie}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+Dans tout le chapitre, $E$ désigne un $\R$-espace vectoriel.
+
+\section{Translations}
+
+\subsection{Notations}
+
+\begin{dfn}
+Soit $(A, B, C) \in E^2$.
+
+\begin{gather*}
+\vect{AB} = B - A \\
+\vect{AB} = \vect{0} \iff A = B \\
+\vect{AB} = - \vect{AB} \\
+\vect{AC} = \vect{AB} + \vect{BC}
+\end{gather*}
+
+\subsection{Translations}
+
+\begin{dfn}
+Soit $\vect{u} \in E$.
+
+On appelle \voc{translation de vecteur $\vect{u}$ l'application
+\begin{align*}
+    \tau_{\vect{u}} : E &\to E \\
+        M &\mapsto M + \vect{u}
+\end{align*}
+
+On a donc $\forall M \in E$
+\[
+    \vec{M\tau_{\vect{u}}(M)} = \vect{u}
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $(\vect{u}, \vect{v}) \in E^2$.
+\begin{gather*}
+    \tau_{\vect{u}} \circ \tau_{\vect{v}} = \tau_{\vect{u} + \vect{v}} \\
+    \tau_{\vect{0}} = \Id_E \\
+\end{gather*}
+
+$\tau_{\vect{u}}$ est bijective.
+\[
+    \tau_{\vect{u}} = \tau_{-\vect{u}}
+\]
+\end{prp}
+
+\begin{prp}
+L'ensemble des translations de $E$ muni de la loi de composition interne
+$\circ$ est un groupe abélien.
+\end{prp}
+
+\section{Sous-espaces affines}
+
+\subsection{Définition}
+
+\begin{dfn}
+On appelle, $W$, \voc{sous-espace affine} de $E$ l'image d'un sous-espace
+vectoriel $F$ par une translation de vecteur $A$.
+
+On note $W = A + F$
+\end{dfn}
+
+\begin{prp}
+Soit $(A, A') \in E^2$ et $F$ et $F'$ des sous-espace vectorielle de
+$E$.
+
+\[
+    A + F = A' + F' \iff \{ F = F' \et \vect{AA'} \in F \}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $W$ une sous-espace affine de $E$.
+
+Il existe un unique sous-espace vectoriel $F$ de $E$ tel que
+\[
+    \exists A \in E \tq W = A + F
+\]
+\end{prp}
+
+\begin{dfn}
+Soit $W$ un sous-espace affine de $E$.
+
+On appelle \voc{direction de $W$} le sous-espace vectoriel $F$ de $E$
+vérifiant
+\[
+    \exists A \in E \tq W = A + F
+\]
+
+On dit aussi que \voc{$W$ est dirigée par $F$}.
+
+Si $F$ est de dimension finie, on appelle \voc{dimension de $W$} la
+dimension de $F$.
+
+On appelle
+\begin{description}
+    \item[droite affine] de $E$ tout sous-espace affine ayant pour
+        direction une droite vectoriel.
+    \item[plan affine] de $E$ tout sous-espace affine ayant pour
+        direction un plan vectoriel.
+    \item[hyperplan affine] de $E$ tout sous-espace affine ayant pour
+        direction un hyperplan vectorielle
+\end{description}
+\end{dfn}
+
+\subsection{Parallélisme et intersection de sous-espace affine}
+
+\begin{dfn}
+Soient $W$ et $W'$ des sous-espaces affines de $E$ de direction
+respective $F$ et $F'$.
+
+On dit que \voc{$W$ est parallèle à $W'$} lorsque $F \subset F'$
+On note dans ce cas $W // W'$
+\end{dfn}
+
+\begin{prp}
+Soient $W$ et $W'$ des sous-espaces affines de $E$ tel que
+$W // W'$.
+\[
+    W \inter W' \ou W \subset W'
+\]
+\end{prp}
+
+\subsection{Repère cartésien}

@@ -1,0 +1,227 @@
+\include{skeleton}
+
+\title{\'Equations différentielle}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+Dans tout le chapitre, $\K$ désigne $\R$ ou $\C$ et $I$
+désigne un intervalle de $\R$ contenant au moins deux points
+
+\section{\'Equation différentielle linéaire du premier ordre}
+
+On résout l'équation
+\begin{equation} \label{eq:E1}
+    y' + a(x)y = b(x)
+\end{equation}
+
+\subsection{Résolution de l'équation homogène}
+
+\begin{thm}
+Soit $I$ un intervalle de $\R$, $a : I \to \K$ un fonction $\co{0}$ sur
+$I$. On note $A$ une primitive de $a$ sur $I$. Les solutions de
+l'équation
+\begin{equation} \label{eq:E10}
+    y' + a(x) y = 0
+\end{equation}
+Sont les fonctions de la forme
+\begin{align*}
+I &\to \K \\
+x &\mapsto \lambda \mathrm{e}^{-A(x)}
+\end{align*}
+où $\lambda \in \K$
+\end{thm}
+
+\subsection{Forme des solutions de l'équation avec second membre}
+
+\begin{prp}
+Soit $\varphi_1$ est une solution de \eqref{eq:E1}.
+
+L'ensemble des solutions de \eqref{eq:E1} est l'ensemble des fonctions
+$\varphi_1 + \varphi_0$ où $\varphi_0$ parcours l'enemble des solutions
+de \eqref{eq:E10}
+\end{prp}
+
+\subsection{Méthode de la variation de la constante}
+
+Lorsque \eqref{eq:E1} n'admet pas de solution évidente.
+Il faut chercher une solution de la forme
+\[
+    \varphi_1(x) = \lambda(x)\mathrm{e}^{-A(x)}
+\]
+où $\lambda$ et une fonction dérivable à determiner.
+
+Pour determiner $\lambda$ on injecte $\varphi_1$ sous la forme
+précendente dans l'équation \eqref{eq:E1}
+
+\section{\'Equations linéaire du second ordre à coefficients constant}
+
+On résout
+\begin{equation} \label{eq:E}
+    a y'' + b y' + y c = f(x)
+\end{equation}
+
+où $a$, $b$ et $c$ sont des constantes appartenants à $\K$
+et $f$ est une fonction d'une certaine forme, définie sur $\R$
+à valeurs dans $\K$.
+
+\subsection{Résolution de l'équation homogène}
+
+On résout
+\begin{equation} \label{eq:E0}
+    a y'' + b y' + y c = 0
+\end{equation}
+
+\begin{prp}
+Si $\psi_1$ et $\psi_2$ sont deux solutions de \eqref{eq:E0}.
+
+\[
+    \forall (\lambda, \mu) \in \K^2, \lambda \psi_1 + \mu \psi_2
+\]
+est aussi solution de \eqref{eq:E0}
+\end{prp}
+
+\begin{prp}
+Soit $r \in \K$
+
+la fonction
+\[
+    x \mapsto \mathrm{e}^{r x}
+\]
+ est solution de \eqref{eq:E0} \ssi
+\begin{equation} \label{eq:car}
+    a r^2 + b^r + c = 0
+\end{equation}
+
+L'équation \eqref{eq:car} est appelée l'équation caractéristique
+de l'équation différentielle \eqref{eq:E0}
+\end{prp}
+
+\subsubsection{Résolution dans le cas complexe}
+
+\begin{thm}
+\begin{itemize}
+    \item Si l'équation caractéristique admet deux racines complexes
+        distinctes, $r_1$ et $r_2$
+
+        L'ensemble des solutions de \eqref{eq:E0} est l'ensemble des
+        fonctions
+        \begin{align*}
+            \R &\to \C \\
+            x &\mapsto \lambda \mathrm{e}^{r_1 x} + \mu \mathrm{e}^{r_2 x}
+        \end{align*}
+        où $(\lambda, \mu) \in \C^2$
+    \item Si l'équation caractéristique admet une seul racine complexe
+        $r_0$
+
+        L'ensemble des solutions de \eqref{eq:E0} est l'ensemble des
+        fonctions
+        \begin{align*}
+            \R &\to \C \\
+            x &\mapsto \lambda \mathrm{e}^{r_0 x} + \mu x \mathrm{e}^{r_0 x}
+        \end{align*}
+\end{itemize}
+\end{thm}
+
+\subsubsection{Résolution dans le cas réel}
+
+\begin{thm}
+\begin{itemize}
+    \item Si l'équation caractéristique admet deux racines réels
+        distinctes, $r_1$ et $r_2$.
+
+        L'ensemble des solutions de \eqref{eq:E0} est l'ensemble des
+        fonctions
+        \begin{align*}
+            \R &\to \R \\
+            x &\mapsto \lambda \mathrm{e}^{r_1 x} + \mu \mathrm{e}^{r_2 x}
+        \end{align*}
+        où $(\lambda, \mu) \in \\R^2$
+    \item Si l'équation caractéristique admet une seul racine réelle
+        $r_0$
+
+        L'ensemble des solutions de \eqref{eq:E0} est l'ensemble des
+        fonctions
+        \begin{align*}
+            \R &\to \R \\
+            x &\mapsto \lambda \mathrm{e}^{r_0 x} + \mu x \mathrm{e}^{r_0 x}
+        \end{align*}
+        où $(\lambda, \mu) \in \\R^2$
+    \item Si l'équation caractéristique admet deux racines complexes,
+        $p \pm i \omega$ où $(p, \omega) \in \R^2$
+
+        l'ensemble des solutions de \eqref{eq:E0} est
+        \begin{align*}
+            \R &\to \R \\
+            x &\mapsto \mathrm{e}^{p x} (\lambda \cos (\omega x) \mu \sin (\omega x))
+        \end{align*}
+\end{itemize}
+\end{thm}
+
+\begin{prp}
+Soit $\varphi : \R \to \C$ est une solutio de l'équation différentielle
+\eqref{eq:E}.
+
+$\Re(\varphi)$ est solution de l'équation
+\begin{equation}
+    a y'' + b y' + c y = \Re(f(x))
+\end{equation}
+
+$Im(\varphi)$ est solution de l'équation
+\begin{equation}
+    a y'' + b y' + c y = \Im(f(x))
+\end{equation}
+\end{prp}
+
+\subsection{$f(x)$ est une fonction polynomiale}
+
+\begin{prp}
+Si $f$ est une fonction polynomiale de degrée $n$.
+
+L'équation différentielle \eqref{eq:E} admet une solution polynomiale de
+de degrée
+\begin{itemize}
+    \item $n$ si $c \neq 0$
+    \item $n + 1$ si $c = 0 \et b \neq 0$
+    \item $n + 2$ si $c = 0 \et b = 0$
+\end{itemize}
+\end{prp}
+    
+
+\subsection{$f(x)$ de la forme $P(x) \mathrm{e}^x$}
+
+On cherche une solution particulière de l'équation différentielle
+\eqref{eq:E} où $f(x) = P(x)\mathrm{e}^{\alpha x}$ où $P$ est une
+fonction polynomiale et $\alpha \in \K$.
+
+Posons
+\begin{gather*}
+    z(x) = \mathrm{e}^{-\alpha x}y(x) \\
+    \iff y(x) = z(x)\mathrm{e}^{\alpha x}
+\end{gather*}
+
+Ainsi \eqref{eq:E} équivaut à 
+\begin{equation} \label{eq:E'}
+    a z'' + (2 \alpha a + b) z' + (a \alpha^2 + b \alpha + c) z = P
+\end{equation}
+
+\eqref{eq:E'} admet une solution particulière polynomiale $Q$.
+$x \mapsto Q(x)\mathrm{e}^{\alpha x}$ est ainsi une solution particulière de
+\eqref{eq:E}.
+
+\section{Problème de Cauchy}
+
+\begin{thm}
+Soit $t_0 \in \R$ et $(y_0, y_1) \in \K^2$.
+
+Il existe un unique solution, $y$, de l'équation différentielle
+\eqref{eq:E} vérifie
+\[
+    y(t_0) = y_0 \et y'(t_0) = y_1
+\]
+\end{thm}
+
+\end{document}

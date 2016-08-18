@@ -1,0 +1,683 @@
+\input{skeleton}
+
+\title{Matrice}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+\part{Matrice????}
+
+Dans tout le document, $\K$ désigne soit $\R$ soit $\C$ et $p, q, r, n$
+sont des entiers appartenant à $\N^*$.
+
+\section{Définitions}
+
+
+\subsection{Définition d'une matrice}
+
+\begin{dfn}
+On appelle \voc{matrice de type $(p, q)$} ou \voc{matrice à $p$ lignes
+et $q$ collones} à coeffictient dans $\K$, toute famille
+\[
+    (a_{ij})_{\substack{i \in \lib 1, q \rib \\ j \in \lib 1, p \rib}}
+    \in \K^{pq}
+\]
+Cette matrice est notée: 
+\[
+    \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1q} \\
+        a_{21} & a_{22} & \cdots & a_{2q} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{p1} & a_{p2} & \cdots & a_{pq}
+    \end{pmatrix}
+\]
+\end{dfn}
+
+\begin{dfn}[Notation]
+On note $\M_{pq}(\K)$ l'ensemble des matrice de type $(p, q)$ à
+coefficient dans $\K$.
+
+Un élément de $\M_{1q}(\K)$ est appellé \voc{matrice ligne}.
+
+Un élément de $\M_{p1}(\K)$ est appellé \voc{matrice collone}.
+
+Soit $A = (a_{ij})$ et $B = (b_{ij})$ deux matrices, ces matrices sont égales \ssi
+\[
+    A \in \M_{pq}(\K) \et B \in \M_{pq}(\K) \et
+    \forall (i, j) \in \lib 1, p \rib \times \lib 1, q \rib, \;\;
+    a_{ij} = b_{ij}
+\]
+
+On appelle \voc{matrice nulle} la matrice de $\M_{pq}(\K)$ dont touts les
+coefficients sont nuls, cette matrice est notée $O_{pq}$
+\end{dfn}
+
+\subsection{structures d'espaces vectoriel}
+
+\begin{dfn}
+On définit la loi de composition interne $+$ dans $\M_{pq}(\K)$ ainsi:
+\[
+    \forall (A, B) = 
+        ((a_{ij})_{\substack{ i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}},
+        (b_{ij})_{\substack{ i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}})
+        \in (\M_{pq}(\K))^2, \;\;
+    A + B = (a_{ij} + b_{ij})_{\substack{ i \in \lib 1, p \rib \\
+        j \in \lib 1, q \rib}}
+\]
+
+On définit la loi de composition externe $\point$ dans $\M_{pq}(\K)$ ainsi:
+\[
+    \forall A =
+        (a_{ij})_{\substack {i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}}
+        \in \M_{pq}(\K), \;\;
+    \forall \lambda \in \K, \;\;
+    \lambda \point A = 
+        (\lambda \point a_{ij})_{
+            \substack {i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}}
+\]
+\end{dfn}
+
+\begin{prp}
+$(\M_{pq}(\K), +, \; \point \;)$ est un $\K$-espace vectoriel
+\end{prp}
+
+\begin{dfn}[Notation]
+On appelle \voc{matrices élémentaires de $\M_{pq}(\K)$} les matrices de
+$\M_{pq}(\K)$ de la forme
+\[
+    E_{st} = 
+    \bordermatrix{
+        ~ & ~       & ~         & t         & ~         & ~         \cr
+        ~ & 0       & \cdots    & 0         & \cdots    & 0         \cr
+        ~ & \vdots  & \ddots    & \vdots    & \ddots    & \vdots    \cr
+        s & 0       & \cdots    & 1         & \cdots    & 0         \cr
+        ~ & \vdots  & \ddots    & \vdots    & \ddots    & \vdots    \cr
+        ~ & 0       & \cdots    & 0         & \cdots    & 0         \cr
+    }
+    = (\delta_{is} \times \delta_{jt})_{
+        \substack {i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}}
+\]
+\end{dfn}
+
+\begin{prp}
+La famille
+$(E_{st})_{\substack {s \in \lib 1, p \rib \\ t \in \lib 1, q \rib}}$
+est appellée \voc{la base canonique de $\M_{pq}(\K)$}.
+\end{prp}
+
+\begin{prp}
+$(\M_{pq}(\K), +, \; \point \;)$ est un $\K$-espace vectoriel de
+dimension finie et
+\[
+    \dime_{\K} (\M_{pq}(\K)) = pq
+\]
+\end{prp}
+
+\subsection{Matrices et applications linéaires}
+
+\begin{dfn}
+Soient $E$ et $F$ deux $\K$-espaces vectoriels respectivement de
+dimension finie $q$ et $p$, $B = (e_1, \ldots, e_q)$ une base de
+$E$, $B' = (e'_1, \ldots, e'_p)$ une base de $F$ et $f \in \Lin(E, F)$
+
+On appelle \voc{matrice de $f$ dans $B$ et $B'$} la matrice de
+$\M_{pq}(\K)$ dont les colonnes sont constituées des coordonées des
+vecteurs $f(e_1), \ldots, f(e_q)$, cette matrice est notée
+$\mat_{B, B'} (f)$.
+
+Plus rigoureusement, on a, 
+$\mat_{B, B'}(f) = (a_{ij})_{
+    \substack {i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}}$ \\
+où $\forall (i, j) \in \lib 1, p \rib \times \lib 1, q \rib, \;\; a_{ij} $
+est la $i$-ème coordonée dans $B'$ du vecteur $f(e_j)$.
+\end{dfn}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espaces vectoriels respectivement de
+dimension finie $q$ et $p$, $B$ une base de $E$ et $B'$ une base $F$
+\begin{align*}
+    \phi : \Lin(E, F)   &\to \M_{pq}(\K) \\
+                     f  &\mapsto \mat_{B, B'}(f)
+\end{align*}
+est un isomorphisme d'espace vectoriel.
+\end{prp}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espaces vectoriel repectivement de dimension
+finie $q$ et $p$.
+
+$\Lin(E, F)$ est un $\K$-espace vectoriel de dimension finie $pq$
+\end{prp}
+
+\begin{dfn}
+L'application
+\begin{align*}
+    \phi:   \Lin(\K^q, \K^p)    &\to        \M_{pq}(\K) \\
+            f                   &\mapsto    \mat_{B, B'}(f)
+\end{align*}
+est appellée \voc{l'isomorphisme canonique de $\Lin(\K^q, \K^p)$ vers
+$\M_{pq}(\K)$}
+
+Aussi, soit $A \in \M_{pq}(\K)$, \voc{l'application linéaire de $\K^p$ dans
+$\K^q$ canoniquement associée à $A$} est l'application
+$f \in \Lin(\K^q, \K^p)$ dont la matrice, dans
+\hyp{la base canonique de $\K^q$ et $\K^p$} est $A$
+\end{dfn}
+
+
+
+\section{Produit matriciel}
+
+
+\subsection{Definition et premières propriétés}
+
+\begin{dfn}
+Soit $A = (a_{ij})_ {
+    \substack {i \in \lib 1, p \rib \\ j \in \lib 1, q \rib}}
+    \in \M_{pq}(\K)$
+et $B = (b_{ij})_ {
+    \substack {i \in \lib 1, q \rib \\ j \in \lib 1, r \rib}}
+    \in \M_{qr}(\K)$
+
+On définit le produit $A \times B$ par $A \times B = (c_{ij})_{
+    \substack { i \in \lib 1, q \rib \\ j \in \lib 1, r \rib}}$,
+où $c_{ij} = \sum_{k = 1}^q a_{ik} \times b_{kj}$.
+\end{dfn}
+
+\begin{prp}
+Soient $E$, $F$ et $G$ des $\K$-espace vectoriel de dimension finie
+différente de $0$, $B$, $B'$ et $B''$ respectivement des bases de
+$E$, $F$ et $G$, $f \in \Lin(F, G)$ et $g \in \Lin(E, G)$.
+
+\[
+    \mat_{B, B''}(f \circ g) = \mat_{B', B''}(f) \times 
+    \mat_{B, B'}(g)
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E_{s, t}$ et $E'_{u, v}(\K)$ respectivement des matrices élémentaires
+de $\M_{p, q}(\K)$ et $\M_{q, r}(\K)$.
+
+\[
+    E_{s, t} \times E_{u, v} = \delta_{tu} E''_{s, v}
+\]
+où $E''_{s, v}(\K)$ est une matrice élémentaires de $\M_{p, r}(\K)$
+\end{prp}
+
+
+\subsection{Matrice carrées}
+
+\begin{dfn}
+On appelle \voc{matrice carrée} d'ordre $n$ tout élément de $\M_n(\K)$.
+Soit $A = (a_{ij})_{
+    \substack {i \in \lib 1, n \rib \\ j \in \lib 1, n \rib}} 
+    \in \M_n(\K)$
+
+\begin{itemize}
+    \item Les coefficient $a_{ii}$ pour $i \in \lib 1, n \rib$ sont
+    appellés \voc{éléments diagonaux}.
+    \item La matrice $A$ est appellée \voc{matrice triangulaire supérieur}
+    si $\forall (i, j) \in (\lib 1, n \rib)^2, \;\; i > j \implies 
+    a_{ij} = 0$. On note $\Tri^+_n(\K)$ l'ensemble des matrices
+    triangulaires supérieurs de $\M_n(\K)$
+    \item La matrice $A$ est appellée \voc{matrice triangulaire inférieur}
+    si $\forall (i, j) \in (\lib 1, n \rib)^2, \;\; i < j \implies 
+    a_{ij} = 0$. On note $\Tri^-_n(\K)$ l'ensemble des matrices
+    triangulaires inférieur de $\M_n(\K)$
+    \item La matrice $A$ est appellée \voc{matrice diagonale}
+    si $\forall (i, j) \in (\lib 1, n \rib)^2, \;\; i \neq j \implies 
+    a_{ij} = 0$. On note $\Dia_n(\K)$ l'ensemble des matrices diagonales de
+    $\M_n(\K)$
+\end{itemize}
+\end{dfn}
+
+\begin{prp}
+$(\M_n(\K), +, \times)$ est un anneau.
+\end{prp}
+
+\begin{dfn}
+On appelle \voc{matrice inversible} de $\M_n(\K)$ toute matrice
+admetant une élément symétrique pour la multiplication dans
+$\M_n(\K)$
+
+L'ensemble des matrice inversibles de $\M_n(\K)$ est un groupe pour la
+multiplication matricielle, appelé le \voc{groupe linéaire d'ordre $n$},
+noté $\mathrm{GL}_n(\K)$
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$,
+$B$ une base de $E$ et
+\begin{align*}
+    \Phi : \Lin(E) &\to \M_n(\K) \\
+        f &\mapsto \mat_B(f)
+\end{align*}
+
+$\Phi$ est un isomorphisme d'espace vectoriel vérifiant
+\[
+    \forall (f, g) \in (\Lin(E))^2, \Phi(f \circ g) =
+    \Phi(f) \times \Phi(g)
+\]
+
+Si $E = \K^n$ et $B$ est la base canonique de $\K^n$, $\Phi$ est appelée
+l'isomorphisme canonique de $\Lin(\K^n)$ sur $\M_n(\K)$
+\end{prp}
+
+\begin{prp}
+Soit $E$ et $F$ deux $\K$-espaces vectoriels de même dimension finie
+différente de $O$, $B$ et $B$ respectivement des bases de $E$ et $F$ et
+$f \in \Lin(E, F)$
+
+$f$ est bijective \ssi $\mat_{B, B'}(f)$ est inversible
+\end{prp}
+
+\begin{prp}
+Soit $M \in \M_n(\K)$.
+
+\begin{align*}
+        &M \text{ est inversible} \\
+\iff    &\exists A \in M_n(\K) \tq M \times A = I_n \\
+\iff    &\exists B \in M_n(\K) \tq B \times M = I_n
+\end{align*}
+\end{prp}
+
+\begin{prp}
+Les ensemble $\Tri_n^+(\K)$, $\Tri_n^-(\K)$ et $\Dia_n(\K)$ sont des
+sous-espace vectoriel de l'espace vectoriel $(\M_n(\K), +, \; \point \;)$
+et des sous-anneaux de l'anneau $(\M_n(\K), +, \times)$.
+\end{prp}
+
+
+\subsection{Transposée d'une matrice}
+
+\begin{dfn}
+Soit $A \in \M_{p, q}(\K)$ tel que $A = (a_{ij})_{\mind{i}{j}{p}{q}}$
+
+On appelle \voc{transoposée de $A$} et on note $A^\intercal$ la matrice
+de $\M_{q, p}(\K)$ définie par
+\[
+    A^\intercal = (a_{ji})_{\mind{i}{j}{q}{p}}
+\]
+\end{dfn}
+
+\begin{prp}
+L'application
+\begin{align*}
+    \M_{p, q}(\K) &\to \M_{q, p}(\K) \\
+    A &\mapsto A^\intercal
+\end{align*}
+est un isomorphisme d'espace vectoriel.
+\end{prp}
+
+\begin{prp}
+Soit $(A, B) \in \M_{p, q}(\K) \times \M_{q, r}(\K)$
+\[
+    (A \times B)^\intercal = B^\intercal \times A^\intercal
+\]
+\end{prp}
+
+\begin{prp}
+Soit $M \in \M_n(\K)$
+\begin{gather*}
+    M \in \mathrm{GL}_n(\K) \iff M^\intercal \in \mathrm{GL}_n(\K) \\
+    M \in \mathrm{GL}_n(\K) \implies (M^\intercal)^{-1} =
+    (M^{-1})^\intercal
+\end{gather*}
+\end{prp}
+
+\begin{dfn}
+Soit $M \in \M_n(\K)$
+\begin{itemize}
+    \item On dit que $M$ est \voc{symétrique} lorsqe $M^\intercal = M$
+    \item On dit que $M$ est \voc{antisymétrique} lorsque $M^\intercal = -M$
+\end{itemize}
+On note $\mathcal{A}_n(\K)$ l'ensemble des matrices antisymétriques de $\M_n(\K)$
+et $\mathcal{S}_n(\K)$ est l'ensemble des matrices symétriques de $\M_n(\K)$
+\end{dfn}
+
+\begin{prp}
+$\mathcal{S}_n(\K)$ et $\mathcal{A}_n(\K)$ sont des sous-espace vectoriel
+supplémentaire de $\M_n(\K)$
+\end{prp}
+
+
+
+\section{Changements de bases}
+
+
+\subsection{Matrices de passage entre deux bases}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel de dimension finie, $n$, différente de $0$
+et $B = (e_1, \ldots, e_n)$ et $B' = (e'_1, \ldots, e'_n)$ deux bases de $E$.
+
+On appelle \voc{matrice de passage de $B$ à $B'$} la matrice de $\M_n(\K)$ 
+dont les colonnes sont constituées des coordonées des vecteurs de $B'$ dans
+la base $B$.
+
+\[
+    P_{B, B'} =
+    \bordermatrix{ 
+        ~       & e'_1  & \ldots    & e'_n  \cr
+        e_1     & ~     & ~         & ~     \cr
+        \vdots  & ~     & ~         & ~     \cr
+        e_n     & ~     & ~         & ~     \cr
+   }
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie $n \neq 0$ et $B$, $B'$
+et $B''$ des bases de $E$.
+
+\begin{gather*}
+    P_{B, B''} = P_{B, B'} \times P_{B', B''} \\
+    P_{B, B'} \in \mathrm{GL}_n(\K) \et P^{-1}_{B, B'} = P_{B', B}
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie $n \neq 0$,
+$B$ et $B'$ des  des bases de $E$, $x \in E$, $X$ la matrice
+colonnes des coordonées de $x$ dans $B$ et $X'$ la matrice
+colonnes des coordonées de $x$ dans $B'$.
+\[
+    X = P_{B, B'} \times X'
+\]
+\end{prp}
+
+
+\subsection{Changement de base pour une application linéaire}
+
+\begin{prp}
+Soit $E$ et $F$ des $\K$-espaces vectoriels de dimension finie
+différente de $0$, $B_1$ et $B_2$ des bases de $E$, $B'_1$ et $B'_2$
+des bases de $F$ et $f \in \Lin(E, F)$
+
+On note
+\begin{gather*}
+    A_1 = \mat_{B_1, B'_1}(f) \\
+    A_2 = \mat_{B_2, B'_2}(f) \\
+    P = P_{B_1, B_2} \\
+    Q = P_{B'_1, B'_2}
+\end{gather*}
+
+\[
+    A_2 = Q^{-1} \times A_1 \times P
+\]
+\end{prp}
+
+\subsection{Matrices équivalentes et matrices semblables}
+
+\begin{dfn}
+Soient $(A, B) \in (\M_{p, q}(\K))^2$
+
+On dit que $A$ et $B$ sont équivalentes lorsque
+\[
+    \exists (P, Q) \in \M_q(\K) \times \M_p(\K) \tq B = Q \times A \times P
+\]
+\end{dfn}
+
+\begin{dfn}
+Soit $r \in \lib 0, \min \{p, q\} \rib$
+
+On note $J_r$ la matrice de $M_{p, q}(\K)$ définie par
+\[
+    J_r = \begin{pmatrix}
+        I_r & 0 \\
+        0   & 0 \\
+    \end{pmatrix}
+\]
+\end{dfn}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espaces vectoriels respectivement de dimension
+finie $q$ et $p$ et $f \in \Lin(E, F)$
+
+Il existe une base $B$ de $E$ et une base $B'$ de $F$ tel que
+\[
+    \mat_{B, B'}(f) = J_{\rang(f)}
+\]
+\end{prp}
+
+\begin{dfn}
+Soit $(A, B) \in (\M_n(\K))^2$
+
+On dit que $A$ et $B$ sont semblables lorque
+\[
+    \exists P \in \mathrm{GL}_n(\K) \tq B = P^{-1} \times A \times P
+\]
+\end{dfn}
+
+
+
+\section{Trace d'une matrice, d'un endomorphisme}
+
+\begin{dfn}
+Soit $A = (a_{ij})_{\mind{i}{j}{n}{n}} \in \M_n(\K)$
+
+On note $\mathrm{tr}(A)$ la \voc{trace de $A$} qui est tel que
+\[
+    \mathrm{tr}(A) = \sum^n_{k = 1} a_{kk}
+\]
+\end{dfn}
+
+\begin{prp}
+L'application trace:
+\begin{align*}
+    \M_n(\K) &\to \K \\
+    A &\mapsto \mathrm{tr}(A) 
+\end{align*}
+est une forme de $\M_n(\K)$ vérifiant
+
+\[
+    \forall (A, B) \in (\M_n(\K))^2, \;\; \mathrm{tr}(AB) = \mathrm{tr}(BA)
+\]
+\end{prp}
+
+\begin{prp}
+Deux matrice carrée semblable ont la même trace
+\end{prp}
+
+
+\subsection{Trace d'un endomorphisme}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$
+et $f \in \Lin(E)$
+
+On appelle \voc{trace de $f$} la trace d'une matrice de $f$ dans une base
+quelconque de $E$
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente $0$ et
+$(f, g) \in (\Lin(E))^2$
+
+\begin{gather*}
+    \forall (\lambda, \mu) \in \K^2, \;\; \mathrm{tr}(\lambda f + \mu g) =
+    \lambda \mathrm{tr}(f) + \mu \mathrm{tr}(g) \\
+    \mathrm{tr}(f \circ g) = \mathrm{tr}(g \circ f)
+\end{gather*}
+\end{prp}
+
+
+\section{Noyaux, image, rang d'une matrice}
+
+
+\subsection{Application linéaire canoniquement assocée à une matrice}
+
+\begin{dfn}
+Soit $A \in \M_{p, q}(\K)$.
+
+On appelle \voc{application linéaire canoniquement associé à $A$}
+l'application linéaire de $\Lin(\K^q, \K^p)$ dont la matrice, dans la
+base canonique de $\K^q$ et $\K^p$ est la matrice $A$.
+\end{dfn}
+
+\begin{dfn}
+Soit $A$ une matrice.
+On appelle \voc{noyau de $A$} le noyau de l'application linéaire
+canoniquement associé à $A$. On note cet ensemble $\Ker(A)$.
+
+On peut définir de la même façon l'image de $A$.
+\end{dfn}
+
+\begin{prp}
+Soit $A$ une matrice carrée.
+\[
+    A \text{ est inversible} \iff \Ker(A) = \{0\}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $A$ un matrice triangulaire.
+
+$A$ est inversible \ssi ses éléments diagonaux sont non nul.
+Dans ce cas, $A^{-1}$ est triangulaire de même triangularitée que $A$
+\end{prp}
+
+\begin{prp}
+Soit $D \in \Dia_n(\K) \tq D =
+    \begin{pmatrix}
+        d_1 & \cdots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \cdots & d_n
+    \end{pmatrix}
+$
+
+\[
+    D \text{ est inversible} \iff \forall i \in \lib 1, n \rib, d_i \neq 0
+\]
+Dans ce cas, $D =
+    \begin{pmatrix}
+        d_1^{-1} & \cdots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \cdots & d_n^{-1}
+    \end{pmatrix}
+$
+\end{prp}
+
+
+\subsection{Rang d'une matrice}
+
+\begin{dfn}
+Soit $A$ une matrice.
+
+On appelle \voc{rang} de $A$ la dimension de $\Ima{A}$.
+On note le rang de $A$ $\rang(A)$.
+\end{dfn}
+
+\begin{prp}
+Soit $A \in \M_n(\K)$.
+
+\[
+    A \text{ est inversible } \iff \rang(A) = n
+\]
+\end{prp}
+
+\begin{prp}
+Soit $B$ une base d'un $\K$-espace vectoriel, $E$, de dimension finie
+différente de $0$ et soit $x_1, \ldots, x_q$ des vecteurs de $E$.
+
+Le rang de la famille $(x_1, \ldots, x_q)$ est le rang de la matrice
+dont pour tout entier $i$ compris entre $1$ et $q$ la i-eme colonne
+est constituée de coordonée de $x_i$ dans $B$.
+\end{prp}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espaces vectoriels de dimension finie différente
+de $0$, $B$ une base de $E$, $B'$ une base de $F$ et $f \in \Lin(E, F)$
+
+\[
+    \rang(f) = \rang(\mat_{B, B'}(f))
+\]
+\end{prp}
+
+
+
+\begin{prp}
+Soit $A \in \M_{p, q}(\K)$
+
+\begin{gather*}
+    \forall Q \in \mathcal{GL}_p(\K), \;\; \rang(QA) = \rang(A) \\
+    \forall P \in \mathcal{GL}_q(\K), \;\; \rang(AP) = \rang(A)
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Soit $A \in \M_{p, q}(\K)$, $r \in \lib 0, \min(p, q) \rib$
+
+\[
+    \rang(A) = r \iff A \text{ est équivalente à } J_r
+\]
+\end{prp}
+
+\begin{prp}
+Soit $A \in \M_{p, q}(\K)$
+
+\[
+    \rang(A^\intercal) = \rang(A)
+\]
+\end{prp}
+
+
+\subsection{Rang de matrices extraites}
+
+\begin{dfn}
+Soit $A \in \M_{p, q}(\K)$
+
+On appelle \voc{matrice extraite de $A$} toute matrice obtenue en
+supprimant de $0$ à $p$ lignes et $0$ à $q$ colonnes dans $A$
+\end{dfn}
+
+\begin{prp}
+Soit $A$ une matrice.
+
+\[
+    A' \text{ est une matrice extraite de } A \implies \rang(A') \leq
+    \rang(A)
+\]
+\end{prp}
+
+\begin{prp}
+Soit $A$ une matrice.
+
+Le rang de $A$ est égal au plus grand ordre des matrices
+extraites carrées inversibles de $A$
+\end{prp}
+
+
+
+\section{Opérations élémentaires et systèmes linéaires}
+
+
+\subsection{Opération élémentaire sur un matrice}
+
+\begin{dfn}
+Soit $A$ un matrice.
+
+On appelle \voc{Opération élémentaire de $A$} l'une des transformatioins
+suivantes
+\begin{itemize}
+    \item Remplacement d'une ligne par un multiple non nul de cette même
+    ligne. On note alors $\mathrm{L}_i \gets \alpha \mathrm{L}_i$.
+    \item Ajout d'un multiple d'une ligne à une autre ligne.
+    On note $\mathrm{L}_i \gets \mathrm{L}_i + \alpha \mathrm{L}_k$.
+    \item \'Echange de deux lignes. On note $\mathrm{L}_i \leftrightarrow
+    \mathrm{L}_j$
+\end{itemize}
+Les même opérations sur les colonnes sont considérées comme des
+opérations élémentaires.
+\end{dfn}
+
+\begin{prp}
+Les opérations élémentaires sur un matrice ne changent pas le rang de la
+matrice.
+\end{prp}
+
+\end{document}

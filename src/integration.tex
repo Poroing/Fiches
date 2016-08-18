@@ -1,0 +1,321 @@
+\include{skeleton}
+
+\title{Intégration}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+Dans tous le chapitre, On suppose $(a, b) \in \R^2$.
+
+\section{Fonctions continues par morceaux}
+
+Dans ce paragraphe, on suppose $a < b$
+
+\subsection{Fonctions en escalier}
+
+\begin{dfn}
+On appelle \voc{subdivision du segment $[a, b]$} toute partie finie
+de $[a, b]$ contenant $a$ et $b$
+\end{dfn}
+
+\begin{dfn}
+On appelle \voc{pas} ou \voc{module} de la subdivision
+$\sigma : x_0 < x_1 < \ldots < x_n$ et on note $|\sigma|$, le réel
+\[
+    \max_{i \in \lib 0, n - 1 \rib} (x_{i + 1} - x_i)
+\]
+\end{dfn}
+
+\begin{dfn}
+Un fonction $f : [a, b] \to \R$ est dite \voc{en escalier sur
+$[a, b]$} lorsqu'il existe une subdivision $\sigma : x_0 < \ldots < x_n$
+de $[a, b]$ tel que $\forall i \in \lib 0, n- 1 \rib$, $f$ soit
+constante sur $]x_i, x_{i + 1}[$.
+
+Dans ce cas $\sigma$ est dite \voc{adaptée} ou \voc{subordonée} à la
+fonction $f$
+\end{dfn}
+
+\begin{dfn}
+On note $\mathcal{E}([a, b], \R)$ l'ensemble des fonctions en escalier
+sur $[a, b]$
+\end{dfn}
+
+\begin{dfn}
+$\mathcal{E}([a, b], \R)$ est un $\R$-espace vectoriel
+\end{dfn}
+
+\subsection{Fonctions continues par morceaux}
+
+\begin{dfn}
+Un fonction $f : [a, b] \to \R$ est dite \voc{continue par morceaux sur
+$[a, b]$} lorsqu'il existe une subdivision $\sigma : x_0 < \ldots < x_n$
+de $[a, b]$ tel que $\forall i \in \lib 0, n - 1 \rib$, la restriction
+de $f$ à $]x_i, x_{i + 1}[$ soit $\co{0}$ sur $]x_i, x_{i + 1}[$ et
+admette des limites finies en $x_i^+$ et $x_{i + 1}^-$.
+
+Une telle subdivision est dite \voc{adaptée à $f$}
+\end{dfn}
+
+\begin{dfn}
+Soit $I$ un intervalle de $\R$ contenant au moint deux points, $f$ une
+fonction de $I$ dans $\R$.
+
+$f$ est dite \voc{continue par morceaux sur $I$}
+lorsque $\forall (a, b) \in I^2 \tq a < b, f$ est continue par
+morceaux sur $[a, b]$
+\end{dfn}
+
+\begin{prp}
+Soit $I$ un intervalle de $\R$ contenant au moin deux points.
+
+L'ensemble des fonctions continues par morceaux sur $I$ est un
+$\R$-espace vectoriel
+\end{prp}
+
+\begin{prp}
+Soit $f \in \mathcal{C}([a, b], \R)$.
+
+\[
+    \forall \epsilon > 0, \;\;
+    \exists \Gamma \in \mathcal{E}([a, b], \R) \tq
+    |f - \Gamma| \leq \epsilon
+\]
+\end{prp}
+
+\begin{thm}
+Soit $f$ une fonction continue par morceaux sur $[a, b]$.
+
+\[
+    \forall \epsilon > 0, \;\; \exists (\varphi, \psi) \in
+    (\mathcal{E}([a, b], \R))^2 \tq \varphi \leq f \leq \psi \et
+    \psi - \varphi \leq \epsilon
+\]
+\end{thm}
+
+\section{Intégrale d'une fonction continue par morceaux sur un segment}
+
+\subsection{Intégrale d'une fonction en escalier}
+
+\begin{dfn}
+Soit $f \in \mathcal{E}([a, b], \R)$ et $\sigma : x_0 < \ldots < x_n$ un
+subdivision adaptée à $f$. Pour tout $i \in \lib 1, n \rib$ notons
+$c_i$ la valeur de $f$ sur $x_{i - 1}, x_i$.
+
+La quantité $\sum_{i = 1}^n (x_i - x_{i - 1}) c_i$ ne dépend pas de la
+subdivision de $[a, b]$ adapté à $f$.
+
+On appelle cette quantité intégrale définis sur $[a, b]$ et on la note
+$\int_{[a, b]} f$
+\end{dfn}
+
+\begin{prp}
+L'intégrale est une forme linéaire de $\mathcal{E}([a, b], \R)$
+\end{prp}
+
+\begin{prp}
+Soit $f \in \mathcal{E}([a, b], \R)$ tel que $f \geq 0$ sur $[a, b]$.
+
+\[
+    \int_{[a, b]} = \sum^n_{i = 1} (x_i - x_{i - 1}) c_i
+\]
+\end{prp}
+
+\begin{prp}
+Si $(f, g) \in (\mathcal{E}([a, b], \R))^2$ et si $f \leq g$ sur $[a, b]$.
+\[
+    \int_{[a, b]} f \leq \int_{[a, b]} g
+\]
+\end{prp}
+
+\begin{prp}
+Soit $c \in ]a, b[$ et $f : [a, b] \to \R$.
+
+$f$ est en escalier \ssi $f_{|_{[a, c]}}$ et $f_{|_{[c, b]}}$ sont en escalier.
+Dans ce cas
+
+\[
+    \int_{[a, b]} f = \int_{[a, c]} f_{|_{[a, c]}}
+        + \int_{[c, b]} f_{|_{[c, b]}}
+\]
+\end{prp}
+
+\subsection{Intégrale d'une fonction continue par morceaux}
+
+\subsubsection{Définition}
+
+\begin{prp}
+Une fonction continue par morceaux sur un segment est bornée sur ce
+segment.
+\end{prp}
+
+\begin{prp}
+Soit $f$ une fonction continue par morceaux sur $[a, b]$
+\begin{gather*}
+    A = \left\{ \int_{[a, b]} \varphi \quad \middle| \quad \varphi \in
+        \mathcal{E}([a, b], \R) \et \varphi \leq f \right\} \\
+    B = \left\{ \int_{[a, b]} \psi \quad \middle| \quad \psi \in
+        \mathcal{E}([a, b], \R) \et \varphi \geq f \right\}
+\end{gather*}
+$A$ admet une borne supérieure et $B$ admet une borne inférieure. c'est
+borne sont égales.
+\end{prp}
+
+\begin{dfn}
+Soit $f$ une fonction continue par morceaux sur $[a, b]$.
+
+On appelle intégrale de $f$ sur $[a, b]$ le nombre:
+\begin{align*}
+    \int_{[a, b]} =
+        &\sup \left\{ \int_{[a, b]} \varphi \quad \middle| \quad \varphi \in
+        \mathcal{E}([a, b], \R) \et \varphi \leq f \right\} \\
+        &\inf \left\{ \int_{[a, b]} \psi \quad \middle| \quad \psi \in
+        \mathcal{E}([a, b], \R) \et \varphi \geq f \right\}
+\end{align*}
+\end{dfn}
+
+\subsubsection{Propriétés}
+
+\begin{prp}
+L'intégrale est une forme linéaire de l'éspace des fonctions continues
+par morceaux sur $[a, b]$
+\end{prp}
+
+\begin{prp}
+Soit $f$ une fonction continue par morceaux sur $[a, b]$ et $g$ une
+fonction continue par morceaux sur $[a, b]$ tel que $f \leq g$
+
+\[
+    \int_{[a, b]} f \leq \int_{[a, b]} g
+\]
+\end{prp}
+
+\begin{prp}
+Soit $f$ continue par morceaux sur $[a, b]$.
+
+$|f|$ est aussi continue par morceaux et
+\[
+    |\int_{[a, b]} f| \leq \int_{[a, b]} |f|
+\]
+\end{prp}
+
+\begin{prp}
+Soit $c \in ]a, b[$ et $f : [a, b] \to \R$.
+
+$f$ est continue par morceaux \ssi $f_{|_{[a, c]}}$ et $f_{|_{[c, b]}}$
+sont en continues par morceaux.
+Dans ce cas
+\[
+    \int_{[a, b]} f = \int_{[a, c]} f_{|_{[a, c]}}
+        + \int_{[c, b]} f_{|_{[c, b]}}
+\]
+\end{prp}
+
+\subsection{Extenion de la définition}
+
+à partir de ce paragraphe, on ne suppose plus $a < b$
+
+\begin{dfn}
+
+Soit $I$ un intervalle de $\R$ contenant au moin deux points, $f$ une fonction
+continue par marceaux sur $I$.
+Pour tout $(a, b) \in I^2$, on pose
+
+\begin{gather*}
+    \text{si } a < b, \int_a^b f(t)\mathrm{d}t = \int_{[a, b]} f \\
+    \text{si } a = b, \int_a^b f(t)\mathrm{d}t = 0 \\
+    \text{si } a > b, \int_a^b f(t)\mathrm{d}t = - \int_{[a, b]} f
+\end{gather*}
+\end{dfn}
+
+\section{Sommes de Riemann}
+
+\begin{dfn}
+Soit $f$ continue par morceaux sur $[a, b]$ où $a < b$,
+$\sigma_n ; x_0 < \ldots < x_n$ la subivision de $[a, b]$
+à pas constant.
+
+On appelle \voc{somme de Riemann de $f$ associée à la subdivision $\sigma_n$}
+la quantité:
+\[
+    S_n(f) = \frac{b - a}{n} \sum_{k = 0}^{n - 1} f(a + k\frac{b - a}{n})
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $(a, b) \in \R$ tel que $a < b$, Soit $f$ continue par morceaux sur
+$[a, b]$.
+
+\[
+    \lminf \frac{b - a}{n} \sum_{k = 0}^{n - 1} f(a + k \frac{b - a}{n}) =
+    \int_a^b f(t)\mathrm{d}t
+\]
+\end{prp}
+
+\section{Intégration d'une fonction continue sur un segment}
+
+\begin{thm}[Fondamentale de l'intégration]
+Soit $I$ une intervalle de $\R$ contenant au moin deux points, $a \in I$,
+$f$ une fonction continue de $I$ dans $\R$
+
+La fonction
+\[
+    F : x \mapsto F(x) = \int_a^x f(t)\mathrm{d}t
+\]
+est l'unique primitive de $f$ sur $I$ s'annulent en $a$
+\end{thm}
+
+\begin{prp}
+Soit $I$ une intervalle de $\R$ contenant au moin deux points,
+$f \in \co{0}(I, \R)$, $(a, b) \in I^2$ et $G$ est une primitive
+de $f$ sur $I$.
+
+\[
+    \int^b_a f(t)\mathrm{d}t = \left[G(t)\right]^b_a = G(b) - G(a)
+\]
+\end{prp}
+
+\section{Formule de Taylor}
+
+\subsection{Formule de Taylor avec reste intégrale}
+
+\begin{prp}
+Soit $I$ un intervalle de $\R$ contenant au moin deux points, $a \in I$,
+$n \in \N$ et $f$ une fonction de classe $\co{n + 1}$ de $I$ dans
+$\R$.
+\[
+    f(x) = \sum^n_{k = 0} \frac{f^{(k)}(a)}{k!} (x - a)^k
+    + \int^x_a \frac{(x - t)^n}{n!} f^{(n + 1)}(t) \mathrm{d}t
+\]
+\end{prp}
+
+\subsection{Inégalité de Taylor-Lagrange}
+
+\begin{prp}
+Soient $(a, b) \in \R^2$ tel que $a \neq b$, $n \in \N$, $f$ une fonction
+de $[a, b] \to \R$ de classe $\co{n + 1}$ sur $[a, b]$. Soit $M_{n + 1}$
+un majorant de $|f^{(n + 1)}|$ sur $[a, b]$.
+
+\[
+    |f(b) - \sum^n_{k = 0} \frac{f^{(k)(a)}}{k!}(b - a)^k| \leq
+    \frac{|b - a|^{n + 1}}{(n + 1)!} M_{n + 1}
+\]
+\end{prp}
+
+\subsection{Formule de Taylor-Young}
+
+\begin{prp}
+Soit $I$ un intervalle de $\R$ contenant au moin deux points, $a \in I$,
+$n \in \N$ et $f : I \to \R$ une fonction $\co{n}$ sur $I$.
+
+\[
+    f(x) = \sum_{k = 0}^n \frac{f^{(k)}(a)}{k!} (x - a)^k
+    + \ngl{x \to a}{(x - a)^n}
+\]
+\end{prp}
+
+\end{document}

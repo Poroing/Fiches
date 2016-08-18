@@ -1,0 +1,20 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Produit scalaire}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}D\IeC {\'e}finition}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}In\IeC {\'e}galit\IeC {\'e} de Cauchy-Schwarz}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Norme euclidienne}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Distance euclidienne}{3}{subsection.1.4}
+\contentsline {section}{\numberline {2}Orthogonalit\IeC {\'e}}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Vecteurs orthogonaux}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Bases orthogonales base orthonormales}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Orthogonale d'une partie de $E$}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Suppl\IeC {\'e}mentaire orthogonale, projection orthogonale}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Produit mixte}{6}{subsection.2.5}
+\contentsline {section}{\numberline {3}Automorphisme orthogonaux d'un espace euclidien}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Definition d'un automorphisme orthogonale}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Sym\IeC {\'e}tries orthogonales}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Matrices orthogonales}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Groupe sp\IeC {\'e}cial orthogonal}{8}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Descrition des automorphismes orthogonaux de dimension $2$}{9}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Etude de $\mathcal {O}^-(E)$}{9}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Etude de $\mathcal {SO}(E)$}{9}{subsubsection.3.5.2}

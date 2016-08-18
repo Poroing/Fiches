@@ -8,6 +8,9 @@
 \pagebreak
 
 \section{Limite d'une fonction en un point}
+
+\subsection{Définitions}
+
 \begin{dfn} 
 $f$ admet une limite $l$ en $a$ lorsque
 \begin{description}
@@ -16,7 +19,7 @@ $f$ admet une limite $l$ en $a$ lorsque
     \leq \eta \implies |f(x) - l| \leq \epsilon$
     \item[$\bs{a \in \R, l = \infty}$] \hfill \\
     $\forall M \in \R, \exists \eta > 0 \tq \forall x \in I,
-    |x - a| \leq \eta \implies |f(x) - l| \leq \epsilon$
+    |x - a| \leq \eta \implies f(x) \geq A$
     \item[$\bs{a = \infty, l \in \R}$] \hfill \\
     $\forall \epsilon > 0, \exists A \in \R \tq \forall x \geq A,
     |f(x) - l| \leq \epsilon$
@@ -60,7 +63,8 @@ $a \in \R$. Soit $l \in \bar{\R}$.
 \end{enumerate}
 \end{prp}
 
-\section{Propriétés sur les limites}
+\subsection{Propriétés sur les limites}
+
 \begin{thm}[Caractérisation séquentielle]
 Soit $(a, l) \in \bar{\R}^2$ avec $a$ un point de $I$ ou une extrémité
 de $I$. Les deux assertions sont équivalentes
@@ -119,7 +123,7 @@ $\lm_{a} f \in ]0, +\infty] \implies f \text{minorée} \voi{a}
 \end{itemize}
 \end{rem}
 
-\section{Théorèmes d'existence de limite}
+\subsection{Théorèmes d'existence de limite}
 
 \begin{thm}[d'encadrement]
 $\lm_a g = \lm_a h = l \et g(x) \leq f(x) \leq h(x) \voi{a}
@@ -213,13 +217,15 @@ $\ln(1 + x)$ & $x$ \\
 \hline
 $\ch(x) - 1$ & $\frac{x^2}{2}$ \\
 \hline
-$(1 + x)^\alpha$ & $\alpha x$ \\
+$(1 + x)^\alpha - 1$ & $\alpha x$ \\
 \hline
 etc \ldots & \ldots \\
 \hline
 \end{tabular}
 
 \section{Continuité}
+
+\subsection{Définition}
 
 \begin{dfn}
 $f \text{ est } \co{0} \text{ en } a \iff \lm_a f = f(a)$
@@ -264,6 +270,8 @@ $\lminf u_n = a \notimplies \lminf f(u_n) = f(a)$
 
 \section{Théorème fondamentale sur la continuité}
 
+\subsection{Théorème des valeurs intermediaires}
+
 \begin{thm}
 $f \est \co{0} \text{ sur } {[a, b]} \et f(a) \times f(b) \leq 0
 \implies \exists c \in {[a, b]} \tq f(c) = 0$
@@ -285,6 +293,8 @@ $f \est \co{0} \implies f({[a, b]}) \text{ est une partie bornée de } \R$
 \begin{thm}
 L'image d'un segment par un fonction continue est un segment.
 \end{thm}
+
+\subsection{Théorème de la bijection}
 
 \begin{prp}
 $f \text{ est injective } \iff f \est \! \strmo$

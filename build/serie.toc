@@ -1,0 +1,9 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}G\IeC {\'e}n\IeC {\'e}ralit\IeC {\'e}s}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}D\IeC {\'e}finition}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}S\IeC {\'e}ries convergentes}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}S\IeC {\'e}rie \IeC {\`a} termes positifs ou nuls}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}condition de convergence}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}S\IeC {\'e}rie de Riemann}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}S\IeC {\'e}ries absolument convergentes}{4}{section.3}
+\contentsline {section}{\numberline {4}Application ou d\IeC {\'e}velopement d\IeC {\'e}cimal d'un nombre r\IeC {\'e}el}{5}{section.4}

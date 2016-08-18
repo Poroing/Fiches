@@ -1,0 +1,200 @@
+\include{skeleton}
+
+\title{Séries}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+\section{Généralités}
+
+\subsection{Définition}
+
+\begin{dfn}
+Soit $(u_n)_{n \in \N}$ une suite d'éléments de $\K$.
+
+On appelle \voc{série de terme général $u_n$}, et on note $\sum u_n$
+la suite $(S_n)_{n \in \N}$ définie par
+\[
+    S_n = \sum^n_{k = 0} u_k
+\]
+Pour $n \in \N$, le nombre $S_n$ est appelé \voc{la somme partielle
+d'indice $n$ de la série $\sum u_n$}
+
+L'élément $u_n$ est appelé \voc{le terme général de la série $\sum u_n$}
+\end{dfn}
+
+\begin{dfn}[Série harmonique]
+La série harmonique et la série de terme général $\frac{1}{n}$
+\end{dfn}
+
+\begin{dfn}
+On dit que $\sum u_n$ \voc{converge} lorsque la suite des sommes partielle
+converge.
+
+Dans ce cas $\lminf S_n = \lminf \sum^n_{k = 0} u_k$ est notée
+$\sum^{+ \infty}_{n = 0} u_n$ et ce nombre est appelé la somme de la
+série $\sum u_n$
+
+Si on pose $\forall n \in \N, \;\; R_n = \sum^{+\infty}_{k = n + 1} u_k$,
+$R_n$ est appelé le \voc{$n$-ème reste de la série $\sum u_n$}.
+
+Lorsque $\sum u_n$ ne converge pas, on dit qu'elle diverge.
+\end{dfn}
+
+\subsection{Séries convergentes}
+
+\begin{prp}
+Soit $\sum u_n$ et $\sum v_n$ des séries convergentes.
+
+\[
+    \forall (\lambda, \mu) \in \K^2, \sum (\lambda u_n + \mu v_n)
+    \text{ converge}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $\sum u_n$ une série à valeurs complèxes.
+
+$\sum u_n$ converge \ssi $\sum \Re(u_n)$ et $\sum \Im(u_n)$ convergent.
+
+Dans ce cas:
+\[
+    \sum^{+\infty}_{n = 0} u_n = \sum^{+\infty}_{n = 0} \Re(u_n) 
+    + i \sum^{+\infty}_{n = 0} \Im(u_n)
+\]
+\end{prp}
+
+\begin{prp}
+Le terme géneral d'une série convergente converge vers $0$
+\end{prp}
+
+\begin{prp}
+Soit $(u_n)$ une suite qui ne converge pas vers $0$.
+
+La série $\sum u_n$ diverge.
+
+On dit que \voc{$\sum u_n$ diverge grossiérement}
+\end{prp}
+
+\begin{prp}
+\[
+\sum q^n \begin{cases}
+    \text{converge vers } \frac{1}{1 - q}   & si |q| < 1 \\
+    \text{diverge}                          & si |q| \geq 1
+\end{cases}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $(u_n)$ une suite d'éléments de $\K$.
+
+$(u_n)$ converge \ssi la série $\sum(u_{n + 1} - u_n)$ converge.
+
+Dans ce cas
+\[
+    \sum^{+\infty}_{n = 0} (u_{n + 1} - u_n) = \lminf u_n - u_0
+\]
+\end{prp}
+
+\section{Série à termes positifs ou nuls}
+
+\subsection{condition de convergence}
+
+\begin{prp}
+Une série à termes positifs converge \ssi la suite des sommes partielle
+est majorée
+\end{prp}
+
+\begin{prp}
+Soient $\sum u_n$ et $\sum v_n$ des séries \voc{à termes positifs} tel que
+$\forall n \in \ N, \;\; u_n \leq v_n$.
+
+\begin{itemize}
+    \item si $\sum v_n$ converge, alors $\sum u_n$ converge
+        et $\sum^{+\infty}_{n = 0} u_n \leq \sum^{+\infty}_{n = 0} v_n$
+    \item si $\sum u_n$ diverge, alor $\sum v_n$ diverge
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soient $\sum u_n$ et $\sum v_n$ des séries à termes positifs tel que
+$u_n = \dom(v_n)$
+
+\begin{itemize}
+    \item si $\sum v_n$ converge alors $\sum u_n$ converge
+    \item si $\sum u_n$ diverge alors $\sum v_n$ diverge
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soient $\sum u_n$ et $\sum v_n$ deux séries à termes strictement positifs
+à partir d'un certain rang tel que $u_n \equ v_n$.
+
+Les séries $\sum u_n$ et $\sum v_n$ sont de même nature
+\end{prp}
+
+\subsection{Série de Riemann}
+
+\begin{prp}
+Soit $n_0 \in \N$, $f : [n_0, +\infty[ \to \R_+$ une fonction $\co{0}$ sur
+$[n_0, +\infty[$, $\forall n \geq n_0, I_n = \int^n_{n_0} f(t) \mathrm{d}t$,
+
+\[
+    \sum_{n \geq n_0} f(n) \text{ converge} \iff (I_n) \text{ converge}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $\alpha \in \R$. La série $\sum_{n \geq 1} \frac{1}{n^\alpha}$
+\begin{itemize}
+    \item diverge grossiérement, si $\alpha \in ]-\infty, 0]$
+    \item diverge, si $\alpha \in ]0, 1]$
+    \item converge, si $\alpha \in ]1, +\infty[$
+\end{itemize}
+\end{prp}
+
+\section{Séries absolument convergentes}
+
+\begin{dfn}
+Soit $(u_n) \in \K^\N$.
+
+On dit que $\sum u_n$ \voc{ converge absolument ou est absolument
+    convergente} si $\sum \abs*{u_n}$ converge
+\end{dfn}
+
+\begin{prp}
+Soit $(u_n) \in \K^\N$ tel que $\sum u_n$ est absolument convergente.
+\begin{gather*}
+    \sum u_n \text{ converge} \\
+    \abs{\sum^{+\infty}_{n = 0} u_n} \leq \sum^{+\infty}_{n = 0}
+        \abs*{u_n }
+\end{gather*}
+\end{prp}
+
+\section{Application ou dévelopement décimal d'un nombre réel}
+
+\begin{dfn}
+Un nombre est dit \voc{décimal} lorsqu'il peut s'écrire sous la forme
+\[
+    \frac{a}{10^n}
+\]
+où $a \in \Z$ et $n \in \N$
+
+On note $\De$ l'ensemble des nombres décimaux.
+\end{dfn}
+
+\begin{thm}
+Soit $x \in [0, 1[$ il existe une unique suite $(a_n)_{n \in \N}$
+\begin{itemize}
+    \item $\forall n \in \N^*, \;\; a_n \in \lib 0, 9 \rib$
+    \item $x = \sum^{+\infty}_{n = 1} a_n \times 10^{-n}$
+    \item la suite $(a_n)$ n'est pas stationaire égale à $9$
+\end{itemize}
+L'écriture ''$x = \sum^{+\infty}_{n = 1} a_n \times 10^{-n}$'' est appelée
+\voc{développement décimal propre de $x$}
+\end{thm}
+
+\end{document}

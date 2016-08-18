@@ -1,0 +1,12 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}\'Equation diff\IeC {\'e}rentielle lin\IeC {\'e}aire du premier ordre}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}R\IeC {\'e}solution de l'\IeC {\'e}quation homog\IeC {\`e}ne}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Forme des solutions de l'\IeC {\'e}quation avec second membre}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}M\IeC {\'e}thode de la variation de la constante}{3}{subsection.1.3}
+\contentsline {section}{\numberline {2}\'Equations lin\IeC {\'e}aire du second ordre \IeC {\`a} coefficients constant}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}R\IeC {\'e}solution de l'\IeC {\'e}quation homog\IeC {\`e}ne}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}R\IeC {\'e}solution dans le cas complexe}{4}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}R\IeC {\'e}solution dans le cas r\IeC {\'e}el}{4}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}$f(x)$ est une fonction polynomiale}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}$f(x)$ de la forme $P(x) \mathrm {e}^x$}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Probl\IeC {\`e}me de Cauchy}{5}{section.3}

@@ -1,0 +1,22 @@
+\select@language {french}
+\contentsline {part}{I\hspace {1em}Matrice????}{2}{part.1}
+\contentsline {section}{\numberline {1}D\IeC {\'e}finitions}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}D\IeC {\'e}finition d'une matrice}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}structures d'espaces vectoriel}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Matrices et applications lin\IeC {\'e}aires}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Produit matriciel}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Definition et premi\IeC {\`e}res propri\IeC {\'e}t\IeC {\'e}s}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Matrice carr\IeC {\'e}es}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Transpos\IeC {\'e}e d'une matrice}{6}{subsection.2.3}
+\contentsline {section}{\numberline {3}Changements de bases}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Matrices de passage entre deux bases}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Changement de base pour une application lin\IeC {\'e}aire}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Matrices \IeC {\'e}quivalentes et matrices semblables}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Trace d'une matrice, d'un endomorphisme}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Trace d'un endomorphisme}{9}{subsection.4.1}
+\contentsline {section}{\numberline {5}Noyaux, image, rang d'une matrice}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Application lin\IeC {\'e}aire canoniquement assoc\IeC {\'e}e \IeC {\`a} une matrice}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Rang d'une matrice}{10}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Rang de matrices extraites}{11}{subsection.5.3}
+\contentsline {section}{\numberline {6}Op\IeC {\'e}rations \IeC {\'e}l\IeC {\'e}mentaires et syst\IeC {\`e}mes lin\IeC {\'e}aires}{11}{section.6}
+\contentsline {subsection}{\numberline {6.1}Op\IeC {\'e}ration \IeC {\'e}l\IeC {\'e}mentaire sur un matrice}{11}{subsection.6.1}

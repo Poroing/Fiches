@@ -1,0 +1,889 @@
+\input{skeleton}
+
+\title{Espaces vectoriels}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+
+
+\part{Généralité}
+
+
+\section{Définition}
+
+\begin{dfn}
+On appelle $\K$-espace vectoriel un ensemble $E$ muni d'une \lci $+$ et
+d'une loi de composition externe $\point$; i-e d'une application
+\begin{align*}
+            \K \times E &\to E \\
+    (\lambda, \vec{x})  &\mapsto \lambda \point \vec{x}
+\end{align*}
+vérifiant
+\begin{itemize}
+    \item $(E, +)$ est un groupe abélien
+    \item $\forall (\vec{x}, \vec{y}) \in E^2, \forall (\lambda, \mu) \in \K^2$
+    \begin{itemize}
+        \item $\lambda \point (\vec{x} + \vec{y})
+        = \lambda \point \vec{x} + \lambda \point \vec{y}$
+        \item $(\lambda + \mu) \point \vec{x}
+        = \lambda \point \vec{x} + \mu \point \vec{y}$
+        \item $\lambda \point (\mu \point \vec{x})
+        = (\lambda \times \mu) \point \vec{x}$
+        \item $1 \point \vec{x} = \vec{x}$
+    \end{itemize}
+\end{itemize}
+Les éléments de $E$ sont alors appellée \emph{vecteurs} et les éléments de
+$\K$ sont appellée des \emph{scalaires}
+\end{dfn}
+
+\begin{dfn}
+Soit $(E, +, \;\point\,)$ un $\K$-espace vectoriel, $n \in \N^*, \;\; \forall 
+(\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n) \in E^n$, on appelle
+\emph{combinaison linéaire de $\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n$}
+tout vecteurs de la forme:
+\[
+    \lambda_1 \point \vec{x}_1 + \lambda_2 \point \vec{x}_2 + \ldots +
+    \lambda_n \point \vec{x}_n
+\]
+où $(\lambda_1, \lambda_2, \ldots, \lambda_n) \in \K^n$
+\end{dfn}
+
+\begin{dfn}[Notations]
+\begin{itemize}
+    \item L'élément neutre pour $+$ dans $E$ est notée $\vec{0}$
+    (ou $\vec{0}_E)$, il est appellé \emph{le vecteur nul de $E$}
+    \item le symétrique de $\vec{x} \in E$ pour $+$ est noté $-\vec{x}$
+    Aussi on pose $\forall (\vec{x}, \vec{y}) \in E^2, \;\; \vec{x} - \vec{y}
+    = \vec{x} + (-\vec{y})$
+\end{itemize}
+\end{dfn}
+
+\begin{prp}
+$\forall \lambda \in \K^2, \;\; \forall (\vec{x}, \vec{y}) \in E^2$
+\begin{itemize}
+    \item $\lambda \point \vec{x} = \vec{0} \iff \{\lambda = 0 \ou
+    \vec{x} = \vec{0}\}$
+    \item $(\lambda - \mu) \point \vec{x} = \lambda \point \vec{x} - 
+    \mu \point \vec{x}$
+    \item $\lambda \point (\vec{x} - \vec{y}) = \lambda \point \vec{x} - 
+    \lambda \point \vec{y}$
+\end{itemize}
+\end{prp}
+
+
+\subsection{Sous-espace vectoriel}
+
+\begin{dfn}[Sous-espace vectoriel]
+On appelle \emph{sous-espace vectoriel de $E$}, toute partie $F$ de $E$ tel que
+$(F, +, \;\point\,)$ soit un $\K$-espace vectoriel, de même $\K$ que $E$.
+\end{dfn}
+
+\begin{prp}[Caractérisation des sous-espaces vectoriels]
+Soit $(E, +, \;\point\,)$ un $\K$-espace vectoriel, $F$ est un
+sous-espace vectoriel de $(E, +, \;\point\,)$ \ssi
+\begin{itemize}
+    \item $F \subset E$
+    \item $F \neq \emptyset$
+    \item $\forall (\vec{x}, \vec{y}) \in F^2, \;\; \vec{x} + \vec{y} \in F
+    \et \forall \lambda \in \K, \;\; \lambda \point \vec{x} \in F$
+\end{itemize}
+On peut remplacer la troisième proposition par:
+\begin{itemize}
+    \item $\forall (\vec{x}, \vec{y}) \in F^2, \;\;
+    \forall (\lambda, \mu) \in \K^2, \;\; \lambda \point \vec{x} +
+    \mu \point \vec{y} \in F$
+    \item $\forall (\vec{x}, \vec{y}) \in F^2, \;\;
+    \forall \lambda \in \K, \;\;
+    \vec{x} + \lambda \point \vec{y} \in F$
+\end{itemize}
+\end{prp}
+
+\begin{rem}
+un sous-espace vectoriel d'un espace vectoriel $E$ est donc une partie non vide
+de $E$ qui est stable par combinaisons linéaires.
+\end{rem}
+
+\begin{prp}
+Une intersection de sous-espace vectoriel d'un espace vectoriel $E$ est un
+sous-espace vectoriel de $E$
+\end{prp}
+
+\begin{rem}
+Soit un espace vectoriel $(E, +, \;\point\,)$,
+\[
+    E \neq \{\vec{0}\} \implies E \text{ est infini}
+\]
+\end{rem}
+
+
+\subsection{Sous-espace vectoriel engendré}
+
+\begin{prp}
+Soit $E$ un espace vectoriel, $n \in \N^*$ et
+$(\vec{x_1}, \ldots, \vec{x}_n) \in E^n$,
+Le plus petit sous-espace vectoriel de $E$ contenant
+$\{ \vec{x}_1, \ldots, \vec{x}_n \}$ est l'ensemble des combinaisons
+linéaires des vecteurs $\vec{x_1}, \ldots, \vec{x_n}$ qui est appellé
+\emph{le sous-espace vectoriel de $E$ engendré par
+$\vec{x}_1, \ldots, \vec{x}_n$} et est notée
+\[
+    \Vect(\{\vec{x}_1, \ldots, \vec{x}_n\})
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel et $A$ un partie quelconque de $E$,
+Le plus petit sous-espace vectoriel contenant $A$ est l'ensemble notée
+\[
+    \Vect(A) = \bigcap_{\substack{F \text{ sev de } E \\ A \subset F}} F
+\]
+$\Vect(A)$ est appellée le \emph{sous-espace vectoriel de $E$
+engendré par $A$}
+\end{prp}
+
+
+\section{Application Linéaire}
+
+\subsection{Definition}
+
+\begin{dfn}
+Soit $E$ et $F$ des $\K$-espace vectoriel et $f : E \to F$,
+$f$ est dite \emph{linéaire} lorsque
+\[
+    \forall (\vec{x}, \vec{y}) \in E^2, \;\;
+    \forall (\lambda, \mu) \in \K^2, \;\;
+    f(\lambda \point \vec{x} + \mu \point \vec{y}) =
+    \lambda \point f(\vec{x}) + \mu \point f(\vec{y})
+\]
+\end{dfn}
+
+\begin{dfn}
+Soit $E$ et $F$ des $\K$-espace vectoriel et $f : E \to F$ linéaire,
+$f$ est un
+\begin{description}
+    \item[isomorphisme d'espaces vectoriels] \quad \\
+    \ssi $f$ est bijective
+    \item[endomorphisme du $\K$-espace vectoriel $E$] \quad \\
+    \ssi $F = E$
+    \item[automorphisme du $\K$-espace vectoriel $E$] \quad \\
+    \ssi $F = E$ et $f$ est bijective
+    \item[une forme linéaire de $E$] \quad \\
+    \ssi $F = \K$
+\end{description}
+\end{dfn}
+
+\begin{dfn}
+Soit $E$ et $F$ deux $\K$-espaces vectoriels.
+\[
+    \Lin(E, F) \text{est l'ensemble des fonction linéaires de } E
+    \text{ dans } F
+\]
+\end{dfn}
+
+
+\subsection{Premières propriétés}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espace vectoriel et $f \in \Lin(E, F)$,
+\begin{gather*}
+    f(\vec{0}_E) = \vec{0}_F \\
+    \forall \vec{x} \in E, \;\; f(-\vec{x}) = -f(\vec{x})
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Une composée de fonction linéaires est une application linéaire.
+\end{prp}
+
+\begin{prp}
+L'application réciproque d'un isomorphisme d'espace vectoriel est linéaire.
+\end{prp}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espace vectoriel, $\Lin(E, F)$ est un
+$\K$-espace vectoriel.
+\end{prp}
+
+\begin{prp}
+Soit $E$ et $F$ des espaces vectoriel et $f \in \Lin(E, F)$
+\begin{itemize}
+    \item Soit $E'$ un sous-espace vectoriel de $E$, $f(E')$ est un
+    sous-espace vectoriel de $F$.
+    \item Soit $F'$ un sous-espace vectoriel de $F$, $f^{-1}(F')$ est un
+    sous-espace vectoriel de $E$
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soient $E$, $F$ et $G$ des $\K$-espace vectoriel
+\begin{itemize}
+    \item pour $u \in \Lin(E, F)$ fixée l'application
+    \begin{align*}
+        \Lin(F, G) &\to \Lin(E, G) \\
+        v &\mapsto v \circ u
+    \end{align*}
+    est linéaire
+    \item pour $v \in \Lin(F, G)$ fixée, l'application
+    \begin{align*}
+        \Lin(E, F) &\to \Lin(E, G) \\
+        u &\mapsto v \circ u
+    \end{align*}
+    est linéaire
+\end{itemize}
+\end{prp}
+
+
+\subsection{Noyau et Image d'une application linéaire}
+
+\begin{dfn}
+Soit $E$ et $F$ des espaces vectoriels et $f \in \Lin(E, F)$,
+On appelle
+\begin{description}
+    \item[noyau de $\bs f$] l'ensemble notée
+    \[
+        \Ker(f) = \left\{ \vec{x} \in E \middle|
+        f(\vec{x}) = \vec{0}_F \right\} = f^{-1}(\{\vec{0}_F\})
+    \]
+    \item[image de $\bs f$] l'ensemble notée
+    \[
+        \Ima(f) = \left\{ f(\vec{x}) \middle| \vec{x} \in E \right\}
+        = f(E)
+    \]
+\end{description}
+\end{dfn}
+
+\begin{prp}
+Soit $F$ et $E$ deux espaces vectoriels et $f \in \Lin(E, F)$,
+$\Ker(f)$ est un sous-espace vectoriel de $E$ et $\Ima(f)$ est un
+sous-espace vectoriel de $F$.
+\end{prp}
+
+\begin{prp}
+Soit $f \in \Lin(E, F)$
+\begin{align*}
+    f \text{ est injective} &\iff \Ker(f) = \{ \vec{0}_E \} \\
+    f \text{ est surjective} &\iff \Ima(f) = F
+\end{align*}
+\end{prp}
+
+
+\section{Somme de sous-espaces vectoriels}
+
+
+\subsection{Définition}
+
+\begin{dfn}
+Soit $F$ et $G$ des sous espaces vectoriel, la somme de $F$ et $G$ est
+notée $F + G$ et est l'ensemble définie par
+\[
+    F + G = \left\{ \vec{x} + \vec{y} \middle|
+    (\vec{x}, \vec{y}) \in F \times G \right\}
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $F$ est $G$ des sous-espaces vectoriels de l'espace vectoriel $E$
+\[
+    F + G = \Vect( F \union G )
+\]
+\end{prp}
+
+
+\subsection{Somme direct de sous-espace vectoriel}
+
+\begin{dfn}
+Soit $F$ et $G$ deux sous-espaces vectoriel de l'espace vectoriel $E$,
+$F$ et $G$ sont dits somme direct \ssi il y a unicité pour tout vecteurs
+de $F + G$ de la décomposition comme somme d'un vecteur de $F$ et d'un
+vecteur de $G$ i-e
+\[
+    \forall \vec{z} \in F + G, \;\;
+    \exists! (\vec{x}, \vec{y}) \in F \times G \tq
+    \vec{z} = \vec{x} + \vec{y}
+\]
+On note alors $F \oplus G$
+\end{dfn}
+
+\begin{prp}
+Soit $F$ et $G$ deux sous-espaces vectoriel de l'espace vectoriel $E$
+\[
+    F \oplus G \iff F \inter G = \{ \vec{0} \}
+\]
+\end{prp}
+
+\begin{dfn}
+Soient $F$ et $G$ des sous-espace vectoriel du $\K$-espace vectoriel $E$,
+On dit que $F$ et $G$ sont supplémentaire dans $E$ lorsque
+\[
+    E = F \oplus G
+\]
+On dit dans ce cas que \emph{$G$ est un supplémentaire de $F$ dans $E$}
+\end{dfn}
+
+\begin{prp}
+Soient $F$ et $G$ des sous-espace vectoriel du $\K$-espace vectoriel
+$E$,
+\[
+    E = F \oplus G \iff
+    \begin{cases}
+        F + G = E \\
+        F \inter G = \{\vec{0}\}
+    \end{cases}
+\]
+\end{prp}
+
+\begin{prp}
+Soient $E$ et $F$ des $\K$-espaces vectoriels et $f \in \Lin(E, F)$,
+On suppose que $G$ est un supplémentaire de $\Ker(f)$ dans $E$,
+$f_{|G}$ réalise un isomorphisme d'espace vectoriel de $G$ sur $\Ima(f)$
+\end{prp}
+
+
+\subsection{Somme de plus de deux sous-espaces vectoriels}
+
+\begin{dfn}
+Soient $p \in \N^*$ et $F_1, F_2, \ldots, F_p$ des sous-espace vectoriel
+du $\K$-esapce vectoriel $E$, on appelle somme de $F_1, F_2, \ldots F_p$,
+l'ensemble
+\[
+    \sum^p_{i = 1} F_i = \left\{ \sum^p_{i = 1} \vec{x}_i \middle|
+    (\vec{x}_1, \ldots, \vec{x}_p) \in \prod^p_{i = 1} F_i \right\}
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $p \in \N^*$ et $F_1, F_2, \ldots, F_p$ sont des
+sous-espaces vectoriel du $\K$-espace vectoriel $E$,
+\[
+    \sum^p_{i = 1} F_i = \Vect\left( \bigcup^p_{i = 1} F_i \right)
+\]
+\end{prp}
+
+\begin{dfn}
+Soit $p \in N^*$ et $F_1, \ldots, F_p$ des sous-espaces vectoriels
+du $\K$-espace vectoriel $E$, $\sum^p_{i = 1} F_i$ est \emph{directe}
+lorsque
+\[
+    \forall \vec{x} \in \sum^p_{i = 1} F_i, \;\;
+    \exists! (\vec{x}_1, \ldots, \vec{x}_p) \in \prod^p_{i = 1} F_i
+    \tq \vec{x} = \sum^p_{i = 1} \vec{x}_i
+\]
+On note alors $\bigoplus^p_{i = 1} F_i$
+\end{dfn}
+
+\begin{prp}
+Si $p \in \N^*$ et $F_1, \ldots, F_p$ des sous-espace vectoriel du
+$\K$-espace vectoriel $E$, $\bigoplus^p_{i = 1} F_i$ \ssi
+$\vec{0}_E$ se décompose de manière unique comme somme de vecteurs
+appartenant aux $F_i$
+\end{prp}
+
+\begin{prp}
+Soit $p \in \N^*$, $F_1, \ldots, F_p$ des sous espace vectoriel du
+$\K$-espace vectoriel $E$ tel que $E = \bigoplus^p_{i = 1} F_i$, $F$
+un $\K$-espace vectoriel et
+$\forall i \in \lib 1, p \rib, \;\; u_i \in \Lin(F_i, F)$,
+\[
+    \exists! u \in \Lin(E, F) \tq \forall i \in \lib 1, p \rib, \;\;
+    u_{| F_i} = u_i
+\]
+\end{prp}
+
+
+\section{Endomorphismes d'un espace vectoriel}
+
+
+\subsection{Propriétés algébriques}
+
+\begin{prp}
+$(\Lin(E), +, \circ)$ est un anneau.
+\end{prp}
+
+\begin{dfn}
+L'ensemble des automorphismes de $E$ est un groupe pour la loi $\circ$,
+appellé le \emph{groupe linéaire de $E$} et est notée $GL\,(E)$
+\end{dfn}
+
+
+\subsection{Endomorphismes particuliers}
+
+\begin{dfn}[Homethétie]
+Soit $E$ un $\K$-espace vectoriel et $f \in Lin(E) \tq \exists k \in \K
+\tq f = k \point \Id_E$, $f$ est une homothétie.
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel et $H$ l'ensemble des homothéties
+appartenant à $\Lin(E)$.
+$(H, +, \circ)$ est un corps
+\end{prp}
+
+\begin{dfn}[Projecteur]
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ deux sous-espaces vectoriels
+\emph{suplémentaires} de $E$ on appelle \emph{projecteur sur $F$
+parallélement à $G$} l'application:
+\begin{align*}
+    p:  E &\to E \\
+        x &\mapsto x_1
+\end{align*}
+Où $x = x_1 + x_2 \tq (x_1, x_2) \in F \times G$
+\end{dfn}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ des sous-espaces vectoriels
+de $E$ tel que $E = F \oplus G$, $p$ la projection sur $F$ parallélement à
+$G$ et $q$ la projection sur $G$ parallélement à $F$.
+\[
+    p + q = \Id_E
+\]
+$p$ et $q$ sont des \emph{projecteurs addociès}
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ des sous-espaces vectoriels
+de $E$ tel que $E = F \oplus G$ et $p$ la projection sur $F$ parallélement à
+$G$.
+\begin{gather*}
+    p \in \Lin(E) \\
+    p \circ p = p \\
+    \Ima(p) = F \et \Ker(f) = G
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ des sous-espaces vectoriels
+de $E$ et $p \in \Lin(E) \tq p \circ p = p$.
+$p$ est un projecteur sur $\Ima(p)$ parallélement à $\Ker(p)$.
+\end{prp}
+
+\begin{dfn}[Symétrie]
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ des sous-espaces vectoriels
+supplémentaire de $E$. On appelle symétrie par rapport à $F$ parallélement
+à $G$ l'application:
+\begin{align*}
+    s:  E &\to E \\
+        x &\mapsto x_1 - x_2
+\end{align*}
+Où $x = x_1 + x_2 \tq (x_1, x_2) \in F \times G$
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $F$ et $G$ des sous-espaces vectoriels
+supplémentaires et $s$ ma symétrie par rapport à $F$ parallélement à $G$
+\begin{gather*}
+s \in \Lin(E) \\
+s \circ s = \Id_E \\
+F = \Ker(s - \Id_E) \et G = \Ker(s + \Id_E)
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel et $s \in \Lin(E) \tq s \circ s = \Id_E$.
+Alors $s$ est la symétrie par rapport à $\Ker(s - \Id_E)$ parallélement à
+$\Ker(s + \Id_E)$.
+\end{prp}
+
+
+
+\part{Espaces vectoriels de dimension finie}
+
+
+\section{Familles libres, famille génératrices, bases}
+
+
+\subsection{Définition}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$(\alpha_i)_{i \in I}$ une famille d'élément de $E$ ou une famille
+d'élément de $\K$. On dit que la famille $(\alpha_i)_{i \in I}$ est à
+\emph{support finie} ou que les $\alpha_i$ sont \emph{presque tous nul}
+lorqu'il existe un nombre fini d'éléments de la famille non nuls.
+\end{dfn}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $n \in \N^*$ et 
+$(x_1, x_2, \ldots, x_n) \in E^n$. On dit que la famille
+$(x_1, \ldots, x_n)$ est \emph{libre} ou que $x_1, x_2, \ldots x_{n - 1} 
+et x_n$ sont \emph{linéairement indépendants} lorsque
+\[
+    \forall (\lambda_1, \lambda_2, \ldots, \lambda_n) \in \K^n, \;\;
+    \sum_{i = 1}^n \lambda_i \point x_i = 0 \implies \forall
+    i \in \lib 1, n \rib, \;\; \lambda_i = 0
+\]
+Sinon la famille est dite \emph{liée}.
+\end{dfn}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$(x_i)_{i \in I}$ une famille de vecteurs de $E$. On dit que la famille
+$(x_i)_{i \in I}$ est \emph{libre} lorsque toute les sous-familles finie de
+$(x_i)_{i \in I}$ sont libres.
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$(x_i)_{i \in I}$ une famille de vecteurs de $E$, $(x_i)_{i \in I}$ est
+liée \ssi au moin un des vecteurs de cette famille est une combinaison
+linéaire finie d'autres vecteurs de la famille.
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$(x_i)_{i \in I}$ une famille de vecteurs de $E$. 
+$\Vect(\left\{(x_i)_{i \in I}\right\})$ est l'ensemble des combinaisons
+linéaires des vecteurs cette famille.
+\end{prp}
+
+\subsection{Base d'un espace vectoriel}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$(x_i)_{i \in I}$ une famille de vecteurs de $E$. On dit que la famille
+$(x_i)_{i \in I}$ est \emph{génératrice dans $E$} lorsque
+\[
+    \Vect(\left\{(x_i)_{i \in I}\right\}) = E
+\]
+\end{dfn}
+
+\begin{dfn}[Base]
+Soit $E$ un $\K$-espace vectoriel. On appelle \emph{base de $E$} toute
+famille de vecteurs de $E$ qui est à la fois \emph{libre} et
+\emph{génératrice} dans $E$.
+\end{dfn}
+
+\begin{prp}[Caractérisation des bases]
+Soit $E$ un $\K$-espace vectoriel, $I$ un ensemble non vide et
+$B = (e_i)_{i \in I}$. $B$ est une base de $E$ \ssi $\exists!
+(x_i)_{i \in I}$ une famille de scalaires à support fini tel que
+$x = \sum_{i \in I} x_i e_i$.
+La famille $(x_i)_{i \in I}$ est appellée famille des \emph{coordonée
+du vecteur $x$ dans la base $B$}
+\end{prp}
+
+
+\section{Dimension d'un espace vectoriel}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel, $E$ est dit de \emph{dimension finie}
+lorsque $E$ admet au moin une \emph{famille finie génératrice}, sinon
+$E$ est dit de dimension infinie.
+\end{dfn}
+
+\begin{thm}
+Soit $E$ un $\K$-espace vectoriel, $n \in \N^*$. Si $E$ admet une famille
+\emph{génératrice} de $n$ vecteurs alors toute famille de $(n + 1)$
+vecteurs est \emph{liée}.
+\end{thm}
+
+\begin{thm}[de la base incompète]
+Soit $E$ un $\K$-espace vectoriel, $(p, q) \in (\N^*)^2$,
+$L = (x_1, x_2, \ldots, x_p)$ une famille \emph{libre} de $E$ et
+$G = (x_1, x_2, \ldots, x_q)$ une famille \emph{génératrice} de $E$.
+Il existe une \emph{base} de $E$ obtenue en ajoutant à $L$ des vecteurs
+de la famille de $G$. On dit que l'on a complété $L$ en une base de $E$
+à l'aide de vecteurs de $G$.
+\end{thm}
+
+\begin{thm}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différent de
+$\{0\}$ alors
+\begin{itemize}
+    \item $E$ admet au moin une base finie
+    \item toutes les bases de $E$ sont finies et possédent le même nombre
+    de vecteurs d'une base de $E$, ce nombre est appellée 
+    \emph{dimension de $E$} et est notée $\dime(E)$.
+\end{itemize}
+On définie $\dime(\{0\}) = 0$
+\end{thm}
+
+
+\section{Sous-espace vectoriel d'un espace vectoriel de dimension finie}
+
+\begin{prp}
+Soit $E$ un \hyp{$\K$-espace vectoriel} de \hyp{dimension finie} et $F$
+un \hyp{sous-espace vectoriel de $E$}.
+\begin{gather*}
+    F \text{ est de dimension finie.} \\
+    \dime(F) \leq \dime(E) \\
+    \dime(F) = \dime(E) \iff E = F
+\end{gather*}
+\end{prp}
+
+\begin{dfn}
+Soit $E$ un \hyp{$\K$-espace vectoriel} et $F$ une \hyp{famille finie de
+vecteurs de $E$}.
+
+On appelle \voc{rang de la famille $F$} le nombre notée $\rang(F)$ tel que
+\[
+    \rang(F) = \dime(\Vect(F))
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $F$ et $F'$ des familles finies
+de vecteurs de $E$
+
+\begin{gather*}
+    F \subset F' \implies \rang(F) \leq \rang(F') \\
+    \rang(F) = \Card(F) \iff F \text{ est libre}
+\end{gather*}
+\end{prp}
+
+
+\subsection{Dimension d'une somme d'espace vectoriel}
+
+\begin{prp}
+Soit $E$ un \hyp{$\K$-espace vectoriel de} \hyp{dimension finie},
+$F$ et $G$ des \hyp{sous-espaces vectoriels de $E$} et $B$ et $B'$
+respectivement \hyp{des bases de $F$ et $G$}.
+\[
+    E = F \oplus G \iff B \union B' \text{ est une base de } E
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un \hyp{$\K$-espace vectoriel} de \hyp{dimension finie}.
+
+Tout sous-espace vectoriel de $E$ admet au moin un sous-espace vectoriel
+supplémentaire dans $E$.
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie.
+\[
+    \forall (G, F) \text{ sous-espaces vectoriels de } E, \;\;
+    E = F \oplus G \implies \dime(E) = \dime(F) + \dime(G)
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie, $p \in \N^*-\{1\}$,
+$(F_i)_{i \in \lib 1, p \rib}$ une famille de sous-espace vectoriel de
+$E$ et $(B_i)_{i \in \lib 1, p \rib}$ une famille de famille de vecteurs
+de $E$ tel que $\forall i \in \lib 1, p \rib, \;\; 
+B_i$ est une base de $F_i$
+\[
+    E = \bigoplus_{i = 1}^p F_i \iff \bigcup_{i = 1}^p B_i \text{ est
+    une base de } E
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $p \in \N^*-\{1\}$ des
+sous-espace vectoriel de $E$ de dimension finie.
+\begin{gather*}
+    \sum_{i = 1}^p F_i \text{ est de dimension finie} \\
+    \dime(\sum_{i = 1}^p F_i) \leq \sum_{i = 1}^p \dime(F_i) \\
+    \dime(\sum_{i = 1}^p F_i) = \sum_{i = 1}^p \dime(F_i) \iff
+    \bigoplus_{i = 1}^p F_i
+\end{gather*}
+\end{prp}
+
+\begin{prp}[Formule de Grassman]
+Soit $E$ un \hyp{$\K$-espace vectoriel} et $F$ et $G$ des \hyp{sous-espace
+vectoriel de $E$} de \hyp{dimension finie}.
+\begin{gather*}
+    F + G \text{ est de dimension finie} \\
+    \dime(F + G) = \dime(F) + \dime(G) - \dime(F \inter G)
+\end{gather*}
+Cette dernière relation est nommée \voc{formule de Grassemann}.
+\end{prp}
+
+\begin{prp}
+Soit $E$ un \hyp{$\K$-espace vectoriel} de \hyp{dimension finie} et
+$F$ et $G$ des \hyp{sous-espace vectoriel de $E$}.
+\begin{align*}
+        &E = F \oplus G \\
+\iff    &F \inter G = \{0\} \et \dime(E) = \dime(F) + \dime(G) \\
+\iff    &E = F + G \et \dime(E) = \dime(F) + \dime(G) \\
+\end{align*}
+\end{prp}
+
+
+\section{Application linéaires en dimension finie}
+
+\begin{thm}
+Soit $E$ un $\K$-espace vectoriel de dimension finie, $F$ un $\K$-espace
+vectoriel, $B = (e_1, e_2, \ldots, e_{\dime(E)})$ une base de $E$ et
+$e'_1, e'_2, \ldots, e'_{\dime{E}}$ des vecteurs de $F$.
+\[
+    \exists! f \in \Lin(E, F) \tq \forall i \in \lib 1, \dime(E) \rib,
+    \;\; f(e_i) = e_i
+\]
+\end{thm}
+
+
+\subsection{Isomorphisme d'espace vectoriel}
+
+\begin{dfn}
+Soit \hyp{$E$ et $F$ de $\K$-espaces vectoriels}
+
+ces espaces vectoriels sont dient \voc{isomorphes} \ssi
+il existe au moin un isomorphisme d'espace vectoriel de $E$ dans
+$F$
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ tel que $n \neq 0$
+\[
+    E \text{ est un isomorphe à } \K^n
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$.
+\[
+    E \text{ est un isomorphe à } F \iff F \text{ est de dimension finie}
+    \et \dime(F) = \dime(E)
+\]
+\end{prp}
+
+
+\subsection{Rang d'une application linéaire}
+
+\begin{prp}
+Soient \hyp{$E$ et $F$ des $\K$-espaces vectoriels},
+\hyp{$f \in \Lin(E, F)$} et \hyp{$B = (e_1, \ldots, e_n)$ une base de $E$}
+
+\begin{gather*}
+    (f(e_1), \ldots, f(e_2)) \text{ est génératrice dans } \Ima(f) \\
+    f \text{ est surjective} \iff (f(e_1), \ldots, f(e_n)) \text{ est
+    génératrice dans } F \\
+    f \text{ est injective} \iff (f(e_1), \ldots, f(e_n)) \text{ est
+    libre} \\
+    f \text{ est bijective} \iff (f(e_1), \ldots, f(e_n)) \text{ est
+    une base de} F
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Soient \hyp{$E$ et $F$ des $\K$-espaces vectoriels} de
+\hyp{dimension finie} \hyp{différentes de $0$} tel que
+\hyp{$\dime(F) = \dime(E)$} et \hyp{$f \in \Lin(E, F)$}
+
+\[
+    f \text{ est injective} \iff f \text{ est surjective}
+    \iff f \text{ est bijective}
+\]
+\end{prp}
+
+\begin{dfn}
+Soient $E$ une $\K$-espace vectoriel de dimension finie différente de $0$,
+$F$ un $\K$-espace vectoriel et $f \in \Lin(E, F)$. On appelle rang de $f$,
+notée $\rang(f)$, le nombre $\dime(\Ima(f))$.
+\end{dfn}
+
+\begin{thm}[du rang]
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$,
+$F$ une $\K$-espace vectoriel et $f \in \Lin(E, F)$.
+\[
+    \dime(E) = \dime(\Ker(f)) + \rang(f)
+\]
+\end{thm}
+
+\begin{prp}
+Soit $E$ et $F$ des $\K$-espace vectoriel de dimension finie différente de
+$0$ et $f \in \Lin(E, F)$.
+\begin{itemize}
+    \item $f$ est injective \ssi $\rang(f) = \dime(E)$
+    \item $f$ est surjective \ssi $\rang(f) = \dime(F)$
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soit $E$, $F$ et $G$ des $\K$-espaces vectoriels de dimension finie
+différente de $0$ et $f \in \Lin(E, F)$
+\begin{itemize}
+    \item Soit $g$ un isomorphisme d'espace vectoriel de $F$ dans $G$
+    \[
+        \rang(g \circ f) = \rang(f)
+    \]
+    \item Soit $g$ un isomorphisme d'espace vectoriel de $G$ dans
+    $E$
+    \[
+        \rang(f \circ g) = \rang(f)
+    \]
+\end{itemize}
+\end{prp}
+
+
+
+\subsection{Forme linéaire et hyperplan}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$
+et $B = (e_1, \ldots, e_n)$, une base de $E$.
+
+Pour tout $i \in \lib 1, n \rib$ on définit l'application
+$e^*_i : E \to \K$ qui, à tout $x \in E$ associe la $i$-eme
+coordonnèee de $x$ dans $B$. 
+
+Les applications $e^*_i$ sont les formes linéaires de $E$
+appellées \voc{les formes linéaires coordonées sur $E$ relativement
+à la base $B$}
+\end{dfn}
+
+\begin{prp}
+Soit $E$ une $\K$-espace vectoriel de dimension finie différente de $0$
+et $B$ une base de $E$.
+
+Les formes linéaires coordonées sur $E$ relativement à $B$ constituent
+une base de $\Lin(E, \K)$. Par conséquent $\dime(\Lin(E, \K)) = \dime(E)$
+\end{prp}
+
+\begin{dfn}
+Soit $E$ un $\K$-espace vectoriel.
+
+On appelle \voc{hyperplan} de $E$ le noyau d'une forme linéaire non nulle
+de $E$
+
+Soit $H$ une hyperplan de $E$, et $f \in \Lin(E, \K) \tq H = \Ker(f)$,
+l'égalité ``$f(x) = 0$'' est appellée \voc{équation de $H$}.
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel et $H$ une sous-espace vectoriel de
+$E$.
+Les propositions suivantes sont équivalentes
+\begin{itemize}
+    \item $H$ est une hyperplan de $E$
+    \item Pour toute droite vetorielle $D$ non include dans $H$,
+    $E = H \oplus D$
+    \item Il existe une droite vectorielle non incluse dans $H$ tel que
+    $E = H \oplus D$.
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie, $n$,  différente
+de $0$ et $H$ un sous-espace vectoriel de $E$.
+\[
+    H \text{ est un hyperplan de } E \iff \dime(H) = n - 1
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel, $f$ et $g$ des formes linéaires non 
+nulles de $E$.
+
+$f$ et $g$ ont même hyperplan \ssi $f$ et $g$ sont proportionelles
+\end{prp}
+
+\begin{prp}
+Soit $E$ un $\K$-espace vectoriel de dimension finie différente de $0$ et
+$m \in \N^*$
+
+\begin{itemize}
+    \item l'intersection de $m$ hyperplan de $E$ est de dimension 
+    supérieur ou égale à $n - m$
+    \item réciproquement, tout sous-espace vectoriel de dimension
+    égale à $n - m$ est l'intersection de $m$ hyperplans de $E$
+\end{itemize}
+\end{prp}
+
+\end{document}

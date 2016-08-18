@@ -1,0 +1,191 @@
+\include{skeleton}
+
+\title{Polynômes}
+
+\begin{document}
+
+
+\subsection{Couples de polynômes premier entre eux}
+
+\begin{dfn}
+Soit $(A, B) \in (\K[X])^2$
+
+$A$ et $B$ sont premiers entre eux lorsque
+\[
+    A \pgcd B = 1
+\]
+c'est à dire, lorsque les seuls diviseurs communs à $A$ et $B$ sont les
+polynômes constant non nuls
+\end{dfn}
+
+\begin{thm}[Bézout]
+Soit $(A, B) \in (\K[X])^2$
+
+$A$ et $B$ sont premier entre eux \ssi
+\[
+    \exists (U, V) \in (\K[X])^2 \tq A U + B V = 1
+\]
+\end{thm}
+
+\begin{thm}[Lemme de Gauss]
+Soit $(A, B, C) \in (\K[X])^3$
+\[
+    A \divise B \times C \et A \pgcd B = 1 \implies A \divise C
+\]
+\end{thm}
+
+\begin{prp}
+Soit $(A, B, C) \in (\K[X])^3$
+\[
+    A \divise C \et B \divise C \et A \pgcd B = 1 \implies A \times B
+    \divise C
+\]
+\end{prp}
+
+\subsection{pgcd de plusieurs polynômes}
+
+\begin{prp}
+\[
+    \forall (A, B, C) \in (\K[X])^3, \;\;
+    A \pgcd (B \pgcd C) = (A \pgcd B) \pgcd C
+\]
+\end{prp}
+
+\begin{dfn}
+Soit $n \in \N, n \geq 2 (A_1, \ldots, A_n) \in (\K[X])^n$
+
+Les polynômes $A_1 \pgcd \ldots \pgcd A_n$ est appelé
+\voc{le pgcd des polynômes $A_1, \ldots, A_n$}
+\end{dfn}
+
+\begin{dfn}
+Soit $(A_1, \ldots, A_n) \in (\K[X])^n$ 
+
+On dit que $A_1, \ldots, A_n$ sont premier entre eux dans leurs
+ensemble lorsque $A_1 \pgcd \ldots \pgcd A_n = 1$
+\end{dfn}
+
+\begin{thm}[Bézout]
+Soit $(A_1, \ldots, 1_n) \in (\K[X])^n$
+
+$A_1, \ldots, A_n$ sont premiers entre dans leur ensemble \ssi
+\[
+    \exists (U_1, \ldots, U_n) \in (\K[X])^n \tq
+    A_1 U_1 + \ldots + A_n U_n = 1
+\]
+\end{thm}
+
+\section{Polynômes irréductibles de $\C[X]$ et de $\R[X]$}
+
+\subsection{Determination des polynômes irréductibles de $\R[X]$ et de
+$\C[X]$}
+
+\begin{dfn}
+Un polynôme $P$ de $\K[X]$ est dit irréductible lorsque $P$ n'est pas
+constant et lorsque ses seuls diviseurs de $\K[X]$ sont les polynômes
+constant nuls et les polynômes associés à $P$
+\end{dfn}
+
+\begin{prp}
+Soit $P \in \K[X]$ et $\alpha \in \C$
+
+$\alpha$ est racine \ssi $\bar{\alpha}$ est racine de $P$
+\end{prp}
+
+\begin{thm}
+Les polynôme irréductibles de $\R[X]$ sont
+\begin{itemize}
+    \item Les polynômes de degré $1$
+    \item Les polynômes de degré $2$ de discriminant négatif
+\end{itemize}
+\end{thm}
+
+\begin{thm}[de d'Alembert Gauss]
+Tout polynôme non constant de $\C[X]$ admet au moin une racine complexe
+\end{thm}
+
+\begin{prp}
+Tout polynôme de $\C[X]$ de degré supérieur ou égale à $1$ est scindé
+sur $\C[X]$
+\end{prp}
+
+\begin{prp}
+Les polynômes irréductibles de $\C[X]$ sont exactement les polynômes
+de degré $1$
+\end{prp}
+
+
+
+\subsection{Décomposition en produit de facteurs irréductibles}
+
+\begin{thm}
+Tout polynôme non constant de $\K[X]$ est le produit d'un scalaire
+non nul par un produit de polynômes irréductibles et unitaire $\K[X]$
+De plus, il y a unicité de cette décomposition à l'ordre près des
+facteurs
+\end{thm}
+
+\section{Formule d'interpolation de Lagrange}
+
+\begin{dfn}
+Soit $n \in \N^*$ et $x_1, \ldots, x_n$ des scalaires de $\K$ deux à deux
+distincts.
+
+Pout tout $i \in \lib 1, n \rib$, on appelle i\textsuperscript{éme}
+polynôme de Lagrange associé à $x_1, \ldots, x_n$ le polynôme
+\[
+    L_i = \prod_{j \neq i} \frac{X - x_j}{x_i - x_j}
+\]
+\end{dfn}
+
+\begin{prp}
+Soit $n \in \N^*$ et $x_1, \ldots, x_n$ des scalairs deux à deux
+distincts.
+On note $L_1, \ldots, L_2$ les polynômes de Lagranges associé à
+$x_1, \ldots, x_n$ 
+
+Alors $(L_1, \ldots, L_n)$ est une base de $\K_{n - 1}[X]$
+
+De plus pour $P \in \K_{n - 1}[X]$ la i\textsuperscript{ème} coordonée
+de $P$ dans cette base est $P(x_i)$ i-e
+\[
+    \forall P \in \K_{n - 1}[X], \;\; P = \sum^n_{i = 1} P(x_i) L_i
+\]
+\end{prp}
+
+\begin{prp}[Formule d'interpolation de Lagrange]
+Soit $n \in \N^*$, $x_1, \ldots, x_n$ des scalaires deux à deux distincts
+et $y_1, \ldots, y_n$ des scalaires.
+
+Il existe $P \in \K_{n - 1}[X]$ vérifiant 
+\[
+    \forall i \in \lib 1, n \rib, \;\; P(x_i) = y_i
+\]
+Ce polynôme est
+\[
+    P = \sum^n_{i = 1} y_i L_i
+\]
+où $L_i$ est le i\textsuperscript{ème} polynôme de Lagrange associé à
+$x_1, \ldots, x_n$.
+
+$P$ est appellé polynôme interpolateur de Lagrange.
+\end{prp}
+
+\begin{prp}
+Soit $n \in \N^*$, $x_1, \ldots, x_n$ des scalaires deux à deux distincts
+et $y_1, \ldots, y_n$ des scalaires.
+
+Les polynôme $P \in \K[X]$ vérifiant
+\[
+    \forall i \in \lib 1, n \rib, \;\; P(x_i) = y_i
+\]
+Sont les polynômes de la forme
+\[
+    P(X) = L(X) + Q(X) \times \left( \prod^n_{i = 1} (X - x_i)
+    \right)
+\]
+où $L$ est le polynôme interpolateur de Lagrange.
+\end{prp}
+
+
+\end{document}

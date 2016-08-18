@@ -8,6 +8,9 @@
 \usepackage{color}
 \usepackage{centernot}
 \usepackage{xspace}
+\usepackage{stmaryrd}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{mathtools}
 
 \everymath{\displaystyle}
 
@@ -16,6 +19,10 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Pri}{\mathbb{P}}
+\newcommand{\De}{\mathbb{D}}
+\newcommand{\K}{\mathbb{K}}
 \newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
 \newcommand{\allent}{\forall n \in \N}
 \newcommand{\et}{\;\;\text{ et }\;\;}
@@ -27,7 +34,7 @@
 \newcommand{\equ}[1][]{\underset{#1}{\sim}}
 \newcommand{\ex}{\mathrm{e}}
 \newcommand{\co}[1]{\mathrm{C^{#1}}}
-\newcommand{\lminf}{\lm_{n \to \infty}}
+\newcommand{\lminf}{\lm_{n \to +\infty}}
 \newcommand{\notimplies}{\centernot\implies}
 \newcommand{\en}{\text{ en }}
 \newcommand{\est}{\text{ est }}
@@ -45,25 +52,61 @@
 \newcommand{\ngl}[2]{\negl_{#1}\!\!\!(#2)}
 \newcommand{\lips}{\text{ lipschitzienne }}
 \newcommand{\lci}{loi de composition interne\xspace}
+\newcommand{\cv}{converge\xspace}
+\newcommand{\dv}{diverge\xspace}
+\newcommand{\apcr}{\exists n_0 \in \N \tq \forall n \geq n_0, \;\;}
+\newcommand{\mind}[4]{
+    \substack {#1 \in \lib 1, #3 \rib \\ #2 \in \lib 1, #4 \rib}
+}
+\newcommand{\lib}{\llbracket}
+\newcommand{\rib}{\rrbracket}
+
+\newcommand{\voc}[1]{\textit{#1}}
+\newcommand{\hyp}[1]{\textbf{#1}}
 
 \DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\tah}{th}
 \DeclareMathOperator{\sh}{sh}
 \DeclareMathOperator{\dl}{DL}
 \DeclareMathOperator*{\negl}{o}
+\DeclareMathOperator*{\dom}{O}
+\DeclareMathOperator{\diez}{\#}
+\DeclareMathOperator{\point}{.}
+\DeclareMathOperator{\D}{\mathfrak{D}}
+\DeclareMathOperator{\divise}{|}
+\DeclareMathOperator{\pgcd}{\wedge}
+\DeclareMathOperator{\ppcm}{\vee}
+\DeclareMathOperator{\union}{\cup}
+\DeclareMathOperator{\inter}{\cap}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Lin}{\mathcal{L}}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\dime}{dim}
+\DeclareMathOperator{\rang}{rg}
+\DeclareMathOperator{\mat}{mat}
+\DeclareMathOperator{\Tri}{\mathcal{T}}
+\DeclareMathOperator{\Dia}{\mathcal{D}}
+\DeclareMathOperator{\Card}{\mathcal{Card}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 
 \newenvironment{att}
 {\bgroup \color{red}{\Large\textbf{Attention}}\\}
 {\egroup}
 
 \theoremstyle{definition}
-\newtheorem*{prop}{Proposition}
+\newtheorem*{prop}{Propriétée}
 \newtheorem*{defin}{Définition}
 \theoremstyle{remark}
 \newtheorem*{rema}{Remarque}
+\newtheorem*{meth}{Méthode}
 \theoremstyle{plain}
 \newtheorem*{them}{Théorème}
 \newtheorem*{coro}{Corollaire}
+\newtheorem*{lemm}{Lemme}
 
 \newenvironment{prp}[1][]
 {\begin{prop}[#1]\quad\\}
@@ -80,3 +123,9 @@
 \newenvironment{cor}[1][]
 {\begin{coro}[#1]\quad\\}
 {\end{coro}}
+\newenvironment{met}[1][]
+{\begin{meth}[#1]\quad\\}
+{\end{meth}}
+\newenvironment{lem}[1][]
+{\begin{lemm}[#1]\quad\\}
+{\end{lemm}}

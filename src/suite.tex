@@ -4,7 +4,440 @@
 
 \begin{document}
 
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Généralité sur les suites réelles}
+
+\begin{dfn}
+Une suite est une fonction de $\N$ dans $\R$. cette suite est notée
+\begin{align*}
+    (u_n)_{n \in \N} : \N &\to \R \\
+                        n &\mapsto u_n
+\end{align*}
+$\R^\N$ est l'ensemble des suites réelles.
+\end{dfn}
+
+\begin{dfn}
+\begin{align*}
+        &(u_n) \text{ est stationnaire } \\
+\iff    &\exists n_0 \tq \forall n \geq n_0, \;\; u_n = u_{n_0}
+\end{align*}
+\end{dfn}
+
+\begin{dfn}
+$(u_n)$ est
+\begin{description}
+    \item[croissante] \quad \\
+    \ssi $\forall n \in \N, \;\; u_{n + 1} \geq u_n$
+    \item[décroissante] \quad \\
+    \ssi $\forall n \in \N, \;\; u_{n + 1} \leq u_n$
+    \item[monotone] \quad \\
+    \ssi $(u_n)$ est croissante ou décroissante.
+\end{description}
+\end{dfn}
+
+\begin{rem}[étude de la monotonie d'une suite $(u_n)$]
+\begin{itemize}
+    \item étudier le signe de $u_{n + 1} - u_n$
+    \item Si $\forall n \in \N, \;\; u_n > 0 \ou u_n < 0$,
+    on étudie le signe de $\frac{u_{n + 1}}{u_n} - 1$
+\end{itemize}
+\end{rem}
+
+\begin{dfn}
+$(u_n)$ est
+\begin{description}
+    \item[majorée] \quad \\
+    \ssi $\exists M \in \R \tq \allent, \;\; u_n \leq M$
+    \item[minorée] \quad \\
+    \ssi $\exists m \in \R \tq \allent, \;\; u_n \geq m$
+    \item[bornée] \quad \\
+    \ssi $\exists A \in \R \tq \allent, \;\; |u_n| \leq A$
+\end{description}
+\end{dfn}
+
+
+\section{Limite d'une suite réelles}
+
+\subsection{Définition et premières propriétés}
+
+\begin{dfn}
+$(u_n)$ converge vers $l \in \R$ \ssi \\
+$\forall \epsilon > 0, \;\; \exists n_0 \in \N \tq \forall n \geq n_0, \;\;
+|u_n - l| \leq \epsilon$
+\end{dfn}
+
+\begin{prp}[unicitée de la limite]
+Si $(u_n)$ \cv vers $l \in \R$, $l$ est unique.
+\end{prp}
+
+\begin{prp}
+Si $(u_n)$ \cv vers un réelle alors $(u_n)$ est bornée
+\end{prp}
+
+\begin{prp}
+    Si $(u_n)$ \cv vers $l > 0$ alors $(u_n)$ est minorée à partir d'un
+    certain rang par un réelle supérieur à $0$
+\end{prp}
+
+\begin{dfn}
+    Si $(u_n)$ \cv vers $l \in \R$, $l$ est la limite de la suite et
+    est notée $\lminf u_n$
+\end{dfn}
+
+\begin{dfn}
+$(u_n)$ tend vers
+\begin{description}
+    \item[$\bs{+\infty}$] \quad \\
+    \ssi $\forall A \in \R, \;\; \exists n_0 \in \N \tq \forall n \geq n_0, \;\;
+    u_n \geq A$
+    \item[$\bs{-\infty}$] \quad \\
+    \ssi $\forall A \in \R, \;\; \exists n_0 \in \N \tq \forall n \geq n_0, \;\;
+    u_n \leq A$
+\end{description}
+\end{dfn}
+
+\begin{rem}
+Si $(u_n)$ tends vers $+\infty$ alors
+\begin{itemize}
+    \item $(u_n)$ n'est pas majorée donc non bornée donc divergente
+    \item On note $\lminf u_n = +\infty$
+    \item $(u_n)$ est minorée
+\end{itemize}
+\end{rem}
+
+\subsection{Operations sur les limites}
+
+\begin{prp}
+Soit $(u_n, v_n)$ une suite convergeant vers $(l_1, l_2) \in \R^2$
+\begin{itemize}
+    \item $(u_n + v_n)$ \cv vers $l_1 + l_2$
+    \item $\forall \lambda \in \R, \;\; (\lambda u_n)$
+    \cv vers $\lambda l_1$
+    \item $(u_n v_n)$ \cv vers $l_1 \times l_2$
+\end{itemize}
+\end{prp}
+
+\begin{rem}
+Soit $(u_n)$ une suite convergente et $(v_n)$ une suite divergente,
+$(u_n + v_n)$ est une suite divergente
+\end{rem}
+
+\begin{prp}
+Soit $(u_n)$ une suite tendant vers $+\infty$
+\begin{itemize}
+    \item $(v_n)$ minorée $\implies (u_n + v_n)$ tend vers $+\infty$
+    \item $(v_n)$ minorée par un réelle strictement positif
+    $\implies (v_n u_n)$ tend vers $+\infty$
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+\begin{itemize}
+    \item Si $(u_n)$ \cv vers $l \in \R^*$ alors $u_n \neq 0$ à partir
+    d'un certain rang $n_0$ et $\left(\frac{1}{u_n}\right)_{n \geq n_0}$ \cv vers
+    $\frac{1}{l}$
+    \item Si $(u_n)$ \cv vers $0 \et u_n > 0$ à partir d'un certain rang
+    alors $\left(\frac{1}{u_n}\right)$ tend vers $+\infty$
+    \item Si $\lminf u_n = +\infty$ alors $u_n \neq 0$ à partir d'un
+    certain rang $n_0$ et $\left(\frac{1}{u_n}\right)_{n \geq n_0}$ \cv vers 0
+\end{itemize}
+\end{prp}
+
+\subsection{Propriétées liées à la relation d'ordre}
+
+\begin{prp}
+Soit $(u_n) \in \R^\N$, $(\alpha_n) \in \R^\N$ tel que 
+$(\alpha_n)$ converge vers $0$, $l \in \R$ tel qu'à partir
+d'un certain rang $|u_n - l| \leq \alpha_n$.
+
+Alors $(u_n)$ converge vers $l$
+\end{prp}
+
+
+\begin{prp}
+Soit $(u_n)$ et $(v_n)$ deux suites convergentes
+\begin{itemize}
+    \item $\exists n_0 \in \N \tq \forall n \geq n_0, \;\; u_n \geq 0
+    \implies \lminf u_n \geq 0$
+    \item $\exists n_0 \in \N \tq \forall n \geq n_0, \;\; u_n \geq v_n
+    \implies \lminf u_n \geq \lminf v_n$
+\end{itemize}
+\end{prp}
+
+\begin{thm}[d'encadrement]
+$\apcr v_n \leq u_n \leq w_n \et (w_n) \text{ \cv vers } l \in \R
+\et (v_n) \text{ \cv vers } l \implies u_n \text{ \cv vers } l$
+\end{thm}
+
+\begin{prp}
+$((u_n), (v_n)) \in (\R^\N)^2 \tq u_n \leq v_n$ à partir d'un certain rang
+\begin{itemize}
+    \item $\lminf u_n = +\infty \implies \lminf v_n = +\infty$
+    \item $\lminf v_n = -\infty \implies \lminf u_n = -\infty$
+\end{itemize}
+\end{prp}
+
+\begin{cor}
+$q \in \R$
+\begin{itemize}
+    \item $|q| < 1 \implies \lminf q^n = 0$
+    \item $q > 1 \implies \lminf q^n = +\infty$
+\end{itemize}
+\end{cor}
+
+\subsection{Densité}
+
+\begin{prp}
+Soit $X$ une partie de $\R$, $X$ est dense dans $\R$ \ssi
+$\forall x \in \R, \;\; \exists (x_n) \in X^\N \tq (x_n)$ converge vers
+$x$
+\end{prp}
+
+\begin{prp}
+\begin{align*}
+            &X \subset \R \et X \neq \emptyset \et X \text{ majorée}
+\implies    &\exists (u_n) \in X^\N \tq (u_n) \text{ converge vers } \sup(X)
+\end{align*}
+\end{prp}
+
+
+
+\begin{dfn}
+Soit $(u_n)$ et $(v_n)$ deux suites réelles,
+$(v_n)$ est une sous-suite de $(u_n)$ \ssi
+$\exists \varphi \in \N^\N \tq \varphi \text{ est strictement croissante}
+\et \forall n \in \N , v_n = u_{\varphi(n)}$
+\end{dfn}
+
+\begin{prp}
+Soit $(u_n)$ une suite admetant pour limite $l \in \bar{\R}$,
+Toutes sous-suites de $(u_n)$ ademetent pour limite $l$
+\end{prp}
+
+\begin{prp}
+Soit $(u_n)$ une suite, si $(u_{2n})$ et $(u_{2n + 1})$ admettent une même
+limite $l \in \bar{\R}$ alors $\lminf u_n = l$
+\end{prp}
+
+\section{Suites Monotones, Suites adjacentes}
+
+\subsection{Suites monotones}
+
+\begin{thm}
+Soit $(u_n)$ une suite réelle croissante
+\begin{itemize}
+    \item Si $(u_n)$ est majorée, alors $(u_n)$ converge vers 
+    $\sup\left\{ u_n \middle| n \in \N \right\}$
+    \item Si $(u_n)$ n'est pas majorée alors $(u_n)$ tend vers $+\infty$
+\end{itemize}
+\end{thm}
+
+\begin{cor}
+Soit $(u_n)$ décroissante
+\begin{itemize}
+    \item si $(u_n)$ est minorée alors $(u_n)$ \cv vers $\inf\{u_n|n \in N\}$
+    \item si $(u_n)$ n'est pas minorée alors $\lminf u_n = -\infty$
+\end{itemize}
+\end{cor}
+
+\subsection{Suites adjacentes}
+
+\begin{dfn}
+$(u_n)$ et $(v_n)$ sont des suites adjacantes \ssi
+\begin{itemize}
+    \item $(u_n)$ est croissante et $(v_n)$ est décroissante
+    \item $\lminf (u_n - v_n) = 0$
+\end{itemize}
+\end{dfn}
+
+\begin{thm}
+Deux suite adjacentes $(v_n)$ et $(u_n)$ convergent vers la même limite
+$l \in \R$ vérifiant $\forall n \in \N, \;\; u_n \leq l \leq v_n$
+\end{thm}
+
+\subsection{Theorème des segments emboités}
+
+\begin{thm}[des segments emboités]
+Si $({[a_n, b_n]})_{n \in \N}$ est une suite décroissante de ségments
+tel que $\forall n \in \N, \;\; a_n \leq b_n$ dont la longueur des
+segments converge vers $0$ alors $\bigcap_{n \in \N} {[a_n, b_n]}$ est
+réduit à un point
+\end{thm}
+
+\begin{thm}[de \emph{Bolzanot-Weissertrass}]
+Toute suite bornée admet au moin une suite extraite convegente.
+\end{thm}
+
+\subsection{Suites récurrentes usuelles}
+
+\begin{dfn}[Suite arithmétique]
+$(u_n)$ est une suite arithmétique \ssi
+\[
+    u_0 \in \R \et \exists r \in \R \tq u_{n + 1} = u_n + r
+\]
+\end{dfn}
+
+\begin{prp}
+$(u_n)$ est une suite arithmétique de raison r,
+\[
+    \forall n \in \N, \;\; u_n = u_0 + n r
+\]
+\end{prp}
+
+\begin{prp}
+\[
+    \sum_{k = 0}^{n} u_k = (n + 1) u_0 + r \frac{n (n + 1)}{2}
+\]
+\end{prp}
+
+\begin{dfn}[Suite géométrique]
+$(u_n)$ est une suite arithmétique \ssi
+\[
+    u_0 \in \R \et \exists q \in \R \tq u_{n + 1} = q u_n
+\]
+\end{dfn}
+
+\begin{prp}
+$(u_n)$ est une suite géométrique de raison q,
+\[
+    \forall n \in \N, \;\; u_n = u_0 q^n
+\]
+\end{prp}
+
+\begin{prp}
+\[
+    \sum_{k = 0}^{n} u_k = 
+    \begin{cases}
+        u_0 \frac{1 - q^{n + 1}}{1 - q} &\text{si } q \neq 1 \\
+        (n + 1) u_0                     &\text{si } q = 1
+    \end{cases}
+\]
+\end{prp}
+
+\begin{dfn}[Suites arithmético-géométrique]
+$(u_n)$ est une suite arithmético-géométrique \ssi
+\[
+    u_0 \in \R \et \exists (a, b) \in \R^2 \tq u_{n + 1} = a u_n + b
+\]
+\end{dfn}
+
+
+\section{Relation de comparaison}
+
+\begin{dfn}
+$(u_n)$ et $(v_n)$ sont des suites réelles, $v_n \neq 0$ à partir d'un
+certain rang $n_0$. \\
+$(u_n)$ est
+\begin{description}
+    \item[dominée par $(v_n)$] \quad \\
+    \ssi la suite $\left(\frac{u_n}{v_n}\right)_{n \geq n_0}$ est bornée.
+    On note $u_n = \dom(v_n)$
+    \item[négligeable devant $(v_n)$] \quad \\
+    \ssi $\lminf \frac{u_n}{v_n} = 0$.
+    On note $u_n = \negl(v_n)$
+    \item[équivalente à $(v_n)$] \quad \\
+    \ssi $\lminf \frac{u_n}{v_n} = 1$.
+    On note $u_n \equ v_n$
+\end{description}
+\end{dfn}
+
+\begin{prp}
+\begin{itemize}
+    \item $u_n \equ u_n$
+    \item $u_n \equ v_n \iff v_n \equ u_n$
+    \item $u_n \equ v_n \et v_n \equ w_n \implies u_n \equ w_n$
+    \item $u_n \equ v_n \et \lminf v_n = l \in \bar\R \implies
+    \lminf u_n = l$
+    \item $u_n \equ v_n \implies u_n$ est de même sique que $v_n$ à partir
+    d'un certain rang
+\end{itemize}
+\end{prp}
+
+\begin{rem}
+\begin{att}
+Ne jammais écrire $u_n \equ 0$.
+\end{att}
+\end{rem}
+
+\begin{prp}
+$(u_n), (v_n), (u'_n)$ et $(v'_n)$ des suites réelles ne s'annulant pas
+à partir d'un certain rang.
+\begin{itemize}
+    \item $u_n \equ v_n \et u'_n \equ v'_n \implies u_n u'_n \equ v_n v'_n$
+    \item $u_n \equ v_n \et u'_n \equ v'_n \implies 
+    \frac{u_n}{u'_n} \equ \frac{v_n}{v'_n}$
+\end{itemize}
+\end{prp}
+
+\begin{rem}
+\begin{att}
+On ne peut additioner des équivalents.
+\end{att}
+\end{rem}
+
+\begin{prp}
+\[
+    u_n = \negl(v_n) \iff u_n + v_n \equ v_n
+\]
+\end{prp}
+
+\begin{prp}
+\[
+    \forall \alpha > 0, \beta > 0, a > 1, \;\; 
+    (\ln n)^\alpha = \negl(n^\beta), n^\beta = \negl(a^n), a^n = \negl(n!)
+\]
+\end{prp}
+
+
+\section{Extension aux suites complexes}
+
+Pour $(z_n)_{n \in \N} \in \C^\N$, on considére les suites
+$(\Im(z_n))_{n \in \N}$ et $(\Re(z_n))_{n \in \N}$.
+
+\begin{dfn}
+$(z_n)$ est bornée \ssi $(|z_n|)_{n \in \N}$ est bornée.
+\end{dfn}
+
+\begin{prp}
+$(z_n)$ est bornée \ssi $(\Im(z_n))$ et $(\Re(z_n))$ sont bornée.
+\end{prp}
+
+\begin{dfn}
+$(z_n)$ \cv vers $l \in \C$ \ssi $(|z_n - l|)$ \cv vers $0$.
+\end{dfn}
+
+\begin{prp}
+La limite d'une suite à valeur complexe est unique.
+\end{prp}
+
+\begin{prp}
+$(z_n)$ \cv vers $l$ \ssi $(\Re(z_n), \Im(z_n))$ \cv vers
+$(\Re(l), \Im(l))$.
+\end{prp}
+
+\begin{prp}
+Si $(z_n)$ \cv alors $(z_n)$ est bornée.
+\end{prp}
+
+\begin{prp}
+On peut également
+\begin{itemize}
+    \item prouver $(z_n)$ \cv vers $l \implies (|z_n|)$ \cv vers $|l|$.
+    \item prouver Les opération sur les limites.
+    \item définir les suites extraites.
+    \item prouver $z_n$ \cv vers $l$ alors toute suite-extraite \cv vers $l$.
+    \item prouver le théorème de \emph{Bolzanot-Weiersstrass}.
+    \item définir les suite récurente usuelles.
+\end{itemize}
+\end{prp}
+
+
 \section{Méthode d'étude de suite récurrente du type $u_{n + 1} = f(u_n)$}
+
 \begin{enumerate}
     \item Verifier l'existence de chaque terme de la suite
     \item \'Etudier la monotonie de $f$

@@ -1,0 +1,325 @@
+\input{skeleton}
+
+\title{Arithmétique dans $\Z$}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
+
+\section{Divisibilité et division euclidienne}
+
+\begin{dfn}[Divisibilité]
+Soit $(a, b) \in \Z^2$, on dit que \emph{$a$ divise $b$}
+\ssi 
+\[
+    \exists k \in \Z \tq a = k b
+\]
+On note alors $a \divise b$
+\end{dfn}
+
+\begin{rem}
+Dans le chapitre on note $\D(n)$ l'ensemble des diviseurs de $n$.
+\end{rem}
+
+\begin{prp}
+\begin{itemize}
+    \item $\forall a \in \Z, \;\; a \divise a$
+    \item $\forall (a, b) \in \Z, \;\; \left\{ a \divise b \et b \divise a \right\} \iff
+    |a| = |b|$
+    \item $\forall (a, b, c) \in \Z, \;\; \left\{ a \divise b \et b \divise c \right\}
+    \implies a \divise c$
+\end{itemize}
+\end{prp}
+
+\begin{rem}
+la relation `divise' est une relation d'ordre dans $\N$.
+\end{rem}
+
+\begin{prp}
+\begin{itemize}
+    \item $\forall d \in \Z, \;\; \forall (\alpha, \beta) \in \Z^2, \;\;
+    \left\{ d \divise a \et d \divise b \right\} \implies d \divise (\alpha a + \beta b)$
+    \item $\forall x \in \Z^*, \;\; a \divise b \iff a x \divise b x$
+\end{itemize}
+\end{prp}
+
+\begin{thm}
+\[
+    \forall (a, b) \in \Z \times \N^*, \;\; \exists! \, (q, r) \in \Z^2 \tq
+    \left\{ a = b q + r \et 0 \leq r < b \right\}
+\]
+$q$ et $r$ sont appelés respectivement le quotient et le reste de la
+division euclidienne de a par b.
+\end{thm}
+
+
+\section{PGCD et agorithme d'Euclide}
+
+\begin{dfn}[PDCD]
+Soit $(a, b) \in \Z^2 \tq (a, b) \neq (0, 0)$.
+Le plus grand diviseur commun de $a$ et de $b$ est noté $a \pgcd b$.
+Par convention $0 \pgcd 0 = 0$
+\end{dfn}
+
+\begin{rem}
+\[
+    \forall (a, b) \in \Z^2, \;\; a \divise b \iff a \pgcd b = |a|
+\]
+\end{rem}
+
+\begin{prp}
+\[
+    \forall (a, b, q, r) \in \Z^4, \;\; a = b q + r
+    \implies \D(a) \inter \D(b) = \D(b) \inter \D(r)
+    \implies a \pgcd b = b \pgcd r
+\]
+\end{prp}
+
+\begin{prp}
+\[
+    \forall (a, b, d) \in \Z^3, \;\;
+    \left\{ d \divise a \et d \divise b \right\}
+    \iff d \divise (a \pgcd b)
+\]
+\end{prp}
+
+\begin{prp}[relation de Bézout]
+\[
+    \forall (a, b) \in \Z^2, \;\; \exists \, (u, v) \in \Z^2 \tq
+    u a + v b = a \pgcd b
+\]
+On appelle $(u, v)$ \emph{un couple de coefficient de Bézout de $a$ et $b$}
+\end{prp}
+
+\begin{dfn}[PPCM]
+Soit $(a, b) \in \left(\Z^*\right)^2$.
+Le plus petit des multiples strictment positifs communs à $a$ et $b$ est
+noté $a \ppcm b$.
+Par convention $0 \ppcm 0 = 0$.
+\end{dfn}
+
+\begin{prp}
+\[
+    \forall (a, b, m) \in \Z^3, \;\;
+    \left\{ a \divise m \et b \divise m \right\}
+    \implies (a \ppcm b) \divise m
+\]
+\end{prp}
+
+\begin{prp}
+\[
+    \forall (a, b) \in \Z^2, \;\; (a \ppcm b) (a \pgcd b) = |a b|
+\]
+\end{prp}
+
+\section{Entiers premiers entre eux}
+
+\begin{dfn}
+Soit $(a, b) \in \Z^2$, $a$ et $b$ sont \emph{premiers entre eux} \ssi
+leurs seuls diviseurs communs sont $1$ et $-1$.
+\end{dfn}
+
+\begin{prp}
+\begin{align*}
+\forall (a, b) \in \Z^2 \\
+        &a \text{ et } b \text{ sont premiers entre eux} \\
+\iff    &a \pgcd b = 1 \\
+\iff    &a \ppcm b = |a b|
+\end{align*}
+\end{prp}
+
+\begin{thm}[de Bézout]
+\[
+    \forall (a, b) \in \Z^2, \;\; a \pgcd b = 1 \iff
+    \exists \, (u, v) \in \Z^2 \tq u a + v b = 1
+\]
+\end{thm}
+
+\begin{prp}
+\[
+    \forall (a, b) \in \Z^2, \;\; \exists (a', b') \in \Z^2 \tq
+    \left\{a' \pgcd b' = 1 \et a = (a \pgcd b) a'
+    \et b = (a \pgcd b) b' \right\}
+\]
+\end{prp}
+
+\begin{cor}
+\[
+    \forall r \in \Q, \;\; \exists \, (p , q) \in \Z^2 \tq 
+    \left\{ r = \frac{p}{q} \et p \pgcd q = 1 \right\}
+\]
+\end{cor}
+
+\begin{prp}
+\[
+    \forall n \in \N^* - \{1\}, \;\;
+    \forall (a, b_1, b_2, \ldots, b_n) \in \Z^{n + 1}, \;\;
+    \forall i \in \lib 1, n \rib, \;\; a \pgcd b_i = 1
+    \implies a \pgcd \prod^n_{i  = 1} b_i = 1
+\]
+\[
+    \forall (a, b, n, m) \in \Z^2 \times \N^2, \;\;
+    a \pgcd b = 1 \implies a^n \pgcd b^m = 1
+\]
+\end{prp}
+
+\begin{thm}[de Gausse]
+\[
+    \forall (a, b, c) \in \Z^3, \quad
+    \left\{ a \divise b c \et a \pgcd b = 1 \right\}
+    \implies a \divise c
+\]
+\end{thm}
+
+\begin{met}
+Resolution d'une équation diophantienne
+\begin{equation}\label{eq:dio}
+    a x + b y = c
+\end{equation}
+On pose $d = a \pgcd b$.
+\begin{enumerate}
+    \item Si $\neg \left\{d \divise c\right\}$ l'équation n'a aucune
+    solution.
+    \item On pose $c' = \frac{c}{d}$.
+    On cherche un couple de bézout, $(u, v)$, de $a$ et $b$. On a ainsi
+    $(x_0, y_0) = \left(uc', vc'\right)$ une solution particulière de
+    \eqref{eq:dio}.
+    \item On pose $(a', b') = \left(\frac{a}{d}, \frac{b}{d}\right)$.
+    L'ensemble des solutions de \eqref{eq:dio} est donc
+    $\left\{ (x_0 + k b', y_0 - k a') \; \middle| \; k \in \Z \right\}$.
+\end{enumerate}
+\end{met}
+
+\section{PGCD de plusieurs entiers}
+
+Ici, $p \in \N^*-\{1\}, \quad (a_1, a_2, \ldots, a_p) \in \Z^p$
+
+\begin{dfn}[PGCD d'un nombre fini d'entier]
+Le nombre $d = a_1 \pgcd a_2 \pgcd \ldots \pgcd a_p$
+est défini par:
+\[   
+    d = 
+    \begin{cases}
+        0   &\text{si } a_1 = a_2 = \ldots = a_p = 0 \\
+        \text{Le plus grand des diviseurs communs à } 
+        a_1, a_2, \ldots \text{ et } a_p\text{.} &\text{sinon}
+    \end{cases}
+\]
+\end{dfn}
+
+\begin{rem}
+On définie de même le PPCM de plus de deux entiers.
+\end{rem}
+
+\begin{prp}[Relation de Bézout]
+\[
+    \exists \, (u_1, u_2, \ldots, u_p) \in \Z^p \tq
+    a_1 u_1 + a_2 u_2 + \ldots + a_p u_p
+    = a_1 \pgcd a_2 \pgcd \ldots \pgcd a_p
+\]
+\end{prp}
+
+\begin{dfn}
+$a_1, a_2, \ldots, a_p$ sont dits
+\emph{premiers entre eux dans leur ensemble} \ssi
+$a_1 \pgcd a_2 \pgcd \ldots \pgcd a_p$
+\end{dfn}
+
+\begin{prp}[Theorème de Bézout]
+\[
+    a_1 \pgcd a_2 \pgcd \ldots \pgcd a_p = 1 \iff
+    \exists \, (u_1, u_2, \ldots, u_p) \in \Z^p \tq
+    a_1 u_1 + a_2 u_2 + \ldots + a_p u_p = 1
+\]
+\end{prp}
+
+\section{Nombres premiers}
+
+\begin{dfn}
+On appelle \emph{nombre premier} tout entier naturel possédent
+2 diviseurs strictement positif.
+\end{dfn}
+
+\begin{prp}
+Soit $p$ un nombre premier et $a \in \Z$,
+\[
+    \neg \left\{p \divise a\right\} \implies a \pgcd p = 1
+\]
+\end{prp}
+
+\begin{cor}
+\begin{itemize}
+    \item Si $p$ est un nombre premier,
+    $p$ est premier avec tout les entiers appartenant à
+    $\left\{1, 2, \ldots, p - 1 \right\}$.
+    \item deux nombre premier distinct sont premiers entre eux.
+\end{itemize}
+\end{cor}
+
+\begin{prp}
+Tout entier supérieur ou égale à $2$ est divisible par au moin un nombre
+premier.
+\end{prp}
+
+\begin{cor}
+L'ensemble des nombres premiers est infini.
+\end{cor}
+
+\begin{thm}[Fondamentale de l'arithmétique]
+$
+            \forall n \in \N, \quad n \geq 2  \\
+\implies    \exists \, m \in \N^* \tq \exists \,
+            (p_1, p_2, \ldots, p_m, \alpha_1, \alpha_2, \ldots, \alpha_m) 
+    \in \Z^m \times (\N^*)^m \\ 
+            \tq
+    \{ n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_m^{\alpha_m} 
+    \et p_1, p_2, \ldots, p_m \text{ soient premiers deux à deux} \}
+$
+\end{thm}
+
+
+\section{Congruences}
+
+\begin{dfn}
+Soit $(n, a, b) \in \N^* \times \Z^2$.
+On dit que \emph{$a$ est congru à $b$ modulo $n$} \ssi
+\[
+    \exists k \in \Z \tq a = b + k n \iff n \divise a - b
+\]
+On note alors $a \equiv b [n]$
+\end{dfn}
+
+\begin{prp}
+La relation de congruence modulo $n$ est une relation d'équivalence sur $\Z$
+\end{prp}
+
+\begin{prp}
+\begin{itemize}
+    \item 
+    \begin{align*}
+        &a \equiv b [n] \et a' \equiv b' [n] \implies \\
+        &a + a' \equiv b + b' [n] \\
+    \et &a - a' \equiv b - b' [n] \\
+    \et &a a' \equiv b b' [n]
+    \end{align*}
+    \item $a \equiv b [n] \implies \forall k \in \N, \;\;
+        a^k \equiv b^k [n]$
+\end{itemize}
+\end{prp}
+
+\begin{lem}
+$p \text{ est premier} \implies \forall k \in \lib 1, p - 1 \rib, \;\;
+p \divise \binom{p}{k}$
+\end{lem}
+
+\begin{prp}[Petit théorème de Ferma]
+$\forall p \in \Pri, \;\; \forall a \in \Z$
+\begin{itemize}
+    \item $a^p \equiv a [p]$
+    \item $\neg p \divise a \implies a^{p - 1} \equiv 1 [p]$
+\end{itemize}
+\end{prp}
+
+\end{document}

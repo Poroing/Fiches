@@ -4,6 +4,8 @@
 
 \begin{document}
 
+\tableofcontents
+
 \section{Lois de Compositons Internes}
 
 \begin{dfn}
@@ -46,13 +48,15 @@ Si $E$ admet un élément neutre pour $*$, il est unique.
 \end{prp}
 
 \begin{dfn}
-Soit $E$ et $2$ \lci $*$ et $#$, $*$ est distributive par rapport à
-$#$ \ssi
+Soit $E$ et $2$ \lci $*$ et $\diez$, $*$ est distributive par rapport à
+$\diez$ \ssi
 \[
     \forall (x, y, z) \in E^3 \\
-    x * (y # z) = (x * y) # (x * z) \et (y # z) * x = (y * x) # (z * x)
+    x * (y \diez z) = (x * y) \diez (x * z) \et (y \diez z) * x = (y * x) \diez (z * x)
 \]
 \end{dfn}
+
+\pagebreak
 
 \section{Groupe}
 
@@ -67,8 +71,6 @@ $(G, *)$ est un groupe \ssi
 Si $*$ est commutative, le groupe est abélien
 \end{dfn}
 
-\pagebreak
-
 \begin{dfn}
 Si $G$ est un groupe muni d'une \lci notée
 \begin{description}
@@ -79,7 +81,7 @@ Si $G$ est un groupe muni d'une \lci notée
         \item $\underbrace{x + x + \dotsb + x}_{n \text{termes}}$
         est notée $nx$ $(n \in \N^*)$
     \end{itemize}
-    \item[$\bs{\times}$, $\bs{*}$ ou $\bs{.}$] \quad \\
+    \item[$\bs{\times}$, $\bs{*}$ ou $\bs{\point}$] \quad \\
     \begin{itemize}
         \item L'élément neutre est noté $e_G$ ou $1_G$
         \item Le symétrique de $x \in G$ est noté $x^{-1}$
@@ -104,5 +106,96 @@ $H$ est un sous-groupe de $(G, *)$ \ssi
 Si $H$ est un sous-groupe de $(G, *)$ alors $e_H = e_G$
 \end{rem}
 
+\pagebreak
+
+\section{Anneaux et corps}
+
+\begin{dfn}[Anneau]
+$(A, +, \point)$ est un anneau \ssi
+\begin{itemize}
+    \item $(A, +)$ est un groupe abélien
+    \item $\point$ est associative et distributive par rapport à $+$
+    \item $\point$ admet un élément neutre dans $A$
+\end{itemize}
+Si $\point$ est commutative, alors l'anneau est dit commutatif.
+\end{dfn}
+
+\begin{dfn}
+Soit $(A, +, \point)$ un anneau
+\begin{itemize}
+    \item L'élément neutre de $+$ est notée $0$ ou $0_A$
+    \item celui de $\point$ est notée $1$ ou $1_A$
+    \item Tout $x \in A$ admétant un symétrique pour $\point$ est dit invérsible
+\end{itemize}
+\end{dfn}
+
+\begin{prp}[Regles de calcul]
+$(A, +, \;\point\;)$ est un anneau
+\begin{itemize}
+    \item $\forall x \in A, \;\; 0 \point x = x \point 0 = 0$ \\
+        $0$ est dit absorbant.
+    \item $\forall (x, y) \in A^2, \;\; (-x) \point y = x \point (-y) = -(x \point y)$
+\end{itemize}
+\end{prp}
+
+\begin{dfn}
+Soit $(A, +,  \;\point\;)$ un anneau
+\begin{itemize}
+    \item $\forall (x, y) \in A^2, \;\; x - y = x + (-y)$
+    \item $\forall (x, y , z) \in A^3, \;\; x \point (y - z)
+        = x \point y - x \point z \et
+        (x - y) \point z = x \point z - y \point z$
+\end{itemize}
+\end{dfn}
+
+\begin{thm}[Formule du binôme de Newton]
+\begin{align*}
+            &(A, +, \;\point\;) \text{ est un anneau} \et
+                \left\{(a, b) \in A^2 \tq a \point b = b \point a\right\} \\
+\implies    &\forall n \in \N, \;\;
+                (a + b)^n = \sum_{k = 0}^n \binom{n}{k} a^k \point b^{n - k}
+\end{align*}
+\end{thm}
+
+\begin{prp}
+\begin{align*}
+            &(A, +, \;\point\;) \text{ est un anneau} \et
+                \left\{ (a, b) \in A^2 \tq a \point b = b \point a \right\} \\
+\implies    &\forall n \in \N^*, \;\;
+                a^n - b^n = 
+                (a - b) \point \left( 
+                    \sum_{k = 0}^{n - 1} a^k \point b^{n - 1 - k} \right)
+\end{align*}
+\end{prp}
+
+\begin{dfn}[Sous-anneaux]
+\begin{align*}
+        &B \text{ est un sous-anneau de} (A, +, \;\point\;) \\
+\iff    &B \subset A \et (B, +, \;\point\;) \text{ est un anneau } \et 1_A = 1_B
+\end{align*}
+\end{dfn}
+
+\pagebreak
+
+\begin{prp}[Caractérisation des sous-anneaux]
+$B$ est un sous-anneau de $(A, +, \;\point\;)$ \ssi
+\begin{itemize}
+    \item $B \subset A$
+    \item $1_A \in B$
+    \item $\forall (x, y) \in B^2, \;\; x - y \in B \et x \point y \in B$
+\end{itemize}
+\end{prp}
+
+\begin{prp}[Groupe des unités]
+Soit $(A, +, \times)$ un anneau $\tq 1_A \neq 0_A$.
+L'ensemble des éléments inversibles de $A$ est un groupe nomé groupe des
+unitées de l'aneau $(A, +, \times)$
+\end{prp}
+
+\begin{dfn}[Corps]
+Un corps est un anneau \emph{commutatif} $(K, +, \times) \tq 1_K \neq 0_K
+\\ \tq \forall x \in K, \;\; x \neq 0_K \implies \exists \, x^{-1} \tq
+x \times x^{-1} = 1_K$
+\end{dfn}
 
 \end{document}

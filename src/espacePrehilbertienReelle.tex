@@ -1,0 +1,560 @@
+\include{skeleton}
+
+\title{Espaces préhilbertiens réelles}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\pagebreak
+
+Dans tous le chapitre, les espaces vectorielle sont des $\R$-espace
+vectorielle
+
+\section{Produit scalaire}
+
+\subsection{Définition}
+
+\begin{dfn}
+Soit $E$ un $\R$-espace vectorielle.
+
+On appelle produit scalaire sur $E$ toute application $\phi : E^2 \to \R$
+tel que
+\begin{itemize}
+    \item $\phi$ est bilinéaire
+    \item $\phi$ est symétrique, i-e
+    \[
+        \forall (x, y) \in E^2, \;\; \phi(y, x) = \phi(x, y)
+    \]
+    \item $\phi$ est positive, i-e
+    \[
+        \forall x \in E, \phi(x, x) \geq 0
+    \]
+    \item $\phi$ est définie, i-e
+    \[
+        \forall x \in E, \;\; \phi(x, x) = 0 \iff x = 0
+    \]
+\end{itemize}
+
+Dans ce cas, $E$ muni de ce produit scalaire est appelé \voc{espace
+préhilbertien}. Un espace phréhilbertien réel de dimensio nfinie est
+appelé une \voc{espace euclidien}
+\end{dfn}
+
+\subsection{Inégalité de Cauchy-Schwarz}
+
+\begin{prp}[Inégalité de Chauchy-Schwarz]
+Soit $E$ un espace préhilbertion réel.
+\[
+    \forall (x, y) \in E^2, \;\; (x|y)^2 \leq (x|x)(y|y)
+\]
+avec égalité \ssi $x$ et $y$ sont colinéaire
+\end{prp}
+
+\subsection{Norme euclidienne}
+
+\begin{dfn}
+Soit $E$ un espace préhilbertien réel.
+
+On appelle \voc{norme euclidienne associé au produit scalaire
+$(\quad|\quad)$ de $E$} l'application suivante
+\begin{align*}
+    E &\to \R_+ \\
+    x &\mapsto \sqrt{(x|x)} = ||x||
+\end{align*}
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un espace préhilbertien réel, $||\quad||$ la norme euclidienne
+associée à son produit scalaire $(\quad|\quad)$.
+
+Alors $\forall (x, y) \in E^2$
+\begin{align*}
+    ||x + y||^2 &= ||x||^2 + ||y||^2 + 2(x|y) \\
+    ||x - y||^2 &= ||x||^2 + ||y||^2 - 2(x|y) \\
+    ||x + y||^2 + ||x - y||^2 &= 2 (||x||^2 + ||y||^2) \\
+    4 (x|y) &= ||x + y||^2 - ||x - y||^2
+\end{align*}
+\end{prp}
+
+\begin{prp}
+Soit $E$ un espace préhilbertien réel, de norme euclidienne $||\quad||$.
+
+\begin{gather*}
+    \forall x \in E, ||x|| > 0 \\
+    \forall x \in E, \;\; \forall \lambda \in \R, \;\;  ||\lambda \point x|| =
+        |\lambda| \times ||x|| \\
+    \forall x \in E, \;\; ||x|| = 0 \iff x = 0
+\end{gather*}
+\end{prp}
+
+
+\subsection{Distance euclidienne}
+
+\begin{dfn}
+Soit $E$ un espace préhilbertien réel.
+
+On appelle \voc{distance euclidienne} associé au produit scalaire de $E$
+l'application
+\begin{align*}
+    d : E^2 &\to \R_+ \\
+        (x, y) &\mapsto || x - y ||
+\end{align*}
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un espace préhilbertien réel, si $\mathrm{d}$ est la distance
+euclidienne.
+
+\begin{gather*}
+    \forall (x, y) \in E^2, \;\; \mathrm{d}\,(x, y) \in \R_+ \\
+    \forall (x, y) \in E^2, \;\; \mathrm{d}\,(x, y) = \mathrm{d}\,(y, x) \\
+    \forall (x, y, z) \in E^3, \;\; \mathrm{d}\,(x, z) \leq
+        \mathrm{d}\,(x, y) + \mathrm{d}\,(y, z)
+\end{gather*}
+\end{prp}
+
+\section{Orthogonalité}
+
+Dans tous le paragraphe, on suppose que $E$ est un espace préhilbertien
+réel
+
+\subsection{Vecteurs orthogonaux}
+
+\begin{dfn}
+Soit $(x, y) \in E^2$.
+
+On dit que $x$ et $y$ sont dit \voc{orthogonaux} si $(x | y) = 0$.
+Dans ce cas on note $x \bot y$
+\end{dfn}
+
+\begin{dfn}
+Soit $I$ un ensemble quelconque et $(x_i)_{i \in I}$ une famille de
+vecteurs de $E$.
+
+La famille $(x_i)_{i \in I}$ est dite \voc{orthogonale} lorsque les
+vecteurs de la famille sont deux à deux orthogonaux
+\end{dfn}
+
+\begin{prp}
+Toute famille de vecteurs non nuls qui est orthogonale est libre
+\end{prp}
+
+\begin{prp}
+Si $E$ est de de dimension finie $n \in \N^*$, toute famille orthogonale
+de vecteurs non nuls est finie et de cardinal inférieur ou égale à $n$
+\end{prp}
+
+\begin{thm}[de Pythagore]
+Soit $(x, y) \in E^2$.
+\[
+    x \bot y \iff || x + y ||^2 = ||x||^2 + ||y||^2
+\]
+\end{thm}
+
+\begin{thm}
+Soient $n \in \N^*$ et $x_1, \ldots, x_n$ sont des vecteurs de $E$ deux
+à deux orthogonaux, alors
+\[
+    || x_1 + \cdots + x_n ||^2 = || x_1 ||^2 + \ldots + || x_n ||^2
+\]
+\end{thm}
+
+\subsection{Bases orthogonales base orthonormales}
+
+\begin{dfn}
+Un vecteurs $x$ de $E$ est dit \voc{unitaire} lorsque $||x|| = 1$
+\end{dfn}
+
+\begin{dfn}[Base orthogonales]
+Soit $B$ une base de $E$.
+
+$B$ est une \voc{base orthogonale} lorsque la famille $B$ est
+orthogonale
+\end{dfn}
+
+\begin{dfn}[Base orthornomale]
+Soit $B$ est une base de $E$.
+
+$B$ est une \voc{base orthonormale} lorsque $B$ est une base orthogonale
+et que tout les vecteurs de $B$ sont unitaires
+\end{dfn}
+
+\begin{prp}
+Tout espace vectoriel euclidien de dimention finie différente de $0$ admet au moin
+une base orthonormale.
+\end{prp}
+
+\begin{prp}[Caractérisation des base orthonormale]
+Soit $E$ un espace euclidien de dimension finie $n$ différente
+de $0$, $B = (e_1, \ldots, e_n)$ une base de $E$. Pour tout éléments
+$x$ de $E$, on note $x_i$ la $i$-ème coordonée de $x$ dans $B$.
+
+Les assertions suivante sont équivalentes
+\begin{itemize}
+    \item $B$ est une base orthonormale de $E$
+    \item $\forall x \in E, \;\; x_i = (x|e_i)$
+    \item $\forall x \in E, \;\; ||x||^2 = \sum^n_{i = 1} x_i^2$
+    \item $\forall (x, y) \in E^2, \;\; (x|y) = \sum^n_{i = 1} x_i y_i$
+\end{itemize}
+\end{prp}
+
+\subsection{Orthogonale d'une partie de $E$}
+
+\begin{dfn}
+Soit $A$ une partie quelconque de $E$.
+
+On appelle \voc{orthogonale de $A$} l'ensemble
+\[
+    \left\{ x \in E \middle| \forall a \in A, x \bot A \right\}
+\]
+On note cette ensemble $A^\bot$
+\end{dfn}
+
+\begin{prp}
+\begin{gather*}
+    \forall (A, B) \in \mathcal{P}(E)^2, \;\; A \subset B \implies
+        B^\bot \subset A^\bot \\
+    \forall A \in \mathcal{P}(E), \;\;
+        A^\bot \text{ est un sous-espace vectoriel de } E \\
+    \forall (x_1, \ldots, x_n) \in E^n,
+        \Vect(\{x_1, \ldots, x_n\})^\bot = \{x_1, \ldots, x_n\}^\bot
+\end{gather*}
+\end{prp}
+
+
+
+
+\subsection{Supplémentaire orthogonale, projection orthogonale}
+
+\begin{thm}
+Soit $E$ un espace préhilbertien réel, et $F$ un sous-espace vectoriel
+de $E$ \hyp{de dimension finie} Alors $F^\bot$ est un sous-espace vectoriel
+de $F$ dans $E$, appelé le sous-espace vectoriel
+\voc{supplémentaire orthogonal} de $F$ dans $E$. En particulier, si
+$E$ est de dimension finie on a $\dime(E) = \dime(F) \oplus \dime(F^\bot)$
+\end{thm}
+
+\begin{dfn}
+Soit $E$ un espace préhilbertien réel et $F$ un sous-espace vectoriel de $E$
+de dimension finie. On appelle \voc{projection orthogonale sur $F$}
+la projection sur $F$, parallélement à $F^\bot$
+\end{dfn}
+
+\begin{prp}
+Soit $E$ un espace préhilbertion réel et $F$ un sous-espace vectoriel de
+dimension finie. On suppose que $(e_1, \ldots, e_p)$ est une base orthornormale
+de $F$, si $p$ est la projection orthogonale sur $F$.
+
+\[
+    \forall x \in E, \;\; p(x) = \sum^p_{i = 1} (x|e_i) e_i
+\]
+\end{prp}
+
+\begin{prp}
+Soit $E$ un espace vectoriel euclidien et $p \in \Lin(E)$.
+les propositions suivantes sont équivalentes.
+\begin{gather*}
+    p \text{ est une projection orthogonale} \\
+    p \circ p = p \et
+    \forall (x, y) \in E^2, \;\; (x|p(y)) = (p(x)|y)
+\end{gather*}
+\end{prp}
+
+\begin{prp}[inégalité de Bessel]
+Soit $E$ un espace préhilbertien réel, $F$ un sous-espace vectoriel de
+$E$ de dimension finie et $p$ la projection orthogonale sur $F$.
+
+\[
+    \forall x \in E, ||p(x)|| \leq ||x||
+\]
+\end{prp}
+
+\begin{dfn}
+Soit $E$ un espace préhilbertien réel, $F$ un sous-espace vectoriel
+de $E$ de dimension finie, $p$ la projection orhogonale sur $F$ et
+$x \in E$.
+
+\[
+    \forall y \in F, \;\; \mathrm{d}(x, y) \geq \mathrm{d}(x, p(x))
+\]
+il y a égalité \ssi $y = p(x)$
+
+On appelle \voc{distance de $x$ à $F$} et on note
+$\mathrm{d}(x, F)$ la distance $\mathrm{d}(x, p(x))$
+\end{dfn}
+
+
+\subsection{Produit mixte}
+Dans ce paragraphe, $E$ désigne un espace euclidien de dimension $n \geq 1$
+.
+
+\begin{dfn}
+Soit $(x_1, \ldots, x_n) \in E^n$ et $B$ une base orthonormale
+directe de $E$.
+
+$\det_B(x_1, \ldots, x_n)$ ne depends pas de la base choisi pour $B$.
+
+Ce determinant est appelé \voc{le produit mixte de $x_1, \ldots, x_n$}
+noté $[x_1, \ldots, x_n]$
+\end{dfn}
+
+\section{Automorphisme orthogonaux d'un espace euclidien}
+
+Dans tous le paragraphe, $E$ désigne un espace vectoriel euclidien réel
+de dimension finie $n$ non nul.
+
+\subsection{Definition d'un automorphisme orthogonale}
+
+\begin{dfn}
+Un automorphisme $f$ de $E$ est dit \voc{orthogonale} lorsque
+\[
+    \forall (x, y) \in E^2, \;\; (f(x)|f(y)) = (x|y)
+\]
+On note $\mathcal{O}(E)$ l'ensemble des automorphismes orthogonaux de $E$
+\end{dfn}
+
+\begin{prp}[caractérisation des automorphismes orhtogonaux en dimension
+    finie]
+Soit $f \in \Lin(E)$ les assetions suivante sont équivalentes
+\begin{gather*}
+f \in \mathcal{O}(E) \\
+\forall (x, y) \in E^2, \;\; (x|y) = (f(x)|f(y)) \\
+\forall x \in E, \;\; ||f(x)|| = ||x|| \\
+\text{pout tout base orthonormale $B$ de $E$, $f(B)$ est une base
+    orthonormale de $E$} \\
+\text{il existe une base orthonormale $B$ de $E$ tel que $f(B)$ soit une
+    base orthonormale de $E$}
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+L'ensemble $\mathcal{O}(E)$, muni de la loi est un groupe, appelé le
+\voc{groupe orthogonale de $E$}
+\end{prp}
+
+\subsection{Symétries orthogonales}
+
+\begin{dfn}
+Si $F$ est un sous-espace vectoriel de $E$.
+
+On appelle \voc{symétrie orthogonale par rapport à $F$} la symétrie par
+rapport à $F$ parallélement à $F^\bot$
+\end{dfn}
+
+\begin{dfn}
+On appelle reflection de $E$ toute symétrie orthogonale par rapport à
+un hyperplan de $E$
+\end{dfn}
+
+\begin{prp}
+Soit $s \in \Lin(E)$.
+
+Les assertions suivantes sont équivalentes.
+
+\begin{gather*}
+s \text{ est une symétrie orthogonale} \\
+s \circ s = \Id_E \et \forall (x, y) \in E^2, \;\; (s(x)|y) = (x|s(y))
+\end{gather*}
+\end{prp}
+
+\begin{prp}
+Les symétries orthogonales de $E$ sont des automorphismes orthogonaux
+\end{prp}
+
+\subsection{Matrices orthogonales}
+
+\begin{dfn}
+On appelle matrice orthogonale de $\M_n(\R)$ toute matrice
+$M \in \M_n(\R)$ vérifiant $M^\intercal M = \mathrm{I}_n$.
+
+On note $\mathcal{O}(n)$ l'ensemble des matrices orthogonales de
+$\M_n(\R)$.
+\end{dfn}
+
+\begin{prp}[caractérisation des matrices orthogonales]
+Soit $M \in M_n(\R)$.
+
+Les assertions suivantes sont équvalentes:
+\begin{itemize}
+    \item $M \in \mathcal{O}(n)$
+    \item pour toute base orthonormale $B$ de $E$, l'endomorphisme de $E$
+        de matrice $M$ dans $B$ est un automorphisme orthogonale.
+    \item il existe une base orthonormale $B$ de $E$ tel que
+        l'endomorphisme de $E$ de matrice $M$ dans $B$ soit un
+        automorphisme orthogonale.
+    \item les vecteurs colonnes de $M$ formes une base orthonormale
+        de $\R^n$ pour le produit scalaire canonique.
+    \item les vecteurs lignes de $M$ formes une base orthonormale
+        de $\R^n$ pour le produit scalaire canonique.
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+L'ensemble $\mathcal{O}(n)$ des matrices orthogonales de $\M_n(\R)$
+est un groupe par la multiplication appelé le groupe orthogonale
+d'ordre $n$.
+\end{prp}
+
+\begin{prp}
+Soit $B$ une base orthonormale de $E$ et $B'$ une base de $E$ et
+$P$ la matrice de passage de $B$ à $B'$.
+
+$B'$ est une base orthonormale de $E$ \ssi $P \in \mathcal{O}(n)$
+\end{prp}
+
+\subsection{Groupe spécial orthogonal}
+
+\begin{prp}
+\begin{gather*}
+    \forall M \in \mathcal{O}(n), \det(M) \in \{-1, 1\} \\
+    \forall f \in \mathcal{O}(n), \det(f) \in \{-1, 1\}
+\end{gather*}
+\end{prp}
+
+\begin{dfn}
+L'ensemble des matrices orthogonales de $\mathcal{O}(n)$ de déterminant
+égal à $1$ est un sous-groupe de $(\mathcal{O}(n), \times)$, appelé
+\voc{le groupe spécial orthogonale d'ordre $n$}, noté $\mathcal{SO}(n)$
+\end{dfn}
+
+\begin{dfn}
+L'ensemble des automorphismes orthogonales de $E$ de
+déterminant égal à $1$ est un sous-groupe de $(\mathcal{O}(E), \circ)$,
+appelé \voc{le groupe spécial orthogonale de $E$}, noté
+$\mathcal{SO}(n)$
+\end{dfn}
+
+\begin{dfn}
+On note $\mathcal{O}^-(n)$ l'ensemble $\mathcal{O}(n) - \mathcal{SO}(n)$
+et $\mathcal{O}^-(E)$ l'ensemble $\mathcal{O}(E) - \mathcal{SO}(E)$
+\end{dfn}
+
+\begin{prp}
+Les reflexions de $E$ appartiennent à $\mathcal{O}^-(E)$.
+\end{prp}
+
+\begin{prp}
+On suppose que $E$ est orienté. Soit $f \in \Lin(E)$.
+
+Les assertions suivantes sont équivalentes:
+\begin{itemize}
+    \item $f \in \mathcal{SO}(E)$
+    \item Pour toute base othonormale direct, $B$, de $E$, $f(B)$ est une
+        base orthonormale directe de $E$.
+    \item Il exsite une base orthonormale directe de $E$ tel que $f(B)$
+        soit une base orthonormale directe de $E$
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+Soit $M \in \M_n(\R)$.
+
+les assertions suivantes sont équivalentes:
+\begin{itemize}
+    \item $M \in \mathcal{SO}(n)$
+    \item Pour toute base orthonormale directe, $B$, de $\R^n$,
+        l'endomorphisme de $M$ dans $B$ appartient à $\mathcal{SO}(\R^n)$.
+    \item Il existe une base orthonormale directe, $B$, de $\R^n$ tel que
+        l'endomorphisme de $M$ dans $B$ appartienne à $\mathcal{SO}(\R^n)$.
+    \item Les vecteurs colonnes de $M$ forment une base orthonormale
+        directe de $\R^n$ .
+    \item Les vecteurs lignes de $M$ forment une base orthonormale
+        directe de $\R^n$.
+\end{itemize}
+\end{prp}
+
+\begin{prp}
+On suppose que $E$ est orienté, Soit $B$ est une base orthonormale directe
+et $B'$ une base de $E$, en notant $P = P_{B, B'}$ on a $B'$ est une
+base orthonormale \ssi $P \in \mathcal{SO}(n)$.
+\end{prp}
+
+\subsection{Descrition des automorphismes orthogonaux de dimension $2$}
+
+\begin{prp}
+\begin{gather*}
+    \mathcal{SO}(2) = \left\{
+        \begin{pmatrix}
+            \cos \theta & -\sin \theta \\
+            \sin \theta & \cos \theta
+        \end{pmatrix}
+        \middle| \theta \in \R
+    \right\} \\
+    \mathcal{O}^-(2) = \left\{
+        \begin{pmatrix}
+            \cos \theta & \sin \theta \\
+            \sin \theta & -\cos \theta
+        \end{pmatrix}
+        \middle| \theta \in \R
+    \right\}
+\end{gather*}
+\end{prp}
+
+\subsubsection{Etude de $\mathcal{O}^-(E)$}
+
+\begin{prp}
+Soit $f \in \mathcal{O}(E)$ et $f$ est une symétrie.
+
+$f$ est une symétrie orthogonale.
+\end{prp}
+
+\begin{prp}
+$\mathcal{O}^-(E)$ est l'ensemble des reflexions de $E$.
+\end{prp}
+
+\subsubsection{Etude de $\mathcal{SO}(E)$}
+
+\begin{prp}
+Pour tout $\theta \in \R$ on pose
+\(
+    R_\theta = \begin{pmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta
+    \end{pmatrix}
+\)
+
+\[
+    \forall (\theta', \theta), R_\theta \times R_{\theta'} =
+    R_{\theta + \theta'} \et R_\theta^{-1} = R_{-\theta}
+\]
+\end{prp}
+
+\begin{prp}
+Soit $f \in \mathcal{SO}(E)$
+
+Il existe un unique réel $\theta$ à $2\pi$ près trl que la matrice
+de $f$ dans toute base orthonormale directe de $E$ soit
+\[
+    R_\theta = \begin{pmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta
+    \end{pmatrix}
+\]
+On dit que $f$ est \voc{une rotation vectorielle d'angle $\theta$}
+\end{prp}
+
+\begin{prp}
+Soit $a$ et $b$ deux vecteus de $E$ tel que $||a|| = ||b||$.
+
+Il existe une unique roation $f$ de $E$ tel que $f(a) = b$
+\end{prp}
+
+\begin{dfn}
+Soient $a$ et $b$ deux vecteurs non nuls de $E$.
+
+On appelle \voc{mesure l'angle orienté de $a$ et $b$} et on note
+$(a, b)$ l'angle définie à $2\pi$ près, de la rotation qui transforme
+$\frac{1}{||a||} a$ en $\frac{1}{||b||} b$
+\end{dfn}
+
+\begin{prp}
+Soit $(a, b) \in (E-\{0\})^2$ et $\theta$ la mesure de l'angle $(a, b)$.
+\begin{gather*}
+\cos \theta = \frac{(a|b)}{||a|| \point ||b||} \\
+\sin \theta = \frac{[a, b]}{||a|| \point ||b||}
+\end{gather*}
+\end{prp}
+
+\end{document}
