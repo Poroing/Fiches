@@ -1,12 +1,12 @@
 FORMAT = pdf
-LATEXMK = latexmk -$(FORMAT)
+LATEXMK = latexmk -gg -$(FORMAT)
 
-OUTDIR = ../../Fiches
+OUTDIR = ../fiches
 
 TARGET_FICHES = espacePrehilbertienReelle arithmetique  \
 	fonctionDUneVariableRelle suite matrice structures \
 	integration derivabilite equationDifferentielle \
-	espaceVectoriel polynomes serie
+	espaceVectoriel polynomes serie determinant
 
 #Log and build files
 TOC_FILES = $(addsuffix .toc,$(TARGET_FICHES))
