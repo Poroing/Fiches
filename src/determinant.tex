@@ -1,0 +1,160 @@
+\input{skeleton}
+
+\title{Groupes symétriques et determinants}
+
+\begin{document}
+
+\section{Groupes symétriques}
+
+Dans tous le paragraphe, $n$ est un entier naturel supérieur ou égal à 1
+
+\subsection{Généralitées}
+
+\begin{dfn}
+  Soit $X$ un ensemble.
+
+  Toutes bijection de $X$ est \voc{une permuation de $X$}
+\end{dfn}
+
+\begin{dfn}
+  Le groupe des permutations de $\lib 1, n \rib$ est appelé
+  \voc{le groupe symétrique d'indice $n$}.
+  Il est noté $\sym_n$ 
+\end{dfn}
+
+\begin{dfn}
+  \[
+    \forall (\sigma, \sigma') \in \sym_n^2, \sigma \sigma' = \sigma \circ \sigma'
+  \]
+\end{dfn}
+
+\begin{prp}
+  \[
+    \Card(\sym_n) = n!
+  \]
+\end{prp}
+
+\begin{dfn}
+  Soit $n \geq 2$ et $\sigma \in \sym_n$.
+
+  On appelle $\sigma$ un cycle si et seulement si il existe
+  $p \in \lib 1, n \rib$ tel que
+  \begin{itemize}
+    \item il existe $(a_1, \ldots, a_p)$ appartenant $\lib 1, n \rib^p$ tel que
+      \[
+        \forall k \in \lib 1, p - 1 \rib, \sigma(a_k) = a_{k + 1} \et \sigma(a_p) = a_1
+      \]
+    \item $\forall a \in \lib 1, n \rib - \{ a_1, \ldots, a_n \}, \sigma(a) = a$
+  \end{itemize}
+  
+  On dit que $\sigma$ est un \voc{$p$-cycle} ou \voc{cycle de longueur $p$} et
+  l'ensemble $\{a_1, \ldots, a_p \}$ est appelée \voc{support du cycle $\sigma$}
+
+  On note
+  \[
+    \sigma = (a_1, \ldots, a_p)
+  \]
+\end{dfn}
+
+\begin{dfn}
+  Un cycle de longueur $2$ est appelé \voc{transposition}
+\end{dfn}
+
+\begin{prp}
+  Soit $(\sigma, \sigma') \in \sym_n$ tel que $\sigma$ et $\sigma'$ soient à supports disjoints.
+  
+  $\sigma$ et $\sigma'$ commutent.
+\end{prp}
+
+\begin{cor}
+  Soit $\sigma$ et $\sigma'$ deux cycles à supports disjoints.
+  \[
+    \forall n \in \N, (\sigma \sigma')^m = \sigma^m \sigma'^m
+  \]
+\end{cor}
+
+\begin{thm}
+  Soit $n \geq 2$.
+
+  Toutes permutations de $\sym_n$ se décompose en un produit unique de cycles à
+  supports disjoints.
+\end{thm}
+
+\begin{prp}
+  Soit $\sigma \in \sym_n$ et si $i \in \lib 1, n \rib$ et $i \in \lib 1, n \rib$
+  
+  Il existe $p \in \N^*$ tel que $i, \sigma(i), \ldots, \sigma^{p - 1}(i)$ soient deux à deux
+  distincts et $\sigma^p(i) = i$
+\end{prp}
+
+\subsection{Signature d'une permutation}
+
+\begin{thm}
+  Tout élément de $\sym_n$ est un produit de transposition.
+\end{thm}
+
+\begin{dfn}
+  Il existe une unique application $\epsilon : \sym_n \to \{ 1, -1 \}$
+  tel que
+  \begin{itemize}
+    \item Pour toute transposition $\tau$, $\epsilon(\tau) = -1$
+    \item $\forall (\sigma, \sigma') \in \sym_n^2$, $\epsilon(\sigma \sigma') = \epsilon(\sigma)\epsilon(\sigma')$
+  \end{itemize}
+  Cette application est apelée \voc{signature}.
+\end{dfn}
+
+\begin{prp}
+  \begin{itemize}
+    \item La signature d'un $p$-cycle est $(-1)^{p - 1}$
+    \item $\epsilon(\Id) = 1$
+    \item $\forall \sigma \in \sym_n, \epsilon(\sigma^{-1}) = \epsilon(\sigma)$
+  \end{itemize}
+\end{prp}
+
+\begin{dfn}
+  Soit $\sigma \in \sym_n$.
+
+  Si la signature de $\sigma$ est $1$, On dit que $\sigma$ est une permutation paire sinon on dit
+  qu'elle est impaire.
+
+  l'ensemble des permutation paire est un sous groupe de $(\sym_n, \circ)$
+\end{dfn}
+
+\section{Determinant d'une famille de vecteurs et determinant d'un endomorphisme}
+
+\subsection{Forme n-linéaire alternée}
+
+Dans ce paragraphe, $E$ désigne un $\K$-espace vectoriel et $E \neq \left\{ \vec{0} \right\}$
+
+\begin{dfn}
+  Soit $p \in \N^*$. On appelle \voc{forme $p$-linéaire} toute application
+  \[
+    f : E^p \to \K
+  \]
+  tel que
+  \[
+    \forall i \in \lib 1, n \rib, \forall (x_1, \ldots, x_{i - 1}, x_{i + 1}, \ldots, x_p) \in E^{p - 1}
+  \]
+  l'application
+  \begin{align*}
+    E &\to \K \\
+    x &\mapsto f(x_1, \ldots, x_{i - 1}, x, x_{i + 1}, \ldots, x_p)
+  \end{align*}
+
+  Les formes $p$-linéaires pour $p \in \N^*$ sont appelées les \voc{formes multiliéaires}
+\end{dfn}
+
+\begin{dfn}
+  Soit $n \in \N^*$, Soit $f$ une forme $n$-linéaire de $E$.
+
+  Si
+  \[
+      \forall (x_i)_{i \in \lib 1, n \rib} \in E^n \tq 
+    \exists (i, j) \in \lib 1, n \rib^2 \tq i \neq j \et x_i = x_j,
+    f(x_1, \ldots, x_n) = 0 
+  \]
+  
+  $f$ est dite \voc{alternée}
+\end{dfn}
+
+\end{document}
