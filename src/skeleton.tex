@@ -1,7 +1,8 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -14,7 +15,7 @@
 
 \everymath{\displaystyle}
 
-\newcommand{\ssi}{si et seulement si\xspace}
+% Ensembles
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
@@ -23,19 +24,28 @@
 \newcommand{\Pri}{\mathbb{P}}
 \newcommand{\De}{\mathbb{D}}
 \newcommand{\K}{\mathbb{K}}
+\newcommand{\co}[1]{\mathrm{C^{#1}}}
+\newcommand{\sym}{\mathcal{S}}
+
+% Abreviation de declaration
 \newcommand{\resu}{(u_n)_{n \in \N} \in \R^\N}
 \newcommand{\allent}{\forall n \in \N}
+\newcommand{\apcr}{\exists n_0 \in \N \tq \forall n \geq n_0, \;\;}
+
+% Operaeur logique
 \newcommand{\et}{\;\;\text{ et }\;\;}
 \newcommand{\ou}{\;\;\text{ ou }\;\;}
 \newcommand{\tq}{\;\;\text{ tel que }\;\;}
-\newcommand{\lm}{\lim\limits}
-\newcommand{\voi}[1]{\text{ au voisinage de }#1}
-\newcommand{\bs}[1]{\boldsymbol{#1}}
-\newcommand{\equ}[1][]{\underset{#1}{\sim}}
-\newcommand{\ex}{\mathrm{e}}
-\newcommand{\co}[1]{\mathrm{C^{#1}}}
-\newcommand{\lminf}{\lm_{n \to +\infty}}
 \newcommand{\notimplies}{\centernot\implies}
+
+% Abreviation d'operateur numérique
+\newcommand{\lm}{\lim\limits}
+\newcommand{\lminf}{\lm_{n \to +\infty}}
+\newcommand{\ngl}[2]{\negl_{#1}\!\!\!(#2)}
+
+% Abreviation textuelle
+\newcommand{\ssi}{si et seulement si\xspace}
+\newcommand{\voi}[1]{\text{ au voisinage de }#1}
 \newcommand{\en}{\text{ en }}
 \newcommand{\est}{\text{ est }}
 \newcommand{\drt}{\text{ à droite de }}
@@ -46,15 +56,21 @@
 \newcommand{\dec}{\text{ décroissante }}
 \newcommand{\sur}{\text{ sur }}
 \newcommand{\drv}{\text{ dérivable }}
-\newcommand{\e}{\!\!}
 \newcommand{\exs}{\text{ existe }}
 \newcommand{\fn}{\text{ finie }}
-\newcommand{\ngl}[2]{\negl_{#1}\!\!\!(#2)}
 \newcommand{\lips}{\text{ lipschitzienne }}
 \newcommand{\lci}{loi de composition interne\xspace}
 \newcommand{\cv}{converge\xspace}
 \newcommand{\dv}{diverge\xspace}
-\newcommand{\apcr}{\exists n_0 \in \N \tq \forall n \geq n_0, \;\;}
+
+% Abreviation de commande
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\equ}[1][]{\underset{#1}{\sim}}
+
+% Constante Mathematique
+\newcommand{\ex}{\mathrm{e}}
+
+\newcommand{\e}{\!\!}
 \newcommand{\mind}[4]{
     \substack {#1 \in \lib 1, #3 \rib \\ #2 \in \lib 1, #4 \rib}
 }
@@ -88,7 +104,7 @@
 \DeclareMathOperator{\mat}{mat}
 \DeclareMathOperator{\Tri}{\mathcal{T}}
 \DeclareMathOperator{\Dia}{\mathcal{D}}
-\DeclareMathOperator{\Card}{\mathcal{Card}}
+\DeclareMathOperator{\Card}{\mathrm{Card}}
 \DeclareMathOperator{\M}{\mathcal{M}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
