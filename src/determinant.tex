@@ -1,19 +1,24 @@
+% vim: set spell spelllang=fr:
 \input{skeleton}
 
-\title{Groupes symétriques et determinants}
+\title{Groupes symétriques et déterminants}
 
 \begin{document}
+
+\maketitle
+\pagebreak
+\tableofcontents
 
 \section{Groupes symétriques}
 
 Dans tous le paragraphe, $n$ est un entier naturel supérieur ou égal à 1
 
-\subsection{Généralitées}
+\subsection{Généralités}
 
 \begin{dfn}
   Soit $X$ un ensemble.
 
-  Toutes bijection de $X$ est \voc{une permuation de $X$}
+  Toutes bijection de $X$ est \voc{une permutation de $X$}
 \end{dfn}
 
 \begin{dfn}
@@ -100,7 +105,7 @@ Dans tous le paragraphe, $n$ est un entier naturel supérieur ou égal à 1
     \item Pour toute transposition $\tau$, $\epsilon(\tau) = -1$
     \item $\forall (\sigma, \sigma') \in \sym_n^2$, $\epsilon(\sigma \sigma') = \epsilon(\sigma)\epsilon(\sigma')$
   \end{itemize}
-  Cette application est apelée \voc{signature}.
+  Cette application est appelée \voc{signature}.
 \end{dfn}
 
 \begin{prp}
@@ -117,10 +122,10 @@ Dans tous le paragraphe, $n$ est un entier naturel supérieur ou égal à 1
   Si la signature de $\sigma$ est $1$, On dit que $\sigma$ est une permutation paire sinon on dit
   qu'elle est impaire.
 
-  l'ensemble des permutation paire est un sous groupe de $(\sym_n, \circ)$
+  L'ensemble des permutation paire est un sous groupe de $(\sym_n, \circ)$
 \end{dfn}
 
-\section{Determinant d'une famille de vecteurs et determinant d'un endomorphisme}
+\section{Déterminant d'une famille de vecteurs et déterminant d'un endomorphisme}
 
 \subsection{Forme n-linéaire alternée}
 
@@ -141,7 +146,7 @@ Dans ce paragraphe, $E$ désigne un $\K$-espace vectoriel et $E \neq \left\{ \ve
     x &\mapsto f(x_1, \ldots, x_{i - 1}, x, x_{i + 1}, \ldots, x_p)
   \end{align*}
 
-  Les formes $p$-linéaires pour $p \in \N^*$ sont appelées les \voc{formes multiliéaires}
+  Les formes $p$-linéaires pour $p \in \N^*$ sont appelées les \voc{formes multilinéaires}
 \end{dfn}
 
 \begin{dfn}
@@ -154,7 +159,305 @@ Dans ce paragraphe, $E$ désigne un $\K$-espace vectoriel et $E \neq \left\{ \ve
     f(x_1, \ldots, x_n) = 0 
   \]
   
-  $f$ est dite \voc{alternée}
+  $f$ est dit \voc{alternée}
 \end{dfn}
+
+\begin{prp}
+  Soit $f$ une forme $n$-linéaire $f$ de $E$ et $(i, j) \in \N^2$.
+
+  \begin{itemize}
+    \item $f$ est dit antisymétrique:
+      \[
+        \forall (x_i)_{i \in \lib 1, n \rib} \in E^n,
+        f(x_1, \ldots, x_i, \ldots, x_j, \ldots, x_n) = 
+        - f(x_1, \ldots, x_j, \ldots, x_i x_n)
+      \]
+    \item Si $(x_i)_{i \in \lib 1, n \rib}$ est lié alors
+      $f(x_1, \ldots, x_n) = 0$
+    \item $\forall \sigma \in \sym_n, \forall (x_1, \ldots, x_n) \in E^n,
+      f(x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = f(x_1, \ldots, x_n) \epsilon(\sigma)$
+  \end{itemize}
+\end{prp}
+
+\begin{cor}
+  Soit $B = (e_1, \ldots, e_n)$ une base de $E$, $f$ une forme $n$-linéaire
+  de $E$, $(x_1, \ldots x_n)$ une famille
+  de vecteur de $E$ et pour tout $i$ dans $\lib 1, n \rib$ on note
+  $(a_{1 i}, \ldots, a_{n i})$ les coordonnées de $x_i$ dans $B$.
+
+  \[
+    f(x_1, \ldots, x_n) = f(e_1, \ldots, e_n) \sum_{\sigma \in \sym_n} 
+    \left(\epsilon(\sigma) a_{\sigma(1)1} \cdots a_{\sigma(n)n}\right) 
+  \]
+\end{cor}
+
+\subsection{Déterminant d'une famille de vecteurs dans une base}
+
+\begin{thm}
+  Soit $B$ une base de $E$, $(x_1, \ldots, x_n) \in E^n$.
+  
+  Il existe une unique forme $n$-linéaire alternée $f$ de $E$ vérifiant
+  $f(B) = 1$.
+
+  Cette application est appelée \voc{déterminant dans $B$} et est notée
+  $\det_B$.
+
+  $\det_B(x_1, \ldots, x_n)$ est appelée \voc{le déterminant des vecteurs
+  $x_1, \ldots, x_n$ dans la base $B$}
+\end{thm}
+
+\begin{cor}
+  Soit $B = (e_1, \ldots, e_n)$ une base de $E$
+  $(x_1, \ldots, x_n)$ une famille
+  de vecteur de $E$ et pour tout $i$ dans $\lib 1, n \rib$ on note
+  $(a_{1 i}, \ldots, a_{n i})$ les coordonnées de $x_i$ dans $B$.
+
+  \[
+    \det_B(x_1, \ldots, x_n) = \sum_{\sigma \in \sym_n} 
+    \left(\epsilon(\sigma) a_{\sigma(1)1} \cdots a_{\sigma(n)n}\right) 
+  \]
+\end{cor}
+
+\begin{prp}
+  Soit $B = (e_1, \ldots, e_n)$ une base de $E$ et $f$ une forme $n$-linéaire alterné.
+
+  $f$ et $\det_B$ sont proportionnelles.
+\end{prp}
+
+\subsection{Formule de changement de base}
+
+\begin{prp}
+  Soient $B$ et $B'$ des bases de $E$ et $(x_1, \ldots, x_n) \in E^n$
+  \[
+    \det_{B'}(x_1, \ldots, x_n) = \det_{B'}(B) \det_B(x_1, \ldots, x_n)
+  \]
+\end{prp}
+
+\begin{prp}
+  Soit $B$ une base de $E$ et $(x_1, \ldots, x_n) \in E^n$.
+
+  $(x_1, \ldots, x_n)$ est une base de $E$ si et seulement si
+  $\det_B(x_1, \ldots, x_n) \neq 0$
+\end{prp}
+
+\subsection{Orientation d'un $\R$-espace vectoriel}
+
+\begin{dfn}
+  Soit $B$ une base de $E$
+
+  \voc{Orienter $E$ par $B$} c'est décider d'appeler toute base
+  $B'$ tel que $\det_{B'}(B) > 0$ \voc{directe}
+  et d'appelé toute les autres \voc{indirecte}
+\end{dfn}
+
+\subsection{Déterminant d'un endomorphisme}
+
+\begin{dfn}
+  Soit $f \in \Lin(E)$ et $B$ une base de $E$
+
+  $\det_B(f(B))$ ne dépend pas du choix de $B$.
+  $\det_B(f(B))$ est appelé \voc{déterminant de l'endomorphisme $f$}
+  et est noté $\det(f)$
+\end{dfn}
+
+\begin{prp}
+  Soit $B$ une base de $E$, $f \in \Lin(E)$ et $(x_1, \ldots, x_n) \in E^n$.
+  \[
+    \det_B(f(x_1, \ldots, x_n)) = \det(f)\det_B(x_1, \ldots, x_n)
+  \]
+\end{prp}
+
+\begin{prp}
+  \[
+    \forall (f, g) \in \Lin(E)^2, \det(f \circ g) = \det(f) \det(g)
+  \]
+\end{prp}
+
+\begin{prp}
+  Soit $f \in \Lin(E)$
+  \[
+    f \in \groupeLineaire_\K(E) \iff \det(f) \neq 0
+  \]
+  Et si $f \in \groupeLineaire_\K(E)$
+  \[
+    \det(f^{-1}) = ^1/_{\det(f)}
+  \]
+\end{prp}
+
+\section{Déterminant d'une matrice carrée}
+
+\subsection{Définition et premières propriétés}
+
+\begin{dfn}
+  Soit $A = (a_{ij})_{\mind{i}{j}{n}{n}} \in M_n(\K)$
+  
+  On pose
+  \[
+    \det(A) = \sum_{\sigma \in \sym_n} \left( \epsilon(\sigma) \prod_{i = 1}^n a_{\sigma(i)i} \right)
+  \]
+
+  On appelle $\det(A)$ le \voc{le déterminant de $A$}
+
+  On le note aussi
+  \[
+    \det(A) =
+    \begin{vmatrix}
+      a_{1 1} & a_{1 2} & \cdots & a_{1 n} \\
+      a_{2 1} & a_{2 2} & \cdots & a_{2 n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      a_{n 1} & a_{n 2} & \cdots & a_{n n} 
+    \end{vmatrix}
+  \]
+\end{dfn}
+
+\begin{prp}
+  \[
+    \forall (A, B) \in M_n(\K),\det(A B) = \det(A)\det(B)
+  \]
+\end{prp}
+
+\begin{prp}
+  Soit $A \in M_n(\K)$
+
+  $A$ est inversible si et seulement si $\det(A) \neq 0$.
+  Et si $A$ est inversible alors
+  \[
+    \det(A^{-1}) = ^1/_{\det(A)}
+  \]
+\end{prp}
+
+\begin{prp}
+  \[
+    \forall \lambda \in \K, \forall A \in M_n(\K), \det(\lambda A) = \lambda^n \det(A)
+  \]
+\end{prp}
+
+\begin{cor}
+  Soit $(A, B) \in (M_n(\K))^2$ tel que $A$ et $B$ sont semblable
+  \[
+    \det(A) = \det(B)
+  \]
+\end{cor}
+
+\begin{prp}
+  \[
+    \forall A \in M_n(\K), \det(A^\top) = \det(A)
+  \]
+\end{prp}
+
+\subsection{Calcul des déterminants}
+
+\subsubsection{Opérations élémentaires}
+
+\begin{prp}
+  \begin{itemize}
+    \item $\colonne_i \leftrightarrow \colonne_j, \det(A') = \det(A)$
+    \item $\colonne_i \leftarrow \alpha \colonne_i, \det(A') = \alpha \det(A)$
+    \item $\colonne_i \leftarrow \colonne_i + \sum_{k \neq i} \alpha_k \colonne_k, \det(A') = \det(A)$
+  \end{itemize}
+\end{prp}
+
+\subsection{Développement par rapport à une rangée}
+
+\begin{prp}
+  Le déterminant d'une matrice triangulaire est égale au produit de ses élément diagonaux.
+\end{prp}
+
+\begin{dfn}
+  Soit $n \geq 2$, $A = (a_{ij})_{\mind{i}{j}{n}{n}} \in M_n(\K)$ et
+  $(i, j) \in \lib 1, n \rib^2$.
+
+  On note $A_{ij}$ la matrice formée en enlevant la $i$-ème ligne et
+  la $j$-ème colonne.
+
+  On appelle \voc{mineur de $a_{ij}$ dans $A$} le nombre $\det(A_{ij})$
+  et on appelle \voc{cofacteur de $a_{ij}$ dans $A$} le nombre
+  $(-1)^{i + j}\det(A_{ij})$
+\end{dfn}
+
+\begin{prp}
+  Soit $A \in M_n(\K)$.
+
+  On note le développement par rapport à la $j$-ème ligne
+  \[
+    \det(A) = \sum^n_{i = 1} \left((-1)^{i + j} a_{ij} \det(A_{ij})\right)
+  \]
+\end{prp}
+
+\begin{prp}[Matrice triangulaire par bloc]
+  Soit $n \geq 2$, $M \in M_n(\K)$ tel que $A$ admet une décomposition
+  par bloc de la forme
+  \[
+    M =
+    \begin{pmatrix}
+      A & B \\
+      0 & C 
+    \end{pmatrix}
+  \]
+  Où $A$, $B$ et $C$ sont des matrices carrées.
+  \[
+    \det(M) = \det(A) \det(C)
+  \]
+\end{prp}
+
+\subsection{Déterminant de Vandermonde}
+
+\begin{prp}
+  Soit $n \geq 2$ et $x_1, \ldots, x_n$ des éléments de $\K$.
+
+  On appelle \voc{déterminant de Vandermonde} le nombre suivant
+  \[
+    V(x_1, \ldots, x_n) =
+    \begin{vmatrix}
+      1 & x_1 & x_1^2 & \cdots & x_1^{n - 1} \\
+      1 & x_2 & x_2^2 & \cdots & x_2^{n - 1} \\
+      \vdots & \vdots & \vdots & \ddots & \vdots \\
+      1 & x_n & x_n^2 & \cdots & x_n^{n - 1}
+    \end{vmatrix}
+  \]
+
+  On a
+  \[
+    V(x_1, \ldots, x_n) = \prod_{1 \leq i < j \leq n} ( x_j - x_i)
+  \]
+\end{prp}
+
+\subsection{Déterminant de Vandermonde}
+
+\begin{dfn}
+  Soit $A = (a_{ij})_{\mind{i}{j}{n}{n}} \in M_n(\K)$
+
+  On appelle \voc{comatrice de $A$} la matrice des cofacteurs
+  de $A$. On la note $\com(A)$.
+\end{dfn}
+
+\begin{prp}
+  \[
+    \forall A \in M_n(\K), A \com(A)^\top = \com(A)^\top A = \det(A) I_n
+  \]
+\end{prp}
+
+\begin{cor}
+  Soit $A \in M_n(\K)$ tel que $A$ est inversible.
+
+  \[
+    A^{-1} = ^1/_{\det(A)} \com(A)^\top
+  \]
+\end{cor}
+
+\subsection{Formule de Cramer}
+
+\begin{prp}
+  Soit $(S)$ un système de Cramer d'écriture matricielle $A X = B$ et
+  $(x_1, \ldots, x_n)$ l'unique solution de $(S)$.
+
+  On note $A_i$ la matrice obtenue en remplaçant la $i$-ème colonne
+  de $A$ par $B$.
+  
+  On a la \voc{formule de Cramer}:
+  \[
+    \forall i \in \lib 1, n \rib, x_i = \frac{\det(A_i)}{\det(A)}
+  \]
+\end{prp}
 
 \end{document}
