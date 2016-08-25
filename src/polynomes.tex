@@ -1,9 +1,305 @@
+% vim: set spell spelllang=fr:
 \include{skeleton}
 
 \title{Polynômes}
 
 \begin{document}
 
+\section{L'anneau des polynômes}
+
+\subsection{Définition}
+
+\begin{dfn}
+  On appelle \voc{polynôme à une indéterminée à coefficient dans $\K$} toute suite $(a_n)_{n \in \N}$
+  à support finie.
+\end{dfn}
+
+\begin{dfn}
+  L'ensemble des polynômes à une indéterminée à coefficient dans $\K$ est notée $\K[X]$ 
+
+  On appelle \voc{polynôme constant} tout polynôme de la forme $(a_0, 0, \ldots, 0)$
+
+  On note $0$ a suite constante nul qui est appelé \voc{le polynôme nul}
+
+  On appelle \voc{monôme} tout polynôme de la forme $(0, \ldots, 0, a_p, 0, \ldots, 0)$
+
+  Deux polynômes $(a_n)$ et $(b_n)$ sont égaux \ssi $\forall n \in \N$
+\end{dfn}
+
+\subsection{Structures d'espace vectoriel et d'anneau}
+
+\begin{prp}
+  \[
+    \forall (P, Q) \in \K[X]^2, \forall \lambda \in \K, \lambda (P \times Q) = (\lambda P) \times Q = P \times (\lambda Q)
+  \]
+\end{prp}
+
+\begin{dfn}
+  Soit $P \in \K[X]$.
+
+  On note
+  \begin{gather*}
+    P^0 = 1_{\K[X]} \\
+    P^1 = P \\
+    P^n = P \times P^{n - 1}
+  \end{gather*}
+
+  On note $X^k = (\delta_{k, n})_{n \in \N}$
+\end{dfn}
+
+\begin{prp}
+  La famille $(X^k)_{k \in \N}$ est une base de $\K[X]$, appelée la base
+  canonique de $\K[X]$
+\end{prp}
+  
+
+\begin{dfn}
+  Le polynôme constant $(\lambda, 0, \ldots, 0)$ sont simplement noté
+  $\lambda$
+\end{dfn}
+
+\begin{dfn}
+  Soit $P \in \K[X]$.
+
+  On peu noter
+  \[
+    P = a_0 + a_1 X + \cdots + a_n X^n
+  \]
+\end{dfn}
+
+\subsection{Degré d'un polynôme}
+
+\begin{dfn}
+  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X] \prive \{0\}$
+
+  On appelle \voc{degré de $P$} et on note $\deg(P)$ le plus grand entier
+  $k \in \N \tq a_k \neq 0$
+
+  Le degré du polynôme nul est $- \infty$
+\end{dfn}
+
+\begin{dfn}
+  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X] \prive \{0\}$ tel que
+  $\deg(P) = n$.
+
+  $a_n$ est appelé \voc{le coefficient dominant de $P$}.
+\end{dfn}
+
+\begin{dfn}
+  Un polynôme est dit \voc{unitaire} lorsqu'il est non nul
+  et que son coefficient dominant est $1$
+\end{dfn}
+
+\begin{prp}
+  $\forall (P, Q) \in (\K[X])^2$
+  \[
+    \deg(P + Q) \leq \max \left\{ \deg(P), \deg(Q) \right\}
+  \]
+
+  Et si $\deg(P) \neq \deg(Q)$
+  \[
+    \deg(P + Q) = \max \left\{ \deg(P), \deg(Q) \right\}
+  \]
+\end{prp}
+
+\begin{prp}
+\[
+  \forall P \in \K[X], \forall \lambda \in \K^*, \deg (\lambda P) = \deg(P)
+\]
+\end{prp}
+
+\begin{cor}
+  \[
+    \dim_\K(\K_n[X]) = n + 1
+  \]
+\end{cor}
+
+\section{Fonction polynômiales et racines}
+
+\subsection{Fonction polynômiale associée à un polynôme}
+
+\begin{dfn}
+  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X]$
+
+  On appelle \voc{fonction polynômiale associé à $P$} l'application
+  \begin{align*}
+    \tilde{P} : \K &\to \K \\
+      x &\mapsto \sum^\infty_{k = 0} a_k x^k
+  \end{align*}
+\end{dfn}
+
+\begin{prp}
+  \begin{gather*}
+    \forall (P, Q) \in \K[X]^2, \forall (\lambda, \mu) \in \K^2,
+      \widetilde{\lambda P + \mu Q} = \lambda \tilde{P} + \mu \tilde{Q} \\
+    \forall (P, Q) \in \K[X]^2, \widetilde{P \times Q} = \tilde{P} \times \tilde{Q} \\
+    \forall (P, Q) \in \K[X]^2, \widetilde{P(Q)} = \tilde{P} \circ \tilde{Q}
+  \end{gather*}
+\end{prp}
+
+\subsection{Racine d'un polynôme}
+
+\begin{dfn}
+  Soit $P \in \K[X]$ et $a \in \K$.
+
+  On dit que $a$ est \voc{une racine de $P$} ou
+  \voc{un zéro de $P$} lorsque
+  \[
+    \tilde{P}(a) = 0
+  \]
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X]$ et $a \in \K$.
+
+  $a$ est racine de $P$ si et seulement si $(X - a) \divise P$.
+\end{prp}
+
+\begin{cor}
+  Soient $P \in \K[X], n \in \N^*$ et $x_1, \ldots, x_n$ des éléments
+  de $\K$ deux à deux distincts.
+
+  $x_1, \ldots, x_n$ sont des racines de $P$ \ssi $\prod^n_{i = 1} (X - x_i) \divise P$
+\end{cor}
+
+\begin{cor}
+  Soit $P \in \K[X], n \in \N$.
+
+  Si $\deg(P) < n$ et si $P$ admet $n + 1$ racines deux à deux
+  distincts alors $P = 0$
+\end{cor}
+
+\begin{cor}
+  Soit $n \in \N, P \in \K_n[X] \\\ \{0\}$.
+
+  $P$ admet au plus $n$ racines dans $\K$
+\end{cor}
+
+\begin{cor}
+  Soit $n \in \N, P \in \K_n[X]$
+
+  Si il existe $x_1, \ldots, x_{n + 1}$ valeurs distinctes dans $\K$ tel que
+  $\tilde{P}(x_1) = \cdots = \tilde{P}(x_n)$ alors $P$ est constant
+\end{cor}
+
+\begin{cor}
+  L'application
+  \begin{align*}
+    \phi : \K[X] &\to \K^\K \\
+      P &\mapsto \tilde{P}
+  \end{align*}
+\end{cor}
+
+\begin{dfn}
+  Soit $(x_1, \ldots, x_n) \in \K^n$
+  
+  On appelle \voc{fonctions symétrique élémentaires de
+  $x_1, \ldots, x_n$}
+  \[
+    \sigma_k = \sum_{1 \leq i_1 < \cdots < i_k \leq n} x_{i_1} \cdots x_{i_n}
+  \]
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X]$ et $(a_1, \ldots, a_n) \in \K[X]^n$ tel que
+  $P = \sum^n_{k = 0} a_k X^k$ et $P$ est scindé sur $\K$,
+  $P$ s'écris alors $P = a_n \prod^n_{k = 1} (X - x_k)$ où
+  $(x_1, \ldots, x_n) \in \K^n$.
+
+  \[
+    \forall k \in \lib 1, n \rib, \sigma_k = (-1)^k \frac{a_{n - k}}{a_n}
+  \]
+\end{prp}
+
+
+\subsection{Multiplicité des racines}
+
+\begin{dfn}
+  Soit $P \in \K[X]$, $a \in \K$ et $\alpha \in \N$.
+
+  On dit que $a$ est une racine de $P$ d'ordre $\alpha$
+  lorsque
+  \[
+    (X - a)^\alpha \divise P \et \not (X - a)^\alpha \div P
+  \]
+
+  C'est-à-dire
+  \[
+    \exists Q \in \K[X], P = (X - a)^\alpha Q \et Q(a) \neq 0
+  \]
+
+  Dans ce cas $\alpha$ est \voc{l'ordre de multiplicité} de la racine $a$
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X] - \{0\}$ et $x_1, \ldots, x_n$ des racines
+  deux à deux distincts de $P$, d'ordre respectif $\alpha_1, \ldots, \alpha_n$
+  \[
+    \prod^n_{i = 1} (X - x_i)^{\alpha_i} \divise P
+  \]
+\end{prp}
+
+\subsection{Polynôme scindés}
+
+\begin{dfn}
+  Soit $P \in \K[X]$
+
+  $P$ est dit \voc{scindé} lorsque
+  \[
+    \exists (\lambda, n, (x_1, \ldots, x_n)) \in \K^* \times \N^* \times \K^n
+    \tq P = \lambda \prod^n_{i = 1} (X - x_i)
+  \]
+\end{dfn}
+
+
+\section{Arithmétique dans $\K[X]$}
+
+\subsection{Pgcd de deux polynômes}
+
+\begin{dfn}
+  Soit $(A, B) \in \K[X]^2$ tel que $A \neq 0$ ou $B \neq 0$.
+  
+  Tout diviseur commun à $A$ et $B$ de degré maximal est appelée
+  \voc{un pgcd de $A$ et $B$}
+
+  On convient que le seul pgcd de $0$ et $0$ est $0$
+\end{dfn}
+
+\begin{prp}
+  Soit $(A, B, Q, R) \in \K[X]^4$ tel que $A = BQ + R$
+  \[
+    \diviseurs(A) \inter \diviseurs(B) = \diviseurs(B) \inter \diviseurs(R)
+  \]
+\end{prp}
+
+\begin{thm}
+  Soit $(A, B) \in (\K[X] - \{0\})^2$
+
+  Les pgcd de $A$ et $B$ sont associés et un seul est
+  unitaire, il et appelé \voc{le pgcd de $A$ et $B$}
+  et est noté $A \pgcd B$
+\end{thm}
+
+\begin{thm}
+  Soit $(A, B) \in (\K[X] - \{0\})^2$
+  \[
+    \diviseurs(A) \inter \diviseurs(B) = \diviseurs(A \pgcd B)
+  \]
+\end{thm}
+
+\begin{prp}[Bézout]
+  Soit $(A, B) \in \K[X]^2$
+  \[
+    \exists (U, V) \in \K[X]^2 \tq A U + B V = A \pgcd B
+  \]
+\end{prp}
+
+\begin{prp}
+  Soit $(A, B, P) \in (\K[X] - \{0\})^3$ tel que $P$ soit unitaire
+  \[
+    (P A \pgcd P B) = P (A \pgcd B)
+  \]
+\end{prp}
 
 \subsection{Couples de polynômes premier entre eux}
 
@@ -42,7 +338,7 @@ Soit $(A, B, C) \in (\K[X])^3$
 \]
 \end{prp}
 
-\subsection{pgcd de plusieurs polynômes}
+\subsection{Pgcd de plusieurs polynômes}
 
 \begin{prp}
 \[
@@ -57,6 +353,78 @@ Soit $n \in \N, n \geq 2 (A_1, \ldots, A_n) \in (\K[X])^n$
 Les polynômes $A_1 \pgcd \ldots \pgcd A_n$ est appelé
 \voc{le pgcd des polynômes $A_1, \ldots, A_n$}
 \end{dfn}
+
+\subsection{Ppcm de deux polynôme}
+
+\begin{dfn}
+  Soit $(A, B) \in (\K[X] - \{0\})^2$
+
+  Tout multiple commun de $A$ et $B$ de degré minimal
+  est appelé \voc{un ppcm de $A$ et $B$}
+
+  Si $A$ ou $B$ sont nul, leurs ppcm est nul.
+\end{dfn}
+
+\begin{prp}
+  Soit $(A, B) \in (\K[X] - \{0\})^2$
+
+  Les multiples commun à $A$ et $B$ sont les multiples de $P$
+
+  Les ppcm de $A$ et $B$ sont associés, il existe un unique
+  ppcm unitaire il est notée $A \ppcm B$
+\end{prp}
+
+\begin{prp}
+  Soit $(A, B) \in (\K[X] - \{0\})^2$ et $P \in \K[X]$
+  unitaire.
+  \[
+    (P A) \ppcm (P B) = P (A \ppcm B)
+  \]
+\end{prp}
+
+\begin{prp}
+  Soit $(A, B) \in \K[X]^2$
+  
+  $(A \pgcd B) \times (A \ppcm B)$ et $A B$ sont associés
+\end{prp}
+
+\subsection{Couples de polynômes premier entre eux}
+
+\begin{dfn}
+  Soit $(A, B) \in \K[X]^2$.
+
+  $A$ et $B$ sont premiers entre eux si et seulement si $A \pgcd B = 1$
+\end{dfn}
+
+\begin{thm}[Bézout]
+  Soit $(A, B) \in \K[X]^2$.
+
+  $A$ et $B$ sont premiers entre eux si et seulement si
+  $\exists (U, V) \in \K[X]^2 \tq A U + B V = 1$
+\end{thm}
+
+\subsection{Pgcd de plusieurs polynômes}
+
+\begin{prp}
+  \[
+    \forall (A, B, C) \in \K[X]^3, A \pgcd (B \pgcd C) = (A \pgcd B) \pgcd C
+  \]
+\end{prp}
+
+\begin{dfn}
+  Soit $n \geq 2$, $(A_1, \ldots, A_n) \in \K[X]^n$.
+
+  Les polynômes $A_1 \pgcd \ldots \pgcd A_n$ est appelé
+  \voc{Le pgcd des polynômes $A_1, \ldots, A_2$}
+\end{dfn}
+
+\begin{prp}
+  Soit $(A_1, \ldots, A_n) \in \K[X]^n$.
+  \[
+    \exists (U_1, \ldots, U_n) \in \K[X]^n \tq A_1 U_1 + \cdots + A_n U_n
+    = A_1 \pgcd \ldots \pgcd A_n
+  \]
+\end{prp}
 
 \begin{dfn}
 Soit $(A_1, \ldots, A_n) \in (\K[X])^n$ 
@@ -77,7 +445,7 @@ $A_1, \ldots, A_n$ sont premiers entre dans leur ensemble \ssi
 
 \section{Polynômes irréductibles de $\C[X]$ et de $\R[X]$}
 
-\subsection{Determination des polynômes irréductibles de $\R[X]$ et de
+\subsection{Détermination des polynômes irréductibles de $\R[X]$ et de
 $\C[X]$}
 
 \begin{dfn}
@@ -101,7 +469,7 @@ Les polynôme irréductibles de $\R[X]$ sont
 \end{thm}
 
 \begin{thm}[de d'Alembert Gauss]
-Tout polynôme non constant de $\C[X]$ admet au moin une racine complexe
+Tout polynôme non constant de $\C[X]$ admet au moins une racine complexe
 \end{thm}
 
 \begin{prp}
@@ -114,8 +482,6 @@ Les polynômes irréductibles de $\C[X]$ sont exactement les polynômes
 de degré $1$
 \end{prp}
 
-
-
 \subsection{Décomposition en produit de facteurs irréductibles}
 
 \begin{thm}
@@ -125,13 +491,68 @@ De plus, il y a unicité de cette décomposition à l'ordre près des
 facteurs
 \end{thm}
 
+\section{Fractions rationnelles}
+
+\subsection{Le corps des fractions rationnelles}
+
+\begin{dfn}
+  On appelle \voc{fraction rationnelle à coefficients dans $\K$} toute
+  classe d'équivalence de la relation binaire $\binaryRelation$ sur $\K[X] \times (\K[X] - \{0\})$
+  suivante
+  \[
+    (P_1, Q_1) \binaryRelation (P_2, Q_2) \iff P_1 \times Q_2 = P_2 \times Q_1
+  \]
+  On note l'ensemble de ces classes d'équivalences $\K(X)$.
+
+  Soit $(P, Q) \in \K[X] \times (\K[X] - \{0\})$. La classe d'équivalence
+  de $(P, Q)$ est notée $F = \frac{P}{Q}$, on dit que $(P, Q)$ est un
+  \voc{représentant} de la fraction rationnelle $F$.
+\end{dfn}
+
+
+\subsection{Degré d'une fraction rationnelle, partie entière}
+
+\begin{dfn}
+  Soit $F \in \K(X)$ et $(P, Q) \in (\K[X])^2 \tq F = \frac{P}{Q}$.
+
+  $\deg(P) - \deg(Q)$ est indépendant de $P$ et $Q$ choisi. On appelle
+  ce nombre \voc{degré de $F$}. On le note $\deg(F)$
+\end{dfn}
+
+\begin{prp}
+  Soit $(F_1, F_2) \in \K(X)^2$
+  \begin{gather*}
+    \deg(F_1 + F_2) \leq \max\left\{\deg F_1, \deg F_2 \right\} \\
+    \deg F_1 F_2 = \deg (F_1) + \deg (F_2)
+  \end{gather*}
+\end{prp}
+
+\begin{prp}
+  Soit $F \in \K(X)$.
+
+  \[
+    \exists! (E, G) \in \K[X] \times \K(X) \tq \deg G < 0 \et F = E + G
+  \]
+
+  $E$ est appelé \voc{partie entière de la fraction $F$}
+\end{prp}
+
+\subsection{Zéros et pôles d'une fraction rationnelle}
+
+\begin{dfn}
+  Soit $F \in \K(X)$ et $(P, Q) \in \K[X]^2$ tel que $\frac{P}{Q}$
+  soit la forme irréductible de $F$.
+
+  On appelle \voc{zéro} ou \voc{racine} de $F$ toute racine de $P$
+\end{dfn}
+
 \section{Formule d'interpolation de Lagrange}
 
 \begin{dfn}
 Soit $n \in \N^*$ et $x_1, \ldots, x_n$ des scalaires de $\K$ deux à deux
 distincts.
 
-Pout tout $i \in \lib 1, n \rib$, on appelle i\textsuperscript{éme}
+Pour tout $i \in \lib 1, n \rib$, on appelle $i$-\textsuperscript{ème}
 polynôme de Lagrange associé à $x_1, \ldots, x_n$ le polynôme
 \[
     L_i = \prod_{j \neq i} \frac{X - x_j}{x_i - x_j}
@@ -139,15 +560,15 @@ polynôme de Lagrange associé à $x_1, \ldots, x_n$ le polynôme
 \end{dfn}
 
 \begin{prp}
-Soit $n \in \N^*$ et $x_1, \ldots, x_n$ des scalairs deux à deux
+Soit $n \in \N^*$ et $x_1, \ldots, x_n$ des scalaires deux à deux
 distincts.
-On note $L_1, \ldots, L_2$ les polynômes de Lagranges associé à
+On note $L_1, \ldots, L_2$ les polynômes de Lagrange associé à
 $x_1, \ldots, x_n$ 
 
 Alors $(L_1, \ldots, L_n)$ est une base de $\K_{n - 1}[X]$
 
-De plus pour $P \in \K_{n - 1}[X]$ la i\textsuperscript{ème} coordonée
-de $P$ dans cette base est $P(x_i)$ i-e
+De plus pour $P \in \K_{n - 1}[X]$ la $i$-ème coordonnée
+de $P$ dans cette base est $P(x_i)$ c'est-à-dire
 \[
     \forall P \in \K_{n - 1}[X], \;\; P = \sum^n_{i = 1} P(x_i) L_i
 \]
@@ -168,7 +589,7 @@ Ce polynôme est
 où $L_i$ est le i\textsuperscript{ème} polynôme de Lagrange associé à
 $x_1, \ldots, x_n$.
 
-$P$ est appellé polynôme interpolateur de Lagrange.
+$P$ est appelé polynôme interpolateur de Lagrange.
 \end{prp}
 
 \begin{prp}
