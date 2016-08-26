@@ -28,6 +28,21 @@
 
 \subsection{Structures d'espace vectoriel et d'anneau}
 
+\begin{dfn}
+  Soit $(P = (a_n)_{n \in \N}, Q = (b_n)_{n \in \N}) \in \K[X]^2$ et
+  $\lambda \in \K$
+  \begin{gather*}
+    P + Q = (a_n + b_n)_{n \in \N} \\
+    P \times Q = (\sum^n_{i = 0} a_i b_{n - i})_{n \in \N} \\
+    \lambda \point P = (\lambda \point a_n)_{n \in \N}
+  \end{gather*}
+\end{dfn}
+
+\begin{prp}
+  $(\K[X], +, \quad \point \quad)$ est un $\K$-espace vectoriel et
+  $(\K[X], +, \times)$ est un anneau commutatif.
+\end{prp}
+
 \begin{prp}
   \[
     \forall (P, Q) \in \K[X]^2, \forall \lambda \in \K, \lambda (P \times Q) = (\lambda P) \times Q = P \times (\lambda Q)
@@ -114,143 +129,82 @@
   \]
 \end{cor}
 
-\section{Fonction polynômiales et racines}
+\begin{prp}
+  Soit $(P, Q) \in \K[X]^2$.
+  \[
+    \deg(P \times Q) = \deg(P) + \deg(Q)
+  \]
+\end{prp}
 
-\subsection{Fonction polynômiale associée à un polynôme}
+\begin{cor}
+  Soit $(P, Q) \in \K[X]^2$.
+  \[
+    P \times Q = 0 \iff P = 0 \ou Q = 0
+  \]
+\end{cor}
+
+\begin{cor}
+  Les éléments inversible de l'anneau $(\K[X], +, \times)$ sont
+  les polynômes constants non nuls.
+\end{cor}
 
 \begin{dfn}
-  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X]$
+  Soit $(A = \sum^\infty_{k = 0} a_k X^k, B) \in \K[X]^2$.
 
-  On appelle \voc{fonction polynômiale associé à $P$} l'application
-  \begin{align*}
-    \tilde{P} : \K &\to \K \\
-      x &\mapsto \sum^\infty_{k = 0} a_k x^k
-  \end{align*}
+  On appelle \voc{composé de $B$ par $A$} et on note
+  $A(B)$ le polynôme
+  \[
+    A(B) = \sum^\infty_{k = 0} a_k B^k
+  \]
 \end{dfn}
 
 \begin{prp}
+  Soit $(A, B) \in (\K[X] \prive \{0\})^2$.
+  \[
+    \deg(A(B)) = \deg(A) \times \deg(B)
+  \]
+\end{prp}
+
+\section{Divisibilité et division euclidienne}
+
+\subsection{Divisibilité}
+
+\begin{dfn}
+  Soit $(A, B) \in \K[X]$.
+
+  On dit que \voc{$B$ divise $A$} ou que \voc{$B$ est un multiple de $A$}\ssi
+  $\exists Q \in \K[X] \tq A = B \times Q$
+
+  On note alors $B \divise A$ et on dit que
+\end{dfn}
+
+\begin{dfn}
+  Soit $(P, Q) \in \K[X]^2$.
+
+  $P$ et $Q$ sont dit \voc{associés} \ssi
+  $\exists \lambda \in \K^* \tq P = \lambda Q$
+\end{dfn}
+
+\begin{prp}
+  Soit $(A, B, C) \in \K[X]^2$
+  
   \begin{gather*}
-    \forall (P, Q) \in \K[X]^2, \forall (\lambda, \mu) \in \K^2,
-      \widetilde{\lambda P + \mu Q} = \lambda \tilde{P} + \mu \tilde{Q} \\
-    \forall (P, Q) \in \K[X]^2, \widetilde{P \times Q} = \tilde{P} \times \tilde{Q} \\
-    \forall (P, Q) \in \K[X]^2, \widetilde{P(Q)} = \tilde{P} \circ \tilde{Q}
+    A \divise A \\
+    A \divise B \et B \divise C \implies A \divise C \\
+    A \divise B \et B \divise A \ssi \text{$A$ et $B$ sont associés} \\
+    A \divise B \et \deg(A) = \deg(B) \iff \text{$A$ et $B$ sont associés}
   \end{gather*}
 \end{prp}
 
-\subsection{Racine d'un polynôme}
+\subsection{Division euclidienne}
 
-\begin{dfn}
-  Soit $P \in \K[X]$ et $a \in \K$.
-
-  On dit que $a$ est \voc{une racine de $P$} ou
-  \voc{un zéro de $P$} lorsque
-  \[
-    \tilde{P}(a) = 0
-  \]
-\end{dfn}
-
-\begin{prp}
-  Soit $P \in \K[X]$ et $a \in \K$.
-
-  $a$ est racine de $P$ si et seulement si $(X - a) \divise P$.
-\end{prp}
-
-\begin{cor}
-  Soient $P \in \K[X], n \in \N^*$ et $x_1, \ldots, x_n$ des éléments
-  de $\K$ deux à deux distincts.
-
-  $x_1, \ldots, x_n$ sont des racines de $P$ \ssi $\prod^n_{i = 1} (X - x_i) \divise P$
-\end{cor}
-
-\begin{cor}
-  Soit $P \in \K[X], n \in \N$.
-
-  Si $\deg(P) < n$ et si $P$ admet $n + 1$ racines deux à deux
-  distincts alors $P = 0$
-\end{cor}
-
-\begin{cor}
-  Soit $n \in \N, P \in \K_n[X] \\\ \{0\}$.
-
-  $P$ admet au plus $n$ racines dans $\K$
-\end{cor}
-
-\begin{cor}
-  Soit $n \in \N, P \in \K_n[X]$
-
-  Si il existe $x_1, \ldots, x_{n + 1}$ valeurs distinctes dans $\K$ tel que
-  $\tilde{P}(x_1) = \cdots = \tilde{P}(x_n)$ alors $P$ est constant
-\end{cor}
-
-\begin{cor}
-  L'application
-  \begin{align*}
-    \phi : \K[X] &\to \K^\K \\
-      P &\mapsto \tilde{P}
-  \end{align*}
-\end{cor}
-
-\begin{dfn}
-  Soit $(x_1, \ldots, x_n) \in \K^n$
-  
-  On appelle \voc{fonctions symétrique élémentaires de
-  $x_1, \ldots, x_n$}
-  \[
-    \sigma_k = \sum_{1 \leq i_1 < \cdots < i_k \leq n} x_{i_1} \cdots x_{i_n}
-  \]
-\end{dfn}
-
-\begin{prp}
-  Soit $P \in \K[X]$ et $(a_1, \ldots, a_n) \in \K[X]^n$ tel que
-  $P = \sum^n_{k = 0} a_k X^k$ et $P$ est scindé sur $\K$,
-  $P$ s'écris alors $P = a_n \prod^n_{k = 1} (X - x_k)$ où
-  $(x_1, \ldots, x_n) \in \K^n$.
+\begin{thm}
+  Soit $(A, B) \in \K[X] \times (\K[X] \prive \{0\})$.
 
   \[
-    \forall k \in \lib 1, n \rib, \sigma_k = (-1)^k \frac{a_{n - k}}{a_n}
+    \exists! (Q, R) \in \K[X]^2 \tq A = B Q + R \et \deg(R) < \deg(B)
   \]
-\end{prp}
-
-
-\subsection{Multiplicité des racines}
-
-\begin{dfn}
-  Soit $P \in \K[X]$, $a \in \K$ et $\alpha \in \N$.
-
-  On dit que $a$ est une racine de $P$ d'ordre $\alpha$
-  lorsque
-  \[
-    (X - a)^\alpha \divise P \et \not (X - a)^\alpha \div P
-  \]
-
-  C'est-à-dire
-  \[
-    \exists Q \in \K[X], P = (X - a)^\alpha Q \et Q(a) \neq 0
-  \]
-
-  Dans ce cas $\alpha$ est \voc{l'ordre de multiplicité} de la racine $a$
-\end{dfn}
-
-\begin{prp}
-  Soit $P \in \K[X] - \{0\}$ et $x_1, \ldots, x_n$ des racines
-  deux à deux distincts de $P$, d'ordre respectif $\alpha_1, \ldots, \alpha_n$
-  \[
-    \prod^n_{i = 1} (X - x_i)^{\alpha_i} \divise P
-  \]
-\end{prp}
-
-\subsection{Polynôme scindés}
-
-\begin{dfn}
-  Soit $P \in \K[X]$
-
-  $P$ est dit \voc{scindé} lorsque
-  \[
-    \exists (\lambda, n, (x_1, \ldots, x_n)) \in \K^* \times \N^* \times \K^n
-    \tq P = \lambda \prod^n_{i = 1} (X - x_i)
-  \]
-\end{dfn}
-
+\end{thm}
 
 \section{Arithmétique dans $\K[X]$}
 
@@ -442,6 +396,196 @@ $A_1, \ldots, A_n$ sont premiers entre dans leur ensemble \ssi
     A_1 U_1 + \ldots + A_n U_n = 1
 \]
 \end{thm}
+
+\section{Fonction polynômiales et racines}
+
+\subsection{Fonction polynômiale associée à un polynôme}
+
+\begin{dfn}
+  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X]$
+
+  On appelle \voc{fonction polynômiale associé à $P$} l'application
+  \begin{align*}
+    \tilde{P} : \K &\to \K \\
+      x &\mapsto \sum^\infty_{k = 0} a_k x^k
+  \end{align*}
+\end{dfn}
+
+\begin{prp}
+  \begin{gather*}
+    \forall (P, Q) \in \K[X]^2, \forall (\lambda, \mu) \in \K^2,
+      \widetilde{\lambda P + \mu Q} = \lambda \tilde{P} + \mu \tilde{Q} \\
+    \forall (P, Q) \in \K[X]^2, \widetilde{P \times Q} = \tilde{P} \times \tilde{Q} \\
+    \forall (P, Q) \in \K[X]^2, \widetilde{P(Q)} = \tilde{P} \circ \tilde{Q}
+  \end{gather*}
+\end{prp}
+
+\subsection{Racine d'un polynôme}
+
+\begin{dfn}
+  Soit $P \in \K[X]$ et $a \in \K$.
+
+  On dit que $a$ est \voc{une racine de $P$} ou
+  \voc{un zéro de $P$} lorsque
+  \[
+    \tilde{P}(a) = 0
+  \]
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X]$ et $a \in \K$.
+
+  $a$ est racine de $P$ si et seulement si $(X - a) \divise P$.
+\end{prp}
+
+\begin{cor}
+  Soient $P \in \K[X], n \in \N^*$ et $x_1, \ldots, x_n$ des éléments
+  de $\K$ deux à deux distincts.
+
+  $x_1, \ldots, x_n$ sont des racines de $P$ \ssi $\prod^n_{i = 1} (X - x_i) \divise P$
+\end{cor}
+
+\begin{cor}
+  Soit $P \in \K[X], n \in \N$.
+
+  Si $\deg(P) < n$ et si $P$ admet $n + 1$ racines deux à deux
+  distincts alors $P = 0$
+\end{cor}
+
+\begin{cor}
+  Soit $n \in \N, P \in \K_n[X] \\\ \{0\}$.
+
+  $P$ admet au plus $n$ racines dans $\K$
+\end{cor}
+
+\begin{cor}
+  Soit $n \in \N, P \in \K_n[X]$
+
+  Si il existe $x_1, \ldots, x_{n + 1}$ valeurs distinctes dans $\K$ tel que
+  $\tilde{P}(x_1) = \cdots = \tilde{P}(x_n)$ alors $P$ est constant
+\end{cor}
+
+\begin{cor}
+  L'application
+  \begin{align*}
+    \phi : \K[X] &\to \K^\K \\
+      P &\mapsto \tilde{P}
+  \end{align*}
+\end{cor}
+
+\begin{dfn}
+  Soit $(x_1, \ldots, x_n) \in \K^n$
+  
+  On appelle \voc{fonctions symétrique élémentaires de
+  $x_1, \ldots, x_n$}
+  \[
+    \sigma_k = \sum_{1 \leq i_1 < \cdots < i_k \leq n} x_{i_1} \cdots x_{i_n}
+  \]
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X]$ et $(a_1, \ldots, a_n) \in \K[X]^n$ tel que
+  $P = \sum^n_{k = 0} a_k X^k$ et $P$ est scindé sur $\K$,
+  $P$ s'écris alors $P = a_n \prod^n_{k = 1} (X - x_k)$ où
+  $(x_1, \ldots, x_n) \in \K^n$.
+
+  \[
+    \forall k \in \lib 1, n \rib, \sigma_k = (-1)^k \frac{a_{n - k}}{a_n}
+  \]
+\end{prp}
+
+
+\subsection{Multiplicité des racines}
+
+\begin{dfn}
+  Soit $P \in \K[X]$, $a \in \K$ et $\alpha \in \N$.
+
+  On dit que $a$ est une racine de $P$ d'ordre $\alpha$
+  lorsque
+  \[
+    (X - a)^\alpha \divise P \et \not (X - a)^\alpha \div P
+  \]
+
+  C'est-à-dire
+  \[
+    \exists Q \in \K[X], P = (X - a)^\alpha Q \et Q(a) \neq 0
+  \]
+
+  Dans ce cas $\alpha$ est \voc{l'ordre de multiplicité} de la racine $a$
+\end{dfn}
+
+\begin{prp}
+  Soit $P \in \K[X] - \{0\}$ et $x_1, \ldots, x_n$ des racines
+  deux à deux distincts de $P$, d'ordre respectif $\alpha_1, \ldots, \alpha_n$
+  \[
+    \prod^n_{i = 1} (X - x_i)^{\alpha_i} \divise P
+  \]
+\end{prp}
+
+\subsection{Polynôme scindés}
+
+\begin{dfn}
+  Soit $P \in \K[X]$
+
+  $P$ est dit \voc{scindé} lorsque
+  \[
+    \exists (\lambda, n, (x_1, \ldots, x_n)) \in \K^* \times \N^* \times \K^n
+    \tq P = \lambda \prod^n_{i = 1} (X - x_i)
+  \]
+\end{dfn}
+
+\section{Dérivation}
+
+\subsection{Dérivation formelle d'un polynôme}
+
+\begin{dfn}
+  Soit $P = \sum^\infty_{k = 0} a_k X^k \in \K[X]$ et $n \in \N^*$.
+
+  On appelle \voc{polynôme dérivé de $P$} et on note $P'$ le
+  polynôme
+  \[
+    P' = \sum^\infty_{k = 1} k a_k X^{k - 1}
+  \]
+
+  On note
+  \begin{gather*}
+    P^{(0)} = P \\
+    P^{(n)} = (P^{(n - 1)})'
+  \end{gather*}
+\end{dfn}
+
+\begin{prp}
+  Soit $(P, Q) \in (\K[X])^2$ et $(\lambda, \mu) \in \K^2$.
+  \begin{gather*}
+    (\lambda P + \mu Q)' = \lambda P' + \mu Q' \\
+    (P \times Q)' = P' \times Q + P \times Q'
+  \end{gather*}
+\end{prp}
+
+\subsection{Formule de Leibniz, formule de Taylor}
+
+\begin{prp}[Formule de Leibniz]
+  Soit $(P, Q) \in (\K[X]^2)$ et $n \in \N$.
+  \[
+    (P \times Q)^{(n)} = \sum^n_{k = 0} \binom{n}{k} P^{(k)} Q^{(n - k)}
+  \]
+\end{prp}
+
+\begin{prp}[Formule de taylor]
+  Soit $P \in \K[X], a \in \K$ et $n \in \N$ tel que $\deg(P) \leq n$
+  \[
+    P = \sum^n_{k = 0} \frac{\tilde{P^{(k)}}(a)]}{k!} (X - a)^k
+  \]
+\end{prp}
+
+\subsection{Ordre de multiplicité d'une racine et dérivées successives}
+
+\begin{prp}
+  Soit $P \in \K[X] \prive \{0\}$, $n \in \N^*$ et $a \in \K$.
+
+  $a$ est racine d'ordre $n$ \ssi $\tilde{P}(a) = \tilde{P'}(a) = \cdots =
+  \tilde{P^{(n - 1)}}(a) = 0 \et \tilde{P^{(n)}}(a) \neq 0$
+\end{prp}
 
 \section{Polynômes irréductibles de $\C[X]$ et de $\R[X]$}
 
