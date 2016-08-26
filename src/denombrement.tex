@@ -1,0 +1,82 @@
+\input{skeleton}
+
+\title{Dénombrement}
+
+\begin{document}
+
+\section{Ensembles finis}
+
+\subsection{Cardinal d'un ensemble fini}
+
+\begin{dfn}
+  Soit $E$ un ensemble.
+
+  On dit que $E$ est \voc{fini} lorsque
+  $E = \emptyset$ ou il existe $n \in \N^*$ tel qu'il
+  existe une application bijective de $\lib 1, n \rib$ dans $E$.
+
+  Dans le cas contraire on dit que $E$ est infini
+\end{dfn}
+
+\begin{prp}
+  Soit $(p, q) \in (N^*)^2$.
+
+  Si $\lib 1, p \rib$ et $\lib 1, q \rib$ sont en bijection alors
+  $p = q$.
+\end{prp}
+
+\begin{dfn}
+  Soit $E$ un ensemble fini non vide.
+
+  Il existe un unique entier naturelle $n \in \N^*$
+  tel que $E$ et $\lib 1, n \rib$ soient en bijection.
+  Cette entier est appelé \voc{le cardinal de $E$} et
+  est noté $\Card(E)$ ou $|E|$ ou $\#E$.
+
+  Par convention $\Card(E) = 0$
+\end{dfn}
+
+\subsection{Propriétés}
+
+\begin{prp}
+  Soit $E$ un enselmble fini non vide et $a \in E$.
+
+  $E \prive \{a\}$ est fini et $\Card(E \prive \{a\}) = \Card(E) - 1$
+\end{prp}
+
+\begin{prp}
+  Soit $E$ un ensemble fini.
+
+  Toute partie $E'$ de $E$ est finie et
+  $\Card(E') \leq \Card(E)$ avec égalité \ssi
+  $E' = E$
+\end{prp}
+
+\begin{prp}
+  Soient $E$ un ensemble fini non vide et $F$ un ensemble.
+
+  Si $E$ et $F$ sont en bijection alors $F$ est fini et
+  $\Card(E) = \Card(E')$
+\end{prp}
+
+\begin{prp}
+  Soit $E$ et $F$ des ensemble finis non vides.
+
+  Si il existe une application de $E$ dans $F$
+  \begin{description}
+    \item[injective] alors $\Card(E) \leq \Card(F)$
+    \item[surjective] alors $\Card(E) \geq \Card(F)$
+    \item[bijective] alors $\Card(E) = \Card(F)$
+  \end{description}
+\end{prp}
+
+\begin{prp}
+  Soient $E$ et $F$ des ensembles finis non vides tel que $\Card(E) = \Card(F)$
+  et $f : E \to F$.
+
+  $f$ est injective $\iff$ $f$ est surjective $\iff$ $f$ est bijective.
+\end{prp}
+
+\subsection{Opérations}
+
+\end{document}
